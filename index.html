@@ -76,7 +76,7 @@ footer .big{font-family:'Playfair Display',serif;font-size:1.6rem;color:var(--am
 <p class="lead">A biomimetic haptic wearable that listens like a bat and speaks through the skin, turning ultrasonic echoes into vibration so visually impaired pedestrians can feel obstacles before they reach them.</p>
 <p style="margin-top:28px"><a class="btn p" href="#solution">See how it works</a><a class="btn g" href="https://sites.google.com/view/aravind-k-t-iitk/" target="_blank" rel="noopener">About the designer</a></p>
 </div>
-<div class="orb"><span class="ring"></span><span class="ring"></span><span class="ring"></span><img src="assets/crop_hero_band.png" alt="EchoSense haptic wristband concept"></div>
+<div class="orb"><span class="ring"></span><span class="ring"></span><span class="ring"></span><img src="crop_hero_band.png" alt="EchoSense haptic wristband concept"></div>
 </section>
 
 <section id="problem">
@@ -88,7 +88,7 @@ footer .big{font-family:'Playfair Display',serif;font-size:1.6rem;color:var(--am
 <div class="card"><h3>The Sensory Gap</h3><p>Nothing carries <em>how far away</em> an obstacle is beyond cane reach without also occupying hearing. The skin, a silent and always-available channel, is left unused.</p></div>
 <div class="card"><h3>Problem statement</h3><p>Visually impaired urban pedestrians need a way to detect obstacles and judge distance early in crowded, noisy streets, but are held back by sensory deprivation of sight and an overloaded sense of hearing.</p></div>
 </div>
-<figure class="fig" style="margin-top:28px"><img src="assets/sensory_load.png" alt="Sensory load chart" style="max-width:640px;margin:auto"><figcaption>Qualitative sensory audit: today versus with EchoSense (illustrative).</figcaption></figure>
+<figure class="fig" style="margin-top:28px"><img src="sensory_load.png" alt="Sensory load chart" style="max-width:640px;margin:auto"><figcaption>Qualitative sensory audit: today versus with EchoSense (illustrative).</figcaption></figure>
 </section>
 
 <section id="solution">
@@ -96,14 +96,14 @@ footer .big{font-family:'Playfair Display',serif;font-size:1.6rem;color:var(--am
 <h2>From echolocation to haptics.</h2>
 <p class="lead">Bats navigate in darkness by timing the echoes of ultrasonic calls. EchoSense does the same with a 40 kHz sensor and returns the result as touch.</p>
 <div class="grid g4 steps" style="margin-top:36px">
-<div class="step card"><div class="n">1</div><img src="assets/crop_bat.png" alt="Bat echolocation"><h3>Nature</h3><p>Bats emit ultrasonic calls and read the echoes.</p></div>
-<div class="step card"><div class="n">2</div><img src="assets/crop_sensor.png" alt="Ultrasonic sensor"><h3>Sense</h3><p>An HC-SR04 sensor times the returning echo.</p></div>
-<div class="step card"><div class="n">3</div><img src="assets/crop_band.png" alt="Haptic band"><h3>Translate</h3><p>Distance becomes vibration patterns on the wrist.</p></div>
-<div class="step card"><div class="n">4</div><img src="assets/crop_walker.png" alt="User feeling obstacle"><h3>Feel</h3><p>The user feels proximity without eyes or ears.</p></div>
+<div class="step card"><div class="n">1</div><img src="crop_bat.png" alt="Bat echolocation"><h3>Nature</h3><p>Bats emit ultrasonic calls and read the echoes.</p></div>
+<div class="step card"><div class="n">2</div><img src="crop_sensor.png" alt="Ultrasonic sensor"><h3>Sense</h3><p>An HC-SR04 sensor times the returning echo.</p></div>
+<div class="step card"><div class="n">3</div><img src="crop_band.png" alt="Haptic band"><h3>Translate</h3><p>Distance becomes vibration patterns on the wrist.</p></div>
+<div class="step card"><div class="n">4</div><img src="crop_walker.png" alt="User feeling obstacle"><h3>Feel</h3><p>The user feels proximity without eyes or ears.</p></div>
 </div>
 <div class="grid g2" style="margin-top:28px">
-<div class="fig"><img src="assets/architecture.png" alt="System architecture"><figcaption>Conceptual system architecture: HC-SR04, Arduino Nano, PWM driver, honeycomb haptic array.</figcaption></div>
-<div class="fig"><img src="assets/mapping.png" alt="Distance to vibration mapping"><figcaption>Distance zones map to vibration rate and intensity: silence when clear, continuous buzz when urgent.</figcaption></div>
+<div class="fig"><img src="architecture.png" alt="System architecture"><figcaption>Conceptual system architecture: HC-SR04, Arduino Nano, PWM driver, honeycomb haptic array.</figcaption></div>
+<div class="fig"><img src="mapping.png" alt="Distance to vibration mapping"><figcaption>Distance zones map to vibration rate and intensity: silence when clear, continuous buzz when urgent.</figcaption></div>
 </div>
 <p class="lead" style="margin-top:24px"><strong style="color:var(--amber)">d = (v × t) / 2</strong>, with v ≈ 343 m/s. An echo after 5.8 ms means an obstacle about one metre away. The honeycomb layout of the motors is a second nod to nature, from <em>Apis mellifera</em>.</p>
 </section>
@@ -112,7 +112,7 @@ footer .big{font-family:'Playfair Display',serif;font-size:1.6rem;color:var(--am
 <div class="eyebrow">03 · The Sensory Pentagon</div>
 <h2>From sight to touch and sound.</h2>
 <div class="grid g2" style="align-items:center;margin-top:24px">
-<div class="fig"><img src="assets/radar.png" alt="Sensory pentagon"></div>
+<div class="fig"><img src="radar.png" alt="Sensory pentagon"></div>
 <table><tr><th>Sense</th><th>Role</th></tr>
 <tr><td>Touch 5/5</td><td>Primary output: distance as vibration on the skin.</td></tr>
 <tr><td>Sound 3/5</td><td>Inspired by bats; ultrasonic and inaudible, so hearing stays free.</td></tr>
@@ -127,19 +127,19 @@ footer .big{font-family:'Playfair Display',serif;font-size:1.6rem;color:var(--am
 <h2>Digital twin &amp; prototype.</h2>
 <p class="lead">Autodesk Fusion 360 models and photos of the low-fidelity mood box (3D-printed shell, neoprene strap).</p>
 <div class="grid g2" style="margin-top:30px">
-<!-- Replace each .render block with: <img src="assets/render-1.png" alt="..."> -->
-<div class="render"><div><b>INSERT RENDER</b>Fusion 360: assembled view<br><small>assets/render-1.png</small></div></div>
-<div class="render"><div><b>INSERT RENDER</b>Fusion 360: exploded view<br><small>assets/render-2.png</small></div></div>
-<div class="render"><div><b>INSERT PHOTO</b>3D-printed shell<br><small>assets/photo-shell.jpg</small></div></div>
-<div class="render"><div><b>INSERT PHOTO</b>Neoprene strap with motors<br><small>assets/photo-strap.jpg</small></div></div>
+<!-- Replace each .render block with: <img src="render-1.png" alt="..."> -->
+<div class="render"><div><b>INSERT RENDER</b>Fusion 360: assembled view<br><small>render-1.png</small></div></div>
+<div class="render"><div><b>INSERT RENDER</b>Fusion 360: exploded view<br><small>render-2.png</small></div></div>
+<div class="render"><div><b>INSERT PHOTO</b>3D-printed shell<br><small>photo-shell.jpg</small></div></div>
+<div class="render"><div><b>INSERT PHOTO</b>Neoprene strap with motors<br><small>photo-strap.jpg</small></div></div>
 </div>
-<figure class="fig" style="margin-top:26px"><img src="assets/echosense_infographic.jpg" alt="EchoSense concept infographic"><figcaption>Concept overview and sensory pentagon.</figcaption></figure>
+<figure class="fig" style="margin-top:26px"><img src="echosense_infographic.jpg" alt="EchoSense concept infographic"><figcaption>Concept overview and sensory pentagon.</figcaption></figure>
 </section>
 
 <section id="process">
 <div class="eyebrow">05 · The Design Process</div>
 <h2>Discover · Define · Develop · Deliver.</h2>
-<div class="fig" style="margin:24px 0"><img src="assets/double_diamond.png" alt="Double diamond"></div>
+<div class="fig" style="margin:24px 0"><img src="double_diamond.png" alt="Double diamond"></div>
 <div class="grid g4">
 <div class="phase"><div class="k">DISCOVER</div><h3>Sensory ethnography</h3><p style="color:var(--mute);font-size:.92rem">Sensory audit of a busy street, sensitivities, the Sensory Gap.</p></div>
 <div class="phase"><div class="k">DEFINE</div><h3>Problem statement</h3><p style="color:var(--mute);font-size:.92rem">Persona, 5W1H, the sensory problem statement and HMW.</p></div>
