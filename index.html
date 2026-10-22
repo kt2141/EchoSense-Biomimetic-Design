@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EchoSense · Biomimetic Haptic Wearable</title>
+<meta name="description" content="EchoSense is a biomimetic haptic wearable that turns ultrasonic echolocation into touch for visually impaired pedestrians.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#070f1d;--bg2:#0b1b33;--card:#0f2340;--ink:#f4efe2;--mute:#9fb0c8;--amber:#f5a623;--amber2:#d98a00;--honey:#ebcb6b;--teal:#1fa3b8;--line:rgba(245,166,35,.25)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink);line-height:1.65;overflow-x:hidden}
+.hex{position:fixed;inset:0;z-index:-1;opacity:.5;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='100'%3E%3Cpath d='M28 66L0 50V16L28 0l28 16v34L28 66zm0 34L0 84V66l28 16 28-16v18L28 100z' fill='none' stroke='%23f5a623' stroke-opacity='.12' stroke-width='1'/%3E%3C/svg%3E");mask-image:radial-gradient(ellipse at 70% 10%,#000 0,transparent 70%);-webkit-mask-image:radial-gradient(ellipse at 70% 10%,#000 0,transparent 70%)}
+a{color:var(--amber);text-decoration:none}
+nav{position:sticky;top:0;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:14px clamp(18px,5vw,64px);background:rgba(7,15,29,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav .logo{font-weight:700;letter-spacing:.08em;color:var(--amber)}
+nav ul{display:flex;gap:clamp(12px,2.4vw,30px);list-style:none;font-size:.85rem}
+nav ul a{color:var(--mute)}nav ul a:hover{color:var(--amber)}
+section{padding:clamp(60px,9vw,120px) clamp(18px,6vw,80px);max-width:1200px;margin:auto}
+.eyebrow{font-size:.78rem;letter-spacing:.28em;text-transform:uppercase;color:var(--amber);font-weight:600;margin-bottom:14px}
+h1,h2{font-family:'Playfair Display',Georgia,serif;line-height:1.1}
+h1{font-size:clamp(3rem,9vw,6.4rem);font-weight:700}
+h2{font-size:clamp(2rem,4.6vw,3.2rem);margin-bottom:18px}
+h3{font-size:1.15rem;margin-bottom:8px;color:var(--honey)}
+p.lead{font-size:clamp(1.05rem,2vw,1.3rem);color:var(--mute);max-width:720px}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;min-height:88vh}
+.hero h1 span{color:var(--amber)}
+.tag{margin:18px 0 28px;font-style:italic;color:var(--honey);font-size:1.2rem}
+.btn{display:inline-block;padding:13px 26px;border-radius:999px;font-weight:600;font-size:.92rem;margin-right:10px;margin-bottom:10px}
+.btn.p{background:var(--amber);color:#1a1100}.btn.g{border:1px solid var(--amber);color:var(--amber)}
+.btn:hover{transform:translateY(-2px);transition:.2s}
+.orb{position:relative;aspect-ratio:1;display:grid;place-items:center}
+.orb img{width:62%;border-radius:24px;box-shadow:0 30px 80px rgba(31,163,184,.25);position:relative;z-index:2}
+.ring{position:absolute;inset:0;margin:auto;border:2px solid var(--teal);border-radius:50%;opacity:0;animation:ping 4s infinite}
+.ring:nth-child(2){animation-delay:1.3s}.ring:nth-child(3){animation-delay:2.6s}
+@keyframes ping{0%{width:30%;height:30%;opacity:.7}100%{width:100%;height:100%;opacity:0}}
+.grid{display:grid;gap:20px}.g2{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}
+.card{background:linear-gradient(160deg,var(--card),#0a1830);border:1px solid var(--line);border-top:3px solid var(--amber);border-radius:16px;padding:24px}
+.card p,.card li{color:var(--mute);font-size:.95rem}.card ul{padding-left:18px}
+.stat{font-family:'Playfair Display',serif;font-size:3.4rem;color:var(--amber);line-height:1}
+.fig{background:#fff8e7;border-radius:16px;padding:18px;border:1px solid var(--honey)}
+.fig img{width:100%;height:auto;display:block;border-radius:8px}
+.fig figcaption{color:#5a5a5a;font-size:.8rem;margin-top:8px;font-style:italic}
+.steps{counter-reset:s}
+.step{position:relative;padding-top:12px}
+.step .n{width:38px;height:38px;border-radius:50%;background:var(--amber);color:#1a1100;display:grid;place-items:center;font-weight:700;margin-bottom:12px}
+.step img{width:100%;border-radius:12px;background:#fff;margin-bottom:12px}
+.render{aspect-ratio:4/3;border:2px dashed var(--amber2);border-radius:16px;display:grid;place-items:center;text-align:center;color:var(--mute);padding:20px;background:rgba(245,166,35,.04)}
+.render b{display:block;color:var(--amber);letter-spacing:.2em;font-size:.75rem;margin-bottom:6px}
+table{width:100%;border-collapse:collapse;font-size:.92rem}
+th{background:var(--bg2);color:var(--amber);text-align:left;padding:12px}
+td{padding:12px;border-bottom:1px solid var(--line);color:var(--mute)}td:first-child{color:var(--ink);font-weight:600}
+.phase{border-left:3px solid var(--amber);padding-left:18px}
+.phase .k{font-size:.75rem;letter-spacing:.2em;color:var(--teal);font-weight:600}
+code,pre{font-family:ui-monospace,Menlo,Consolas,monospace}
+pre{background:#050b16;border:1px solid var(--line);border-radius:12px;padding:18px;overflow:auto;font-size:.82rem;color:#cfe3ff}
+footer{text-align:center;padding:60px 20px;border-top:1px solid var(--line);color:var(--mute);font-size:.9rem}
+footer .big{font-family:'Playfair Display',serif;font-size:1.6rem;color:var(--amber);margin-bottom:6px}
+@media(max-width:900px){.hero,.g2,.g3,.g4{grid-template-columns:1fr}.hero{min-height:auto}nav ul{display:none}.orb{max-width:380px;margin:auto}}
+@media(prefers-reduced-motion:reduce){.ring{animation:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="hex" aria-hidden="true"></div>
+<nav><div class="logo">ECHOSENSE</div>
+<ul><li><a href="#problem">Problem</a></li><li><a href="#solution">Solution</a></li><li><a href="#senses">Senses</a></li><li><a href="#renders">Renders</a></li><li><a href="#process">Process</a></li></ul></nav>
+
+<section class="hero" id="top">
+<div>
+<div class="eyebrow">Design for Life · Course Project</div>
+<h1>Echo<span>Sense</span></h1>
+<p class="tag">Feel your surroundings beyond sight and sound.</p>
+<p class="lead">A biomimetic haptic wearable that listens like a bat and speaks through the skin, turning ultrasonic echoes into vibration so visually impaired pedestrians can feel obstacles before they reach them.</p>
+<p style="margin-top:28px"><a class="btn p" href="#solution">See how it works</a><a class="btn g" href="https://sites.google.com/view/aravind-k-t-iitk/" target="_blank" rel="noopener">About the designer</a></p>
+</div>
+<div class="orb"><span class="ring"></span><span class="ring"></span><span class="ring"></span><img src="assets/crop_hero_band.png" alt="EchoSense haptic wristband concept"></div>
+</section>
+
+<section id="problem">
+<div class="eyebrow">01 · The Sensory Problem</div>
+<h2>A street without sight is a street full of noise.</h2>
+<p class="lead">For a visually impaired pedestrian, one sense is deprived and another is overloaded. Hearing must track traffic, crowds and navigation prompts while the cane reaches only the ground, about one cane-length ahead.</p>
+<div class="grid g3" style="margin-top:36px">
+<div class="card"><div class="stat">2.2B</div><p>people live with a near or distance vision impairment (WHO, World Report on Vision, 2019).</p></div>
+<div class="card"><h3>The Sensory Gap</h3><p>Nothing carries <em>how far away</em> an obstacle is beyond cane reach without also occupying hearing. The skin, a silent and always-available channel, is left unused.</p></div>
+<div class="card"><h3>Problem statement</h3><p>Visually impaired urban pedestrians need a way to detect obstacles and judge distance early in crowded, noisy streets, but are held back by sensory deprivation of sight and an overloaded sense of hearing.</p></div>
+</div>
+<figure class="fig" style="margin-top:28px"><img src="assets/sensory_load.png" alt="Sensory load chart" style="max-width:640px;margin:auto"><figcaption>Qualitative sensory audit: today versus with EchoSense (illustrative).</figcaption></figure>
+</section>
+
+<section id="solution">
+<div class="eyebrow">02 · The Biomimetic Solution</div>
+<h2>From echolocation to haptics.</h2>
+<p class="lead">Bats navigate in darkness by timing the echoes of ultrasonic calls. EchoSense does the same with a 40 kHz sensor and returns the result as touch.</p>
+<div class="grid g4 steps" style="margin-top:36px">
+<div class="step card"><div class="n">1</div><img src="assets/crop_bat.png" alt="Bat echolocation"><h3>Nature</h3><p>Bats emit ultrasonic calls and read the echoes.</p></div>
+<div class="step card"><div class="n">2</div><img src="assets/crop_sensor.png" alt="Ultrasonic sensor"><h3>Sense</h3><p>An HC-SR04 sensor times the returning echo.</p></div>
+<div class="step card"><div class="n">3</div><img src="assets/crop_band.png" alt="Haptic band"><h3>Translate</h3><p>Distance becomes vibration patterns on the wrist.</p></div>
+<div class="step card"><div class="n">4</div><img src="assets/crop_walker.png" alt="User feeling obstacle"><h3>Feel</h3><p>The user feels proximity without eyes or ears.</p></div>
+</div>
+<div class="grid g2" style="margin-top:28px">
+<div class="fig"><img src="assets/architecture.png" alt="System architecture"><figcaption>Conceptual system architecture: HC-SR04, Arduino Nano, PWM driver, honeycomb haptic array.</figcaption></div>
+<div class="fig"><img src="assets/mapping.png" alt="Distance to vibration mapping"><figcaption>Distance zones map to vibration rate and intensity: silence when clear, continuous buzz when urgent.</figcaption></div>
+</div>
+<p class="lead" style="margin-top:24px"><strong style="color:var(--amber)">d = (v × t) / 2</strong>, with v ≈ 343 m/s. An echo after 5.8 ms means an obstacle about one metre away. The honeycomb layout of the motors is a second nod to nature, from <em>Apis mellifera</em>.</p>
+</section>
+
+<section id="senses">
+<div class="eyebrow">03 · The Sensory Pentagon</div>
+<h2>From sight to touch and sound.</h2>
+<div class="grid g2" style="align-items:center;margin-top:24px">
+<div class="fig"><img src="assets/radar.png" alt="Sensory pentagon"></div>
+<table><tr><th>Sense</th><th>Role</th></tr>
+<tr><td>Touch 5/5</td><td>Primary output: distance as vibration on the skin.</td></tr>
+<tr><td>Sound 3/5</td><td>Inspired by bats; ultrasonic and inaudible, so hearing stays free.</td></tr>
+<tr><td>Sight 2/5</td><td>Complements; never required.</td></tr>
+<tr><td>Smell 1/5</td><td>No direct role; natural landmarks stay clean.</td></tr>
+<tr><td>Taste 1/5</td><td>No direct role.</td></tr></table>
+</div>
+</section>
+
+<section id="renders">
+<div class="eyebrow">04 · High-Fidelity 3D Renders</div>
+<h2>Digital twin &amp; prototype.</h2>
+<p class="lead">Autodesk Fusion 360 models and photos of the low-fidelity mood box (3D-printed shell, neoprene strap).</p>
+<div class="grid g2" style="margin-top:30px">
+<!-- Replace each .render block with: <img src="assets/render-1.png" alt="..."> -->
+<div class="render"><div><b>INSERT RENDER</b>Fusion 360: assembled view<br><small>assets/render-1.png</small></div></div>
+<div class="render"><div><b>INSERT RENDER</b>Fusion 360: exploded view<br><small>assets/render-2.png</small></div></div>
+<div class="render"><div><b>INSERT PHOTO</b>3D-printed shell<br><small>assets/photo-shell.jpg</small></div></div>
+<div class="render"><div><b>INSERT PHOTO</b>Neoprene strap with motors<br><small>assets/photo-strap.jpg</small></div></div>
+</div>
+<figure class="fig" style="margin-top:26px"><img src="assets/echosense_infographic.jpg" alt="EchoSense concept infographic"><figcaption>Concept overview and sensory pentagon.</figcaption></figure>
+</section>
+
+<section id="process">
+<div class="eyebrow">05 · The Design Process</div>
+<h2>Discover · Define · Develop · Deliver.</h2>
+<div class="fig" style="margin:24px 0"><img src="assets/double_diamond.png" alt="Double diamond"></div>
+<div class="grid g4">
+<div class="phase"><div class="k">DISCOVER</div><h3>Sensory ethnography</h3><p style="color:var(--mute);font-size:.92rem">Sensory audit of a busy street, sensitivities, the Sensory Gap.</p></div>
+<div class="phase"><div class="k">DEFINE</div><h3>Problem statement</h3><p style="color:var(--mute);font-size:.92rem">Persona, 5W1H, the sensory problem statement and HMW.</p></div>
+<div class="phase"><div class="k">DEVELOP</div><h3>Sensory ideation</h3><p style="color:var(--mute);font-size:.92rem">Sensory pentagon and five-sense brainstorming.</p></div>
+<div class="phase"><div class="k">DELIVER</div><h3>Prototype the experience</h3><p style="color:var(--mute);font-size:.92rem">Storyboard, mood box, sensory-harmony test, CAD.</p></div>
+</div>
+</section>
+
+<footer>
+<div class="big">Aravind K T</div>
+<p>Roll No. 240169 · B.Tech Electrical Engineering, IIT Kanpur</p>
+<p><a href="https://sites.google.com/view/aravind-k-t-iitk/" target="_blank" rel="noopener">Portfolio</a> · <a href="mailto:aravindkt24@iitk.ac.in">aravindkt24@iitk.ac.in</a></p>
+</footer>
+</body>
+</html>
