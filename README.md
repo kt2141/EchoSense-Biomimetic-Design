@@ -1,3 +1,4 @@
+> **Author:** [Aravind K. T. (Aravind Koolagurki Thimmarayappa) — Official Digital Portfolio & Command Center](https://kt2141.github.io/)
 # EchoSense: Biomimetic Haptic Wearable
 
 ![Status](https://img.shields.io/badge/status-concept%20%2F%20design%20project-F5A623)
