@@ -1,0 +1,1505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>EchoSense — Biomimetic Haptic Wearable · DES653 · IIT Kanpur</title>
+<meta name="description" content="EchoSense: a bat-inspired, honeycomb-patterned haptic wristband that turns ultrasonic distance into silent touch cues for visually impaired pedestrians. DES653 Design for Life, Department of Design, IIT Kanpur.">
+<meta name="author" content="Aravind K. T.">
+<meta name="theme-color" content="#07111f">
+<meta property="og:title" content="EchoSense — Biomimetic Haptic Wearable">
+<meta property="og:description" content="Feel your surroundings beyond sight and sound. DES653 · IIT Kanpur.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://kt2141.github.io/EchoSense-Biomimetic-Design/">
+<meta property="og:image" content="https://kt2141.github.io/EchoSense-Biomimetic-Design/echosense_infographic.jpg">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path d='M16 2l12 7v14l-12 7L4 23V9z' fill='%23f5a623'/><circle cx='16' cy='16' r='4' fill='%2307111f'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,800;1,9..144,400;1,9..144,600&family=JetBrains+Mono:wght@400;600&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0a1a33;--navy2:#0e2347;--ink:#07111f;--amber:#f5a623;--amber2:#ffcf6b;--deep:#d98a00;--teal:#20a4bd;--cream:#fff6e0;--red:#e0555a;--green:#2fa56a;--violet:#8b5cf6;--blue:#3b82f6;--text:#eaf0fb;--muted:#9fb0cc;--line:rgba(245,166,35,.28);--serif:'Fraunces',Georgia,'Times New Roman',serif;--sans:'Manrope',system-ui,-apple-system,'Segoe UI',sans-serif;--mono:'JetBrains Mono',ui-monospace,Consolas,monospace}
+*{box-sizing:border-box;margin:0;padding:0}
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+.lenis.lenis-stopped{overflow:hidden}
+html{scroll-padding-top:80px}
+body{font-family:var(--sans);background:var(--ink);color:var(--text);line-height:1.65;overflow-x:hidden;-webkit-font-smoothing:antialiased;font-size:16px}
+body.has-cursor,body.has-cursor *{cursor:none!important}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+ul{list-style:none}
+::selection{background:var(--amber);color:var(--ink)}
+::-webkit-scrollbar{width:10px}::-webkit-scrollbar-track{background:var(--ink)}::-webkit-scrollbar-thumb{background:linear-gradient(var(--amber),var(--deep));border-radius:9px}
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9990;opacity:.06;mix-blend-mode:overlay;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>")}
+#bg{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+.hexbg{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.07;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='56' height='100' viewBox='0 0 56 100'><path d='M28 66L0 50L0 16L28 0L56 16L56 50L28 66L28 100' fill='none' stroke='%23f5a623' stroke-width='1'/><path d='M28 0L28 34L0 50L0 84L28 100L56 84L56 50L28 34' fill='none' stroke='%23f5a623' stroke-width='1'/></svg>")}
+main,footer{position:relative;z-index:2}
+.wrap{width:min(1240px,92vw);margin-inline:auto}
+section{position:relative;padding:clamp(70px,10vw,140px) 0}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--amber);display:inline-flex;align-items:center;gap:10px}
+.eyebrow::before{content:'';width:34px;height:1px;background:var(--amber)}
+h1,h2,h3,h4{font-family:var(--serif);line-height:1.08;font-weight:600;letter-spacing:-.01em}
+h2{font-size:clamp(34px,5.4vw,76px)}
+h3{font-size:clamp(22px,2.4vw,32px)}
+em{font-style:italic;color:var(--amber2)}
+.sec-head{margin-bottom:clamp(30px,5vw,60px);max-width:980px}
+.sec-head h2{margin:14px 0 14px}
+.sec-head p.sub{color:var(--muted);font-size:clamp(15px,1.4vw,19px);max-width:720px}
+.slide-tag{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:var(--ink);background:var(--amber);padding:3px 10px;border-radius:999px;margin-bottom:14px;font-weight:600}
+.w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.14em;margin-bottom:-.14em}
+.wi,.ch{display:inline-block;will-change:transform}
+.glass{background:linear-gradient(145deg,rgba(255,255,255,.075),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(16px) saturate(140%);-webkit-backdrop-filter:blur(16px) saturate(140%);border-radius:22px;box-shadow:0 20px 60px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.12)}
+.card{padding:clamp(20px,2.4vw,34px);position:relative}
+.card h3{margin-bottom:14px}
+.card h4{font-size:19px;margin-bottom:8px;color:var(--amber2)}
+.grid{display:grid;gap:clamp(14px,2vw,26px)}
+.g2{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}
+.g21{grid-template-columns:1.15fr .85fr}.g12{grid-template-columns:.85fr 1.15fr}
+@media(max-width:1000px){.g4{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:760px){.g2,.g3,.g4,.g21,.g12{grid-template-columns:1fr}}
+.tilt{transform-style:preserve-3d;transition:transform .35s cubic-bezier(.2,.8,.2,1);will-change:transform;overflow:hidden}
+.tilt::after{content:'';position:absolute;inset:0;pointer-events:none;border-radius:inherit;background:radial-gradient(circle at var(--gx,50%) var(--gy,50%),rgba(255,207,107,.16),transparent 55%);opacity:0;transition:opacity .3s}
+.tilt:hover::after{opacity:1}
+.bul li{position:relative;padding-left:22px;margin:9px 0;color:#d6e0f2}
+.bul li::before{content:'';position:absolute;left:0;top:.62em;width:9px;height:10px;background:var(--amber);clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%)}
+.bul b{color:#fff}
+.paper{background:#fff8e6;border-radius:18px;padding:12px;position:relative}
+.paper img{border-radius:10px;width:100%;height:auto}
+figure figcaption{font-size:13px;color:var(--muted);font-style:italic;margin-top:10px;text-align:center}
+.zoomable{cursor:zoom-in}
+.callout{border-left:4px solid var(--amber);background:linear-gradient(90deg,rgba(245,166,35,.16),rgba(245,166,35,.03));padding:16px 22px;border-radius:0 14px 14px 0;font-size:clamp(15px,1.5vw,19px)}
+.callout b{color:var(--amber2)}
+.chip{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:700;letter-spacing:.06em;padding:7px 14px;border-radius:999px;border:1px solid var(--line);background:rgba(10,26,51,.55);backdrop-filter:blur(8px);color:var(--amber2);text-transform:uppercase}
+.chip i{width:7px;height:7px;border-radius:50%;background:var(--teal);box-shadow:0 0 10px var(--teal)}
+.btn{position:relative;display:inline-flex;align-items:center;gap:10px;padding:14px 26px;border-radius:999px;font-weight:700;font-size:14px;letter-spacing:.04em;border:1px solid var(--line);background:rgba(10,26,51,.6);backdrop-filter:blur(8px);color:var(--text);transition:background .3s,color .3s,box-shadow .3s,border-color .3s;will-change:translate}
+.btn:hover{border-color:var(--amber);box-shadow:0 0 0 4px rgba(245,166,35,.12),0 10px 40px rgba(245,166,35,.18)}
+.btn-gold{background:linear-gradient(135deg,var(--amber2),var(--amber) 55%,var(--deep));color:#1a1100;border-color:transparent;box-shadow:0 8px 30px rgba(245,166,35,.35)}
+.btn-gold:hover{box-shadow:0 0 0 4px rgba(245,166,35,.25),0 14px 50px rgba(245,166,35,.5)}
+.btn-sm{padding:9px 16px;font-size:12px}
+.btn-teal{background:linear-gradient(135deg,#34c4dd,var(--teal));color:#021a21;border-color:transparent}
+.btn.on{background:var(--amber);color:#1a1100;border-color:transparent}
+.btn.danger.on{background:var(--red);color:#fff}
+.mono{font-family:var(--mono)}
+/* loader */
+#loader{position:fixed;inset:0;z-index:10001;background:radial-gradient(circle at 50% 40%,#0e2347,#050c18 70%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px;text-align:center;padding:24px}
+#loader h1{font-size:clamp(44px,9vw,110px);color:#fff}
+#loader h1 span{color:var(--amber)}
+#loader p{color:var(--muted);max-width:520px}
+.ld-hex{width:86px;height:86px;position:relative}
+.ld-hex svg{width:100%;height:100%;animation:spin 6s linear infinite}
+.ld-bar{width:min(320px,70vw);height:3px;background:rgba(255,255,255,.1);border-radius:3px;overflow:hidden}
+.ld-bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--teal),var(--amber));transition:width .3s}
+.ld-btns{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;opacity:0;pointer-events:none;transition:opacity .5s}
+.ld-btns.show{opacity:1;pointer-events:auto}
+@keyframes spin{to{transform:rotate(360deg)}}
+/* cursor */
+#cur-dot,#cur-ring{position:fixed;top:0;left:0;pointer-events:none;z-index:10000;border-radius:50%;opacity:0;transition:opacity .3s}
+#cur-dot{width:8px;height:8px;margin:-4px 0 0 -4px;background:var(--amber);box-shadow:0 0 12px var(--amber)}
+#cur-ring{width:40px;height:40px;margin:-20px 0 0 -20px;border:1.5px solid var(--teal);transition:width .35s cubic-bezier(.2,.8,.2,1),height .35s cubic-bezier(.2,.8,.2,1),margin .35s cubic-bezier(.2,.8,.2,1),background .3s,border-radius .4s,opacity .3s}
+body.has-cursor #cur-dot,body.has-cursor #cur-ring{opacity:1}
+#cur-ring.hot{width:78px;height:78px;margin:-39px 0 0 -39px;background:rgba(32,164,189,.9);border-color:transparent;mix-blend-mode:difference;border-radius:34%}
+#cur-ring.down{width:26px;height:26px;margin:-13px 0 0 -13px}
+#fx{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:9995}
+/* progress + dots */
+#progress{position:fixed;top:0;left:0;height:3px;width:100%;z-index:1000;transform-origin:0 50%;transform:scaleX(0);background:linear-gradient(90deg,var(--teal),var(--amber),var(--amber2));box-shadow:0 0 14px var(--amber)}
+#dots{position:fixed;right:clamp(10px,1.6vw,26px);top:50%;transform:translateY(-50%);z-index:800;display:flex;flex-direction:column;gap:10px}
+#dots a{position:relative;width:11px;height:12px;background:rgba(255,255,255,.25);clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);transition:.3s}
+#dots a.act{background:var(--amber);transform:scale(1.5);box-shadow:0 0 12px var(--amber)}
+#dots a span{position:absolute;right:22px;top:50%;transform:translateY(-50%);white-space:nowrap;font-size:11px;font-weight:700;letter-spacing:.08em;background:rgba(7,17,31,.9);border:1px solid var(--line);color:var(--amber2);padding:4px 10px;border-radius:99px;opacity:0;pointer-events:none;transition:.25s}
+#dots a:hover span{opacity:1}
+@media(max-width:1000px){#dots{display:none}}
+/* nav */
+#nav{position:fixed;inset:0 0 auto 0;z-index:900;display:flex;align-items:center;gap:12px;padding:10px clamp(12px,2vw,28px);background:linear-gradient(180deg,rgba(7,17,31,.88),rgba(7,17,31,.6));backdrop-filter:blur(18px) saturate(150%);-webkit-backdrop-filter:blur(18px) saturate(150%);border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--serif);font-weight:700;font-size:20px;white-space:nowrap}
+.brand svg{width:30px;height:30px}
+.brand small{font-family:var(--mono);font-size:10px;color:var(--amber);letter-spacing:.14em;display:block;font-weight:400;margin-top:-4px}
+.navlinks{display:none;gap:1px;margin-left:auto}
+.navlinks a{font-size:12px;font-weight:700;letter-spacing:.02em;padding:7px 9px;border-radius:999px;color:var(--muted);white-space:nowrap;transition:.25s}
+.navlinks a:hover,.navlinks a.act{color:#1a1100;background:var(--amber)}
+.navspacer{flex:1}
+.audio{display:flex;align-items:center;gap:10px;padding:7px 14px;border-radius:999px;border:1px solid var(--line);background:rgba(10,26,51,.7);font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;transition:.3s}
+.audio.on{border-color:var(--teal);box-shadow:0 0 0 3px rgba(32,164,189,.18),0 0 24px rgba(32,164,189,.35)}
+.audio b{color:var(--amber)}.audio.on b{color:var(--teal)}
+.eq{display:flex;align-items:flex-end;gap:2px;height:18px}
+.eq i{display:block;width:3px;height:18px;background:linear-gradient(var(--amber),var(--teal));border-radius:2px;transform-origin:bottom;transform:scaleY(.2)}
+.nav-port{display:none}
+.burger{display:flex;flex-direction:column;gap:5px;padding:10px;border:1px solid var(--line);border-radius:12px}
+.burger i{width:20px;height:2px;background:var(--amber);transition:.3s}
+.burger.x i:nth-child(1){transform:translateY(7px) rotate(45deg)}.burger.x i:nth-child(2){opacity:0}.burger.x i:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+#mob{position:fixed;inset:0;z-index:850;background:rgba(5,12,24,.96);backdrop-filter:blur(20px);display:flex;flex-direction:column;justify-content:center;gap:4px;padding:90px 8vw 40px;transform:translateY(-100%);transition:transform .6s cubic-bezier(.7,0,.2,1);overflow:auto}
+#mob.open{transform:none}
+#mob a{font-family:var(--serif);font-size:clamp(24px,6vw,40px);padding:6px 0;border-bottom:1px solid rgba(255,255,255,.07)}
+#mob a:hover{color:var(--amber)}
+@media(min-width:1320px){.navlinks{display:flex}.burger{display:none}.navspacer{display:none}.nav-port{display:inline-flex}}
+@media(min-width:760px) and (max-width:1319px){.nav-port{display:inline-flex}}
+@media(max-width:640px){.audio .lbl-l{display:none}.brand small{display:none}}
+/* institutional banner */
+#top{padding:clamp(100px,12vw,128px) 0 20px}
+.inst{padding:clamp(20px,2.6vw,36px);position:relative;overflow:hidden;border-color:rgba(245,166,35,.4)}
+.inst::before{content:'';position:absolute;inset:-1px;border-radius:inherit;padding:1px;background:conic-gradient(from var(--a,0deg),transparent 0 70%,var(--amber) 85%,transparent 100%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;animation:rot 7s linear infinite;pointer-events:none}
+@property --a{syntax:'<angle>';initial-value:0deg;inherits:false}
+@keyframes rot{to{--a:360deg}}
+.inst-ribbon{display:flex;flex-wrap:wrap;gap:10px 14px;align-items:center;font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--amber);margin-bottom:18px}
+.inst-ribbon .dot{width:6px;height:6px;border-radius:50%;background:var(--teal);box-shadow:0 0 10px var(--teal)}
+.inst-grid{display:grid;grid-template-columns:1fr 1.25fr;gap:clamp(18px,3vw,44px)}
+@media(max-width:900px){.inst-grid{grid-template-columns:1fr}}
+.inst-title h2{font-size:clamp(28px,3.6vw,52px);margin:8px 0 10px}
+.inst-title .tag{color:var(--amber2);font-style:italic;font-family:var(--serif);font-size:clamp(16px,1.6vw,22px)}
+.inst-fields{display:grid;grid-template-columns:repeat(2,1fr);gap:14px 26px}
+@media(max-width:600px){.inst-fields{grid-template-columns:1fr}}
+.inst-fields dt{font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--amber)}
+.inst-fields dd{font-weight:600;font-size:15px;line-height:1.4}
+.inst-fields small{display:block;color:var(--muted);font-weight:400;font-size:13px}
+.inst-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.inst-links a{font-size:12px;font-weight:700;padding:9px 14px;border-radius:12px;border:1px solid var(--line);background:rgba(245,166,35,.08);transition:.3s;display:flex;flex-direction:column;line-height:1.25}
+.inst-links a small{font-weight:500;color:var(--muted);font-size:11px;font-family:var(--mono)}
+.inst-links a:hover{background:var(--amber);color:#1a1100;border-color:var(--amber)}
+.inst-links a:hover small{color:#4a3300}
+/* hero */
+#hero{padding-top:clamp(30px,5vw,70px);min-height:92vh;display:flex;align-items:center}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(20px,3vw,50px);align-items:center}
+@media(max-width:960px){.hero-grid{grid-template-columns:1fr}}
+.badges{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:24px}
+.hero-title{font-size:clamp(64px,12.5vw,190px);font-weight:800;line-height:.9;letter-spacing:-.035em;background:linear-gradient(180deg,#fff 20%,var(--amber2) 70%,var(--amber));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;padding-bottom:.08em}
+.hero-title .w{padding-bottom:.18em}
+.hero-sub{font-family:var(--serif);font-size:clamp(22px,3vw,40px);color:var(--amber);margin:8px 0 6px;font-weight:400}
+.hero-tag{font-family:var(--serif);font-style:italic;font-size:clamp(17px,1.9vw,26px);color:var(--amber2);margin-bottom:18px}
+.lead{font-size:clamp(15px,1.35vw,18px);color:#c9d5ea;max-width:600px}
+.ctas{display:flex;flex-wrap:wrap;gap:14px;margin:28px 0 30px}
+.stats{display:grid;grid-template-columns:repeat(4,auto);gap:10px 28px;justify-content:start;border-top:1px solid var(--line);padding-top:20px}
+@media(max-width:560px){.stats{grid-template-columns:repeat(2,auto)}}
+.stat b{display:block;font-family:var(--serif);font-size:clamp(26px,3.2vw,44px);color:#fff;line-height:1}
+.stat b small{font-size:.5em;color:var(--amber);margin-left:4px;font-family:var(--sans);font-weight:700}
+.stat span{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.stage{position:relative;aspect-ratio:1/1.02;max-height:78vh;margin-inline:auto;width:100%}
+.stage canvas{position:absolute;inset:0;width:100%;height:100%;touch-action:pan-y;cursor:grab}
+.stage canvas.grabbing{cursor:grabbing}
+.stage .orbring{position:absolute;inset:6%;border-radius:50%;border:1px solid rgba(32,164,189,.35);pointer-events:none;box-shadow:inset 0 0 80px rgba(32,164,189,.12),0 0 80px rgba(32,164,189,.08)}
+.stage .orbring.r2{inset:-2%;border-color:rgba(245,166,35,.25);animation:spin 40s linear infinite;border-style:dashed}
+.heroimg{position:absolute;right:-2%;bottom:2%;width:42%;border-radius:18px;overflow:hidden;border:1px solid rgba(255,255,255,.18);box-shadow:0 30px 70px rgba(0,0,0,.6);transform:rotate(4deg);background:#111}
+.heroimg span{position:absolute;left:8px;bottom:8px;font-size:10px;font-family:var(--mono);letter-spacing:.14em;background:rgba(7,17,31,.8);color:var(--amber);padding:3px 8px;border-radius:99px}
+.stage-hint{position:absolute;left:0;bottom:-6px;font-size:11px;color:var(--muted);font-family:var(--mono);letter-spacing:.08em}
+@media(max-width:560px){.heroimg{width:48%}}
+.marquee{overflow:hidden;border-block:1px solid var(--line);background:rgba(7,17,31,.6);backdrop-filter:blur(8px);padding:16px 0;position:relative;z-index:2}
+.marquee div{display:flex;gap:48px;white-space:nowrap;width:max-content;animation:mq 38s linear infinite;font-family:var(--serif);font-size:clamp(20px,3vw,40px);color:var(--amber);font-style:italic}
+.marquee span::after{content:'⬡';margin-left:48px;color:var(--teal);font-style:normal}
+@keyframes mq{to{transform:translateX(-50%)}}
+/* roadmap */
+.rm-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin:34px 0 22px;position:relative}
+@media(max-width:800px){.rm-steps{grid-template-columns:repeat(2,1fr);gap:10px}}
+.rm-step{padding:22px 18px 20px;text-align:left;position:relative;border:1px solid rgba(255,255,255,.12);transition:.35s;background:rgba(10,26,51,.5);backdrop-filter:blur(10px)}
+.rm-step:first-child{border-radius:22px 0 0 22px}.rm-step:last-child{border-radius:0 22px 22px 0}
+@media(max-width:800px){.rm-step{border-radius:18px!important}}
+.rm-step small{font-family:var(--mono);font-size:10px;letter-spacing:.2em;color:var(--muted);text-transform:uppercase;display:block}
+.rm-step b{font-family:var(--serif);font-size:clamp(20px,2.2vw,30px);display:block;margin:4px 0}
+.rm-step em{font-size:12px;font-style:normal;font-weight:800;letter-spacing:.1em}
+.rm-step.act{background:linear-gradient(160deg,var(--c),rgba(10,26,51,.5));border-color:var(--c);transform:translateY(-6px);box-shadow:0 20px 50px rgba(0,0,0,.4)}
+.rm-step.act b,.rm-step.act em{color:#fff}
+.rm-detail{padding:clamp(20px,3vw,40px);display:grid;grid-template-columns:auto 1fr auto;gap:24px;align-items:center}
+@media(max-width:760px){.rm-detail{grid-template-columns:1fr}}
+.rm-detail .big{font-family:var(--serif);font-size:clamp(60px,8vw,110px);color:var(--amber);line-height:.9}
+/* tables */
+.scroll-x{overflow-x:auto;border-radius:18px}
+table.tbl{width:100%;border-collapse:collapse;min-width:680px;font-size:15px}
+.tbl th{background:rgba(10,26,51,.9);color:var(--amber);text-align:left;padding:14px 16px;font-size:13px;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}
+.tbl td{padding:15px 16px;border-top:1px solid rgba(255,255,255,.08);vertical-align:top;color:#d6e0f2}
+.tbl tr:nth-child(even) td{background:rgba(245,166,35,.045)}
+.tbl td:first-child{font-weight:800;color:#fff;white-space:nowrap}
+.tbl tbody tr{transition:background .3s}.tbl tbody tr:hover td{background:rgba(32,164,189,.1)}
+.st{font-weight:800;font-size:13px;letter-spacing:.05em;white-space:nowrap}
+.st.r{color:#ff7b80}.st.a{color:var(--amber)}.st.t{color:#46d0e8}.st.g{color:#9aa7bd}
+#sbTable .sel{background:rgba(245,166,35,.18)!important;color:#fff}
+#sbTable th.sel{background:var(--amber)!important;color:#1a1100}
+/* bars chart */
+.chart{position:relative;height:300px;display:grid;grid-template-columns:repeat(5,1fr);gap:10px;padding:10px 10px 34px 38px;border-left:1px solid rgba(255,255,255,.2);border-bottom:1px solid rgba(255,255,255,.2)}
+.chart .grid-l{position:absolute;left:0;right:0;border-top:1px dashed rgba(255,255,255,.08)}
+.chart .grid-l span{position:absolute;left:-30px;top:-9px;font-size:11px;color:var(--muted);font-family:var(--mono)}
+.grp{position:relative;display:flex;align-items:flex-end;justify-content:center;gap:6px;height:100%}
+.grp label{position:absolute;bottom:-28px;left:0;right:0;text-align:center;font-size:13px;font-weight:700}
+.bar{position:relative;width:38%;max-width:56px;height:calc(var(--v)/5*100%);border-radius:8px 8px 0 0;transform:scaleY(0);transform-origin:bottom;transition:transform 1.1s cubic-bezier(.2,.9,.2,1),opacity .5s}
+.bar.td{background:linear-gradient(#7d9cd6,#3d5a99)}.bar.es{background:linear-gradient(var(--amber2),var(--deep))}
+.chart.in .bar{transform:scaleY(1)}
+.bar b{position:absolute;top:-22px;left:50%;transform:translateX(-50%);font-size:12px;font-family:var(--mono)}
+.chart[data-mode=today] .bar.es,.chart[data-mode=es] .bar.td{opacity:.07}
+.legend{display:flex;gap:18px;flex-wrap:wrap;margin-top:14px;font-size:13px;color:var(--muted)}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+.tab{padding:9px 16px;border-radius:999px;border:1px solid var(--line);font-size:13px;font-weight:700;transition:.25s;background:rgba(10,26,51,.5)}
+.tab:hover{border-color:var(--amber)}
+.tab.act{background:var(--amber);color:#1a1100;border-color:var(--amber)}
+/* counters */
+.big-card{background:linear-gradient(160deg,#0e2347,#07111f);border-color:rgba(245,166,35,.4);text-align:center;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:8px}
+.big-num{font-family:var(--serif);font-weight:800;font-size:clamp(68px,10vw,140px);line-height:.9;color:var(--amber)}
+.big-num small{display:block;font-size:.5em}
+/* 5W1H */
+.w5 .card h3{color:var(--amber);font-size:clamp(26px,3vw,40px);margin-bottom:8px}
+.w5 .card{border-top:3px solid var(--amber)}.w5 .card:nth-child(n+4){border-top-color:var(--teal)}
+.ps{padding:clamp(22px,3vw,40px)}
+.ps p{font-size:clamp(19px,2.3vw,31px);line-height:1.4;font-weight:600}
+.ps mark{background:none;color:#ff9b57;font-weight:800}
+.hmw{background:linear-gradient(160deg,#0e2347,#091426);border-color:rgba(245,166,35,.4)}
+.hmw mark{color:var(--amber)}
+.mini{padding:16px 18px;border-radius:16px;background:rgba(245,166,35,.09);border:1px solid var(--line)}
+.mini small{display:block;color:var(--amber);font-weight:800;font-size:13px}
+/* sense pentagon */
+.sense-btns{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 18px}
+.sense-btn{padding:10px 16px;border-radius:14px;border:1px solid rgba(255,255,255,.14);background:rgba(10,26,51,.55);text-align:left;transition:.3s;line-height:1.25}
+.sense-btn b{display:block;font-size:15px;color:var(--c)}
+.sense-btn small{font-size:11px;color:var(--muted)}
+.sense-btn.act{background:var(--c);border-color:var(--c)}
+.sense-btn.act b,.sense-btn.act small{color:#0a0a0a}
+.pips{display:flex;gap:6px;margin:8px 0 14px}
+.pips i{width:34px;height:10px;border-radius:5px;background:rgba(255,255,255,.12);transition:.5s}
+.pips i.on{background:var(--c);box-shadow:0 0 14px var(--c)}
+/* biomimicry */
+.bio{overflow:hidden;padding:0}
+.bio .im{background:#fff;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.bio .im.dark{background:#0d0d0f}
+.bio .im img{width:100%;height:100%;object-fit:contain;transition:transform .8s cubic-bezier(.2,.8,.2,1)}
+.bio:hover .im img{transform:scale(1.08)}
+.bio .tx{padding:16px 20px 20px}
+.bio .tx b{color:var(--amber);font-size:14px;letter-spacing:.08em}
+.bio .tx p{font-size:15px;color:#d6e0f2}
+.echo{background:linear-gradient(160deg,#0e2347,#07111f);border-color:rgba(245,166,35,.35)}
+.eq-big{font-family:var(--serif);font-size:clamp(32px,4.4vw,60px);color:#fff;margin:6px 0}
+.rng{width:100%;-webkit-appearance:none;appearance:none;height:6px;border-radius:5px;background:linear-gradient(90deg,var(--teal),var(--amber));outline:none}
+.rng::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:24px;background:#fff;border:3px solid var(--amber);clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);cursor:grab}
+.rng::-moz-range-thumb{width:20px;height:20px;background:#fff;border:3px solid var(--amber);border-radius:50%}
+.rowf{display:grid;grid-template-columns:1fr;gap:4px;margin:12px 0}
+.rowf label{display:flex;justify-content:space-between;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:700}
+.rowf label b{color:var(--amber);font-family:var(--mono)}
+.res{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}
+.res div{background:rgba(255,255,255,.05);border-radius:14px;padding:12px;text-align:center}
+.res b{display:block;font-family:var(--serif);font-size:clamp(22px,2.4vw,32px);color:var(--amber)}
+.res span{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+#hexTile{width:100%;height:auto}
+#hexTile polygon{fill:rgba(245,166,35,.1);stroke:rgba(245,166,35,.55);stroke-width:1.2;transition:fill .35s,stroke .35s}
+#hexTile polygon.hi{fill:rgba(245,166,35,.85);stroke:#fff}
+#hexTile polygon.nb{fill:rgba(32,164,189,.55)}
+/* code */
+.code-box{max-height:0;overflow:hidden;transition:max-height .8s cubic-bezier(.7,0,.2,1)}
+.code-box.open{max-height:1400px}
+pre.code{background:#050d1a;border:1px solid var(--line);border-radius:16px;padding:20px;overflow:auto;max-height:560px;font-family:var(--mono);font-size:12.5px;line-height:1.6;color:#cfe0ff;tab-size:2}
+.code .c{color:#6b8bb5;font-style:italic}.code .k{color:#ff9b57}.code .s{color:#7fe0a5}.code .n{color:#f5c15a}.code .t{color:#6fd0e8}
+.codebar{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:12px}
+/* tactile legend */
+.zones{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:22px}
+@media(max-width:800px){.zones{grid-template-columns:repeat(2,1fr)}}
+.zone-play{padding:16px;border-radius:18px;text-align:left;border:1px solid rgba(255,255,255,.14);background:linear-gradient(160deg,color-mix(in srgb,var(--c) 28%,transparent),rgba(10,26,51,.5));transition:.3s;position:relative;overflow:hidden}
+.zone-play:hover{transform:translateY(-4px);border-color:var(--c)}
+.zone-play b{display:block;font-family:var(--serif);font-size:22px;color:#fff}
+.zone-play small{display:block;color:#d6e0f2;font-size:12px}
+.zone-play span{font-family:var(--mono);font-size:11px;color:var(--c);letter-spacing:.1em}
+.zone-play.fire::after{content:'';position:absolute;inset:0;background:var(--c);opacity:.35;animation:fl .5s forwards}
+@keyframes fl{to{opacity:0}}
+/* storyboard */
+.sb-tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:16px}
+@media(max-width:800px){.sb-tabs{grid-template-columns:repeat(2,1fr)}}
+.sb-tab{padding:14px;border-radius:16px;border:1px solid rgba(255,255,255,.14);background:rgba(10,26,51,.55);text-align:left;font-weight:800;font-size:14px;line-height:1.3;transition:.3s}
+.sb-tab small{display:block;color:var(--muted);font-weight:500;font-size:11px;font-family:var(--mono)}
+.sb-tab.act{background:var(--amber);color:#1a1100;border-color:var(--amber)}.sb-tab.act small{color:#4a3300}
+.sb-scene{padding:18px}
+.sb-scene svg{width:100%;height:auto;display:block}
+.sb-info{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:14px}
+@media(max-width:900px){.sb-info{grid-template-columns:repeat(2,1fr)}}
+.sb-info div{background:rgba(255,255,255,.05);border-radius:14px;padding:12px 14px;font-size:14px;border-top:2px solid var(--amber)}
+.sb-info small{display:block;color:var(--amber);font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:800;margin-bottom:4px}
+/* mood box */
+.swatches{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+@media(max-width:560px){.swatches{grid-template-columns:1fr}}
+.sw{padding:0;overflow:hidden}
+.sw .tex{height:110px;position:relative}
+.tex.neo{background:#15181d;background-image:radial-gradient(rgba(255,255,255,.1) 1px,transparent 1.4px),radial-gradient(rgba(0,0,0,.5) 1px,transparent 1.4px);background-size:5px 5px,5px 5px;background-position:0 0,2.5px 2.5px}
+.tex.shell{background-color:#1b1e25;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='28' height='49' viewBox='0 0 28 49'><path d='M14 2L26 9V23L14 30L2 23V9Z M14 26L26 33V47' fill='none' stroke='%23596072' stroke-width='1.4'/></svg>")}
+.tex.sil{background:linear-gradient(135deg,rgba(255,255,255,.3),rgba(190,215,240,.12) 50%,rgba(255,255,255,.28));backdrop-filter:blur(4px)}
+.tex.hl{background:#262a31;background-image:repeating-linear-gradient(90deg,#3a3f48 0 2px,#1a1d22 2px 4px),repeating-linear-gradient(0deg,rgba(255,255,255,.05) 0 1px,transparent 1px 4px)}
+.sw .tx{padding:14px 16px}
+.sw b{display:block;font-size:15px}.sw small{color:var(--amber);font-family:var(--mono);font-size:11px;letter-spacing:.08em}.sw p{font-size:13px;color:#c9d5ea}
+.mood-demo{padding:clamp(20px,2.4vw,30px);background:linear-gradient(160deg,rgba(245,166,35,.14),rgba(10,26,51,.6))}
+.mood-btns{display:grid;gap:12px;margin:16px 0}
+.mood-btns .btn{justify-content:center;text-align:center;line-height:1.3;padding:16px 18px;border-radius:18px}
+.meter{height:12px;border-radius:7px;background:rgba(255,255,255,.1);overflow:hidden;margin:6px 0 4px}
+.meter i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--teal),var(--amber),var(--red));transition:width .8s}
+.lyrs{display:flex;gap:6px;flex-wrap:wrap;margin:10px 0}
+.lyr{font-size:11px;font-weight:800;padding:4px 10px;border-radius:99px;background:rgba(255,255,255,.07);color:var(--muted);transition:.2s;letter-spacing:.06em}
+.lyr.f{background:var(--red);color:#fff;transform:scale(1.12)}
+#moodCanvas{width:100%;height:70px;display:block;border-radius:12px;background:rgba(0,0,0,.3)}
+.status{font-family:var(--mono);font-size:12px;color:var(--teal);min-height:36px;margin-top:8px}
+/* trial */
+.trial{padding:clamp(20px,3vw,40px);display:grid;grid-template-columns:1fr 1fr;gap:clamp(18px,3vw,40px);align-items:center}
+@media(max-width:860px){.trial{grid-template-columns:1fr}}
+.tviz{aspect-ratio:1.2;border-radius:20px;background:radial-gradient(circle,#0e2347,#050c18);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;border:1px solid var(--line)}
+.tviz svg{width:46%;height:auto}
+.tviz .msg{position:absolute;inset:auto 0 12px 0;text-align:center;font-family:var(--mono);font-size:12px;color:var(--muted);padding:0 12px}
+.tviz.p-aware svg{animation:pa 1s infinite}.tviz.p-near svg{animation:pa .333s infinite}.tviz.p-danger svg{animation:pd .06s infinite}
+@keyframes pa{0%{transform:scale(1.15);filter:drop-shadow(0 0 30px var(--amber))}15%,100%{transform:scale(.9);filter:none}}
+@keyframes pd{0%{transform:scale(1.04)}100%{transform:scale(.98)}}
+.tviz.blind svg{opacity:0}
+.guess{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:16px 0}
+.guess button{padding:14px;border-radius:14px;border:1px solid rgba(255,255,255,.16);background:rgba(10,26,51,.6);font-weight:800;transition:.25s;text-align:left}
+.guess button small{display:block;color:var(--muted);font-weight:500;font-size:11px;font-family:var(--mono)}
+.guess button:not(:disabled):hover{border-color:var(--amber);background:rgba(245,166,35,.12)}
+.guess button:disabled{opacity:.35;cursor:not-allowed}
+.guess button.ok{background:var(--green);border-color:var(--green);color:#fff}.guess button.no{background:var(--red);border-color:var(--red);color:#fff}
+.tpips{display:flex;gap:6px;margin:10px 0}.tpips i{flex:1;height:10px;border-radius:5px;background:rgba(255,255,255,.12)}.tpips i.ok{background:var(--green)}.tpips i.no{background:var(--red)}
+.score{font-family:var(--serif);font-size:clamp(34px,4vw,56px);color:var(--amber)}
+.check{display:inline-flex;align-items:center;gap:8px;font-size:13px;color:var(--muted);margin-top:6px}
+.check input{accent-color:var(--amber);width:16px;height:16px}
+/* simulator */
+.sim{padding:clamp(14px,2vw,26px)}
+.sim canvas{display:block;width:100%;border-radius:16px;background:linear-gradient(180deg,#081528,#050d1a)}
+#simCanvas{height:clamp(260px,34vw,360px);touch-action:none;cursor:ew-resize}
+.telem{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin:16px 0}
+@media(max-width:900px){.telem{grid-template-columns:repeat(2,1fr)}}
+.tl{padding:14px 16px;border-radius:16px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1)}
+.tl small{display:block;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);font-family:var(--mono)}
+.tl b{font-family:var(--mono);font-size:clamp(20px,2.3vw,30px);color:var(--amber);font-weight:600}
+.tl b u{text-decoration:none;font-size:.5em;color:var(--muted);margin-left:4px}
+.tl.zone b{font-family:var(--serif);color:var(--zc,var(--teal))}
+.simgrid{display:grid;grid-template-columns:1.2fr .8fr;gap:16px;margin-top:16px}
+@media(max-width:900px){.simgrid{grid-template-columns:1fr}}
+#scope{height:200px}
+.honey{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;background:rgba(255,255,255,.04);border-radius:16px;padding:12px}
+.honey svg{width:min(240px,70%);height:auto;filter:drop-shadow(0 0 14px rgba(245,166,35,.3))}
+#simBand{height:240px;background:radial-gradient(circle at 50% 40%,#0e2347,#050d1a)}
+.rowbtns{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:14px}
+/* gallery */
+.banner-img{position:relative;border-radius:26px;overflow:hidden;margin-bottom:22px;background:#fff;cursor:zoom-in}
+.banner-img img{width:100%;height:auto}
+.banner-img .cap{position:absolute;left:18px;bottom:18px;background:rgba(7,17,31,.9);color:var(--amber);padding:6px 14px;border-radius:99px;font-size:12px;font-weight:800;letter-spacing:.1em;backdrop-filter:blur(8px)}
+.gal-card{position:relative;border-radius:20px;overflow:hidden;cursor:zoom-in;background:#0b1424;aspect-ratio:16/10;padding:0}
+.gal-card img{width:100%;height:100%;object-fit:cover;transition:transform .9s cubic-bezier(.2,.8,.2,1)}
+.gal-card:hover img{transform:scale(1.07)}
+.gal-card figcaption{position:absolute;left:0;right:0;bottom:0;margin:0;padding:12px 16px;background:linear-gradient(transparent,rgba(5,12,24,.95));font-style:normal;text-align:left;color:#fff;font-size:13px}
+.gal-card figcaption b{color:var(--amber);letter-spacing:.12em;margin-right:8px}
+.gal-card .ex{position:absolute;top:12px;right:12px;width:34px;height:34px;border-radius:50%;background:rgba(7,17,31,.75);border:1px solid var(--line);display:grid;place-items:center;font-size:16px;color:var(--amber)}
+.repo{display:grid;grid-template-columns:260px 1fr;gap:clamp(18px,3vw,36px);align-items:center;margin-top:26px;padding:clamp(20px,3vw,36px)}
+@media(max-width:760px){.repo{grid-template-columns:1fr;justify-items:center;text-align:center}.repo .bul{text-align:left}}
+.qr{background:#fff;border-radius:20px;padding:14px;width:230px;max-width:100%;box-shadow:0 0 0 6px rgba(245,166,35,.3),0 20px 60px rgba(0,0,0,.5)}
+.qr img{width:100%;height:auto}
+/* lightbox */
+#lb{position:fixed;inset:0;z-index:10002;background:rgba(3,8,16,.94);backdrop-filter:blur(14px);display:none;flex-direction:column;align-items:center;justify-content:center;padding:20px}
+#lb.open{display:flex}
+#lbStage{position:relative;max-width:94vw;max-height:78vh;overflow:hidden;border-radius:14px;display:flex}
+#lbImg{max-width:94vw;max-height:78vh;object-fit:contain;transition:transform .35s cubic-bezier(.2,.8,.2,1);cursor:zoom-in;user-select:none;-webkit-user-drag:none}
+#lbImg.zoom{transform:scale(2.4);cursor:zoom-out}
+#lbCap{margin-top:16px;font-weight:700;color:#fff;text-align:center;max-width:90vw}
+#lbCount{font-family:var(--mono);font-size:12px;color:var(--amber);margin-top:4px;letter-spacing:.14em}
+.lbb{position:absolute;width:52px;height:52px;border-radius:50%;border:1px solid var(--line);background:rgba(10,26,51,.8);font-size:22px;color:var(--amber);display:grid;place-items:center;transition:.25s}
+.lbb:hover{background:var(--amber);color:#1a1100}
+#lbPrev{left:clamp(8px,2vw,30px);top:50%}#lbNext{right:clamp(8px,2vw,30px);top:50%}#lbClose{right:clamp(8px,2vw,30px);top:clamp(8px,2vw,24px)}
+/* designer / impact */
+.avatar{width:96px;height:96px;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);background:linear-gradient(135deg,var(--amber2),var(--deep));display:grid;place-items:center;font-family:var(--serif);font-weight:800;font-size:34px;color:#1a1100;margin-bottom:16px}
+.designer-card{background:linear-gradient(160deg,#0e2347,#07111f);border-color:rgba(245,166,35,.4)}
+.designer-card h3{color:var(--amber)}
+.dlinks{display:flex;flex-direction:column;gap:10px;margin-top:18px}
+.dlinks .btn{justify-content:space-between}
+.sdg{display:flex;gap:16px;align-items:flex-start;padding:20px}
+.sdg .num{flex:none;width:62px;height:70px;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);display:grid;place-items:center;font-family:var(--serif);font-weight:800;font-size:19px;color:#fff;background:var(--c)}
+.sdg b{display:block;font-size:17px;margin-bottom:2px}.sdg p{font-size:14px;color:#c9d5ea}
+.tl-road{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:20px}
+.tl-road::before{content:'';position:absolute;left:0;right:0;top:20px;height:2px;background:linear-gradient(90deg,var(--teal),var(--amber));opacity:.6}
+@media(max-width:900px){.tl-road{grid-template-columns:1fr;padding-left:22px}.tl-road::before{left:7px;right:auto;top:0;bottom:0;width:2px;height:auto}}
+.ph{position:relative;padding-top:44px}
+@media(max-width:900px){.ph{padding-top:0}}
+.ph::before{content:'';position:absolute;top:10px;left:0;width:20px;height:22px;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);background:var(--amber);box-shadow:0 0 18px var(--amber)}
+@media(max-width:900px){.ph::before{left:-30px;top:8px;width:16px;height:18px}}
+.ph b{font-family:var(--serif);font-size:26px;color:var(--amber)}
+.ph p{font-size:14px;color:#d6e0f2}
+.quote{font-family:var(--serif);font-style:italic;font-size:clamp(22px,3.4vw,46px);text-align:center;color:var(--amber);padding:clamp(24px,4vw,48px);border-block:1px solid var(--line);margin-top:34px}
+.refs li{padding:16px 0;border-bottom:1px solid rgba(255,255,255,.08);display:flex;gap:16px;align-items:baseline}
+.refs li i{font-family:var(--mono);color:var(--amber);font-style:normal;font-size:12px}
+.refs li span{font-size:clamp(15px,1.5vw,18px)}
+.note{font-style:italic;color:var(--muted);font-size:14px;margin-top:20px}
+footer{padding:clamp(60px,8vw,110px) 0 40px;border-top:1px solid var(--line);background:linear-gradient(180deg,transparent,rgba(5,12,24,.9) 30%)}
+.thanks{text-align:center;margin-bottom:46px}
+.thanks h2{font-size:clamp(54px,10vw,150px);color:#fff}
+.thanks h3{color:var(--amber);font-size:clamp(28px,4vw,52px)}
+.thanks p{font-family:var(--serif);font-style:italic;color:var(--amber2);font-size:clamp(17px,2vw,26px);margin:8px 0 24px}
+.foot-meta{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 24px;margin:26px 0 8px;color:var(--muted);font-size:13px}
+.foot-meta a:hover{color:var(--amber)}
+.totop{position:fixed;right:18px;bottom:18px;z-index:800;width:48px;height:52px;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);background:var(--amber);color:#1a1100;font-weight:800;font-size:18px;opacity:0;pointer-events:none;transition:.3s;display:grid;place-items:center}
+.totop.show{opacity:1;pointer-events:auto}
+.img-missing{min-height:80px;background:rgba(255,255,255,.05);font-size:11px;color:var(--muted)}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;animation-iteration-count:1!important}}
+@media(pointer:coarse){#cur-dot,#cur-ring{display:none}}
+</style>
+</head>
+<body>
+
+<div id="loader" role="dialog" aria-label="Loading EchoSense">
+  <div class="ld-hex"><svg viewBox="0 0 100 100"><polygon points="50,4 92,28 92,72 50,96 8,72 8,28" fill="none" stroke="#f5a623" stroke-width="2"/><polygon points="50,24 74,38 74,62 50,76 26,62 26,38" fill="none" stroke="#20a4bd" stroke-width="2"/><circle cx="50" cy="50" r="5" fill="#f5a623"/></svg></div>
+  <h1>Echo<span>Sense</span></h1>
+  <p>Biomimetic Haptic Wearable · DES653 Design for Life · IIT Kanpur<br>Best experienced with headphones. Audio starts only after you choose.</p>
+  <div class="ld-bar"><i id="ldBar"></i></div>
+  <div class="ld-btns" id="ldBtns">
+    <button class="btn btn-gold" id="ldSound" data-sfx>Enter · Sound ON</button>
+    <button class="btn" id="ldSilent" data-sfx>Enter · Silent</button>
+  </div>
+</div>
+
+<div id="progress"></div>
+<div id="cur-dot"></div><div id="cur-ring"></div>
+<canvas id="fx"></canvas>
+<canvas id="bg" aria-hidden="true"></canvas>
+<div class="hexbg" aria-hidden="true"></div>
+<nav id="dots" aria-label="Section indicator"></nav>
+
+<header id="nav">
+  <a href="#top" class="brand" aria-label="EchoSense home">
+    <svg viewBox="0 0 32 32"><path d="M16 2l12 7v14l-12 7L4 23V9z" fill="#f5a623"/><path d="M9 16c2-5 5-5 7 0s5 5 7 0" fill="none" stroke="#07111f" stroke-width="2" stroke-linecap="round"/></svg>
+    <span>EchoSense<small>DES653 · IITK</small></span>
+  </a>
+  <nav class="navlinks" aria-label="Primary">
+    <a href="#hero">Overview</a><a href="#roadmap">Roadmap</a><a href="#discover">01 Discover</a><a href="#define">02 Define</a><a href="#develop">03 Develop</a><a href="#deliver">04 Deliver</a><a href="#sim">3D Simulator</a><a href="#cad">CAD &amp; Build</a><a href="#designer">About Designer</a><a href="#impact">Impact &amp; SDGs</a>
+  </nav>
+  <span class="navspacer"></span>
+  <button class="audio" id="audioBtn" aria-pressed="false" aria-label="Toggle background music and spatial audio" data-sfx>
+    <span class="eq" id="eq"><i></i><i></i><i></i><i></i><i></i></span>
+    <span><span class="lbl-l">BGM &amp; Spatial Audio: </span><b id="audioState">OFF</b></span>
+  </button>
+  <a class="btn btn-gold btn-sm nav-port magnetic" href="https://kt2141.github.io/" target="_blank" rel="noopener">Aravind's Portfolio ↗</a>
+  <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false"><i></i><i></i><i></i></button>
+</header>
+<div id="mob" aria-hidden="true">
+  <a href="#top">Institutional Banner</a><a href="#hero">Overview</a><a href="#roadmap">Roadmap</a><a href="#discover">01 Discover</a><a href="#define">02 Define</a><a href="#develop">03 Develop</a><a href="#deliver">04 Deliver</a><a href="#sim">3D Simulator</a><a href="#cad">CAD &amp; Build</a><a href="#designer">About Designer</a><a href="#impact">Impact &amp; SDGs</a>
+  <a href="https://kt2141.github.io/" target="_blank" rel="noopener" style="color:var(--amber)">Aravind's Portfolio ↗</a>
+</div>
+
+<template id="instTpl">
+  <div class="inst glass">
+    <div class="inst-ribbon"><span>Institutional Submission</span><i class="dot"></i><span>DES653 · Full Semester Course Project</span><i class="dot"></i><span>Department of Design · IIT Kanpur</span></div>
+    <div class="inst-grid">
+      <div class="inst-title">
+        <span class="eyebrow">Project Title</span>
+        <h2>EchoSense — <em>Biomimetic Haptic Wearable</em></h2>
+        <p class="tag">“Feel your surroundings beyond sight and sound.”</p>
+        <div class="inst-links">
+          <a href="https://kt2141.github.io/" target="_blank" rel="noopener">Primary Portfolio ↗<small>kt2141.github.io</small></a>
+          <a href="https://sites.google.com/view/aravind-k-t-iitk/" target="_blank" rel="noopener">Secondary Portfolio ↗<small>sites.google.com/view/aravind-k-t-iitk</small></a>
+          <a href="https://kt2141.github.io/EchoSense-Biomimetic-Design/" target="_blank" rel="noopener">Live Project Portal ↗<small>kt2141.github.io/EchoSense-Biomimetic-Design</small></a>
+          <a href="https://github.com/kt2141/EchoSense-Biomimetic-Design" target="_blank" rel="noopener">GitHub Repository ↗<small>github.com/kt2141/EchoSense-Biomimetic-Design</small></a>
+        </div>
+      </div>
+      <dl class="inst-fields">
+        <div><dt>Course</dt><dd>DES653: Design for Life<small>Full Semester Course Project</small></dd></div>
+        <div><dt>Department &amp; Institution</dt><dd>Department of Design<small>Indian Institute of Technology Kanpur (IIT Kanpur)</small></dd></div>
+        <div><dt>Instructor</dt><dd>Professor Himanshi Jangir<small>Assistant Professor, Department of Design, IIT Kanpur</small></dd></div>
+        <div><dt>Submitted By</dt><dd>Aravind K. T.<small>Roll No. 240169 · B.Tech Electrical Engineering (2024–2028), IIT Kanpur</small></dd></div>
+        <div><dt>Presentation &amp; Submission Date</dt><dd>12 November 2026 (Thursday)</dd></div>
+        <div><dt>Contact Email</dt><dd><a href="mailto:aravindkt24@iitk.ac.in" style="color:var(--amber2)">aravindkt24@iitk.ac.in</a></dd></div>
+      </dl>
+    </div>
+  </div>
+</template>
+
+<main>
+<!-- INSTITUTIONAL BANNER -->
+<section id="top"><div class="wrap" id="instTop"></div></section>
+
+<!-- HERO · SLIDE 1 -->
+<section id="hero">
+ <div class="wrap hero-grid">
+  <div>
+    <div class="badges" data-hero>
+      <span class="chip"><i></i>DES653 · Design for Life</span>
+      <span class="chip"><i></i>40 kHz Ultrasonic</span>
+      <span class="chip"><i></i><em style="color:inherit">Apis mellifera</em> Honeycomb</span>
+      <span class="chip"><i></i>Arduino Nano PWM</span>
+    </div>
+    <span class="eyebrow" data-hero>Design for Life · Course Project · Slide 01</span>
+    <h1 class="hero-title" id="heroTitle" aria-label="EchoSense">EchoSense</h1>
+    <p class="hero-sub" data-hero>Biomimetic Haptic Wearable</p>
+    <p class="hero-tag" data-hero>Feel your surroundings beyond sight and sound.</p>
+    <p class="lead" data-hero>A bat-inspired wristband that listens to the city with silent 40&nbsp;kHz ultrasound and answers on the skin — gentle when an obstacle is far, urgent when it is near — so a visually impaired pedestrian keeps both ears free for traffic and people.</p>
+    <div class="ctas" data-hero>
+      <a class="btn btn-gold magnetic" href="#roadmap">Explore the Design Journey →</a>
+      <a class="btn magnetic" href="#sim">Try the 3D Simulator</a>
+      <a class="btn magnetic" href="https://kt2141.github.io/" target="_blank" rel="noopener">Aravind's Portfolio ↗</a>
+    </div>
+    <div class="stats" data-hero>
+      <div class="stat"><b><span data-count="2.2" data-dec="1">0.0</span><small>Billion</small></b><span>people with vision impairment</span></div>
+      <div class="stat"><b><span data-count="40" data-dec="0">0</span><small>kHz</small></b><span>inaudible ultrasound</span></div>
+      <div class="stat"><b><span data-count="343" data-dec="0">0</span><small>m/s</small></b><span>speed of sound · 20 °C</span></div>
+      <div class="stat"><b><span data-count="5.8" data-dec="1">0.0</span><small>ms</small></b><span>echo for ≈ 1 m</span></div>
+    </div>
+  </div>
+  <div class="stage" id="heroStage">
+    <div class="orbring r2"></div><div class="orbring"></div>
+    <canvas id="heroCanvas" aria-label="Interactive 3D EchoSense wristband. Drag to rotate."></canvas>
+    <a class="heroimg tilt" data-lb="hero" data-cap="EchoSense haptic wristband concept" href="javascript:void(0)"><img src="crop_hero_band.png" alt="EchoSense haptic wristband concept render" decoding="async"><span>CONCEPT RENDER</span></a>
+    <div class="stage-hint">DRAG TO ROTATE · SCROLL TO SPIN · MOVE CURSOR TO PART THE SWARM</div>
+  </div>
+ </div>
+</section>
+
+<div class="marquee" aria-hidden="true"><div>
+  <span>Feel your surroundings</span><span>Beyond sight and sound</span><span>40 kHz ultrasound</span><span><em>Apis mellifera</em> honeycomb</span><span>Echo in, touch out</span><span>d = (v × t) / 2</span>
+  <span>Feel your surroundings</span><span>Beyond sight and sound</span><span>40 kHz ultrasound</span><span><em>Apis mellifera</em> honeycomb</span><span>Echo in, touch out</span><span>d = (v × t) / 2</span>
+</div></div>
+
+<!-- ROADMAP · SLIDE 2 -->
+<section id="roadmap">
+ <div class="wrap">
+  <header class="sec-head"><span class="slide-tag">SLIDE 02</span><br><span class="eyebrow">Roadmap</span><h2 class="split">The Design Journey</h2><p class="sub">A double-diamond process: diverge to understand, converge to define, diverge to explore, converge to deliver.</p></header>
+  <div class="grid g21" style="align-items:center">
+    <figure class="glass card tilt" data-lb="roadmap" data-cap="The Design Journey — Double Diamond (Discover · Define · Develop · Deliver)"><div class="paper zoomable"><img src="double_diamond.png" alt="Double Diamond design journey diagram: Discover, Define, Develop, Deliver" decoding="async"></div><figcaption>Double Diamond — click to zoom</figcaption></figure>
+    <div class="glass card"><h3>How the project unfolded</h3><ul class="bul"><li><b>Diverge</b> to understand the problem on a real street.</li><li><b>Converge</b> on a persona, a 5W1H and one sharp problem statement.</li><li><b>Diverge</b> again across five senses, then borrow from bats and bees.</li><li><b>Converge</b> on a tactile language, a mood box, CAD and a live website.</li></ul><p class="note">Tap a stage below to jump into it.</p></div>
+  </div>
+  <div class="rm-steps" id="rmSteps">
+    <button class="rm-step act" style="--c:#0e2347" data-i="0" data-sfx><small>1 · Diverge</small><b>DISCOVER</b><em>Slides 4–6</em></button>
+    <button class="rm-step" style="--c:#1b8aa0" data-i="1" data-sfx><small>2 · Converge</small><b>DEFINE</b><em>Slides 7–8</em></button>
+    <button class="rm-step" style="--c:#c98400" data-i="2" data-sfx><small>3 · Diverge</small><b>DEVELOP</b><em>Slides 9–12</em></button>
+    <button class="rm-step" style="--c:#a86a00" data-i="3" data-sfx><small>4 · Converge</small><b>DELIVER</b><em>Slides 13–20</em></button>
+  </div>
+  <div class="glass rm-detail" id="rmDetail" aria-live="polite">
+    <div class="big" id="rmBig">1</div>
+    <div><span class="eyebrow" id="rmMode">DIVERGE: understand the problem</span><h3 id="rmTitle" style="margin:8px 0">Discover</h3><p id="rmText" style="color:#c9d5ea"></p></div>
+    <a class="btn btn-gold magnetic" id="rmGo" href="#discover">Jump in →</a>
+  </div>
+ </div>
+</section>
+
+<!-- 01 DISCOVER · SLIDES 3-6 -->
+<section id="discover">
+ <div class="wrap">
+  <header class="sec-head"><span class="eyebrow">01 · Discover</span><h2 class="split">Opportunity, Sensory Ethnography, Gap &amp; Sensitivities</h2><p class="sub">Diverge: understand the problem by auditing a busy street through the five senses.</p></header>
+
+  <span class="slide-tag">SLIDE 03 · IDENTIFY THE OPPORTUNITY</span>
+  <h3 style="margin-bottom:18px;font-size:clamp(26px,3.6vw,48px)" class="split">A Flawed Experience and an Unmet Need</h3>
+  <div class="grid g3" data-stagger>
+    <div class="glass card big-card tilt"><div class="big-num"><span data-count="2.2" data-dec="1">0.0</span><small>billion</small></div><p style="font-size:17px">people worldwide live with a near or distance vision impairment</p><em style="font-size:13px">WHO, World Report on Vision (2019)</em></div>
+    <div class="glass card tilt"><h3>A flawed existing experience</h3><ul class="bul"><li><b>Deprivation:</b> no preview of the path, signage, faces or traffic lights.</li><li><b>Overload:</b> hearing must track traffic, crowds and voice-navigation at once.</li><li><b>Friction:</b> a white cane senses the ground about one cane-length ahead and misses head-height hazards such as signboards, branches and vehicle mirrors.</li></ul></div>
+    <div class="glass card tilt"><h3>An unmet need</h3><ul class="bul"><li><b>Today's aids are audio or visual:</b> phone navigation speaks into the same ears already busy with traffic.</li><li><b>The skin is almost unused:</b> the body's largest sense organ is rarely a navigation channel.</li><li><b>The opportunity:</b> a silent, hands-free, always-on answer to “what is near me, and how near?”</li></ul></div>
+  </div>
+  <div class="callout reveal" style="margin:22px 0 80px"><b>Design brief:</b> <em>turn the space around a visually impaired pedestrian into something they can feel, without taking over their eyes or ears.</em></div>
+
+  <span class="slide-tag">SLIDE 04 · EMPATHY &amp; SENSORY ETHNOGRAPHY</span>
+  <h3 style="margin-bottom:8px;font-size:clamp(26px,3.6vw,48px)" class="split">Sensory audit: a visually impaired pedestrian walking a busy urban street</h3>
+  <div class="glass scroll-x reveal" style="margin:20px 0 80px"><table class="tbl"><thead><tr><th>Sense</th><th>What the pedestrian experiences</th><th>Status</th></tr></thead><tbody>
+    <tr><td>Sight</td><td>Absent or severely limited. No preview of the path ahead, signage, faces, kerbs or traffic lights.</td><td class="st r">DEPRIVED</td></tr>
+    <tr><td>Sound</td><td>A constant stream of horns, engines, footsteps, shop music and announcements, used to locate traffic and obstacles. Also needed for conversation and phone navigation.</td><td class="st r">OVERLOADED</td></tr>
+    <tr><td>Touch</td><td>Cane-tip vibration and surface texture, tactile paving, hands on rails, bumps from crowds. Reach is limited to ground level, about one cane-length.</td><td class="st a">HEAVILY USED, LIMITED REACH</td></tr>
+    <tr><td>Smell</td><td>Bakeries, exhaust, rain and flowers act as informal landmarks, helpful but unreliable.</td><td class="st t">SUPPORTING CUE</td></tr>
+    <tr><td>Taste</td><td>Effectively irrelevant while moving through a street.</td><td class="st g">NOT USED</td></tr>
+  </tbody></table></div>
+
+  <span class="slide-tag">SLIDE 05 · IDENTIFYING THE SENSORY GAP</span>
+  <h3 style="margin-bottom:8px;font-size:clamp(26px,3.6vw,48px)" class="split">Which senses are being ignored, and which are overworked?</h3>
+  <div class="grid g2" style="margin-top:22px">
+    <figure class="glass card tilt" data-lb="gap" data-cap="Cognitive load (0–5): Today (cane + hearing) vs. With EchoSense"><div class="paper zoomable"><img src="sensory_load.png" alt="Bar chart of cognitive load 0 to 5 per sense, today versus with EchoSense" decoding="async"></div><figcaption>Qualitative audit rating (0–5), illustrative of the sensory audit on the previous slide.</figcaption></figure>
+    <div class="glass card"><h3>The gap in one sentence</h3><p style="font-size:18px;margin-bottom:10px">Nothing today carries <b style="color:#fff">how far away an obstacle is</b> beyond cane reach without also occupying hearing.</p><ul class="bul"><li><b>Sight is removed</b> so the brain compensates by over-using hearing.</li><li><b>Hearing is double-booked</b> with traffic safety and navigation prompts.</li><li><b>Touch is narrow:</b> only a point (the cane tip), not a field.</li><li><b>Skin is a free channel:</b> forearm and wrist are sensitive, always available and silent.</li></ul><div class="callout" style="margin-top:16px"><b>Gap:</b> a silent, wide-field sense of proximity.</div></div>
+  </div>
+  <div class="glass card reveal" style="margin:22px 0 80px">
+    <div class="codebar"><h3 style="margin:0">Interactive cognitive-load chart</h3><div class="tabs" style="margin:0" id="ldTabs"><button class="tab act" data-m="cmp" data-sfx>Compare</button><button class="tab" data-m="today" data-sfx>Today: cane + hearing</button><button class="tab" data-m="es" data-sfx>With EchoSense</button></div></div>
+    <div class="chart" id="loadChart" data-mode="cmp" style="margin-top:34px">
+      <div class="grid-l" style="top:0"><span>5</span></div><div class="grid-l" style="top:20%"><span>4</span></div><div class="grid-l" style="top:40%"><span>3</span></div><div class="grid-l" style="top:60%"><span>2</span></div><div class="grid-l" style="top:80%"><span>1</span></div>
+      <div class="grp"><div class="bar td" style="--v:.3"><b>0.3</b></div><div class="bar es" style="--v:.3"><b>0.3</b></div><label>Sight</label></div>
+      <div class="grp"><div class="bar td" style="--v:5"><b>5</b></div><div class="bar es" style="--v:3"><b>3</b></div><label>Sound</label></div>
+      <div class="grp"><div class="bar td" style="--v:4"><b>4</b></div><div class="bar es" style="--v:3"><b>3</b></div><label>Touch</label></div>
+      <div class="grp"><div class="bar td" style="--v:2"><b>2</b></div><div class="bar es" style="--v:2"><b>2</b></div><label>Smell</label></div>
+      <div class="grp"><div class="bar td" style="--v:.3"><b>0.3</b></div><div class="bar es" style="--v:.3"><b>0.3</b></div><label>Taste</label></div>
+    </div>
+    <div class="legend"><span><i style="background:#5f7fbd"></i>Today: cane + hearing only</span><span><i style="background:var(--amber)"></i>With EchoSense</span></div>
+    <p id="ldNote" style="margin-top:14px;color:#c9d5ea">EchoSense drops the <b style="color:#fff">Sound load from 5 to 3</b> because distance is delivered silently, and rebalances <b style="color:#fff">Touch</b> from a single cane-tip point into a wide-field proximity sense on the wrist.</p>
+  </div>
+
+  <span class="slide-tag">SLIDE 06 · MAPPING SENSITIVITIES</span>
+  <h3 style="margin-bottom:8px;font-size:clamp(26px,3.6vw,48px)" class="split">What drains energy, what comforts, and what that means for the design</h3>
+  <div class="grid g3" data-stagger style="margin-top:22px">
+    <div class="glass card tilt" style="border-top:3px solid var(--red)"><h3>What drains energy</h3><ul class="bul"><li>Sudden horns and overlapping crowd noise</li><li>Wind and rain masking useful sounds</li><li>Voice prompts talking over street sounds</li><li>Constant, unchanging vibration (the body tunes it out)</li><li>Hot, rough or sticky materials on skin</li></ul></div>
+    <div class="glass card tilt" style="border-top:3px solid var(--teal)"><h3>What comforts</h3><ul class="bul"><li>Soft, breathable fabrics against the skin</li><li>Smooth, rounded edges the hand can find</li><li>Predictable patterns that repeat reliably</li><li>Silence when nothing is wrong</li><li>Gear that stays put on a moving arm</li></ul></div>
+    <div class="glass card tilt" style="border-top:3px solid var(--amber);background:linear-gradient(160deg,rgba(245,166,35,.2),rgba(10,26,51,.5))"><h3>So the design must…</h3><ul class="bul"><li><b>Stay silent:</b> no beeps or voice</li><li>Use vibration that <b>varies in rate and strength</b></li><li><b>Rest at zero</b> when the path is clear</li><li>Use <b>3 mm neoprene</b> and rounded hex shapes</li><li>Sit on the wrist or forearm, <b>hands-free</b></li></ul></div>
+  </div>
+  <p class="note" style="text-align:center">Sensitivities are derived from the sensory audit and published accounts of urban navigation; they are to be confirmed through short interviews with visually impaired users.</p>
+ </div>
+</section>
+
+<!-- 02 DEFINE · SLIDES 7-8 -->
+<section id="define">
+ <div class="wrap">
+  <header class="sec-head"><span class="eyebrow">02 · Define</span><h2 class="split">5W1H Persona &amp; the Sensory Problem Statement</h2><p class="sub">Converge: one persona, one sharp problem, one question to design against.</p></header>
+  <span class="slide-tag">SLIDE 07 · WHO, WHAT, WHERE, WHEN, WHY &amp; HOW</span>
+  <div class="grid g3 w5" data-stagger style="margin:14px 0 80px">
+    <div class="glass card tilt"><h3>WHO</h3><p>Persona: <b>Asha, 27</b>, a visually impaired postgraduate student who walks and takes public transport daily in a crowded Indian city. Independent, tech-comfortable, tired of relying on strangers.</p></div>
+    <div class="glass card tilt"><h3>WHAT</h3><p>She cannot sense obstacles and their distance early enough beyond cane reach. The cane reaches only the ground, a short way ahead, so she spends every step listening hard.</p></div>
+    <div class="glass card tilt"><h3>WHERE</h3><p>Busy footpaths, crossings, bus stops and markets: noisy, uneven, unpredictable and shared with vehicles and hawkers.</p></div>
+    <div class="glass card tilt"><h3>WHEN</h3><p>Every commute: at peak hours, at dusk and in rain, when sound is masked by traffic or weather.</p></div>
+    <div class="glass card tilt"><h3>WHY</h3><p>Independence, safety and dignity. Fear of collisions reduces confidence and mobility, and constant listening is mentally exhausting.</p></div>
+    <div class="glass card tilt"><h3>HOW (today)</h3><p>White cane, a sighted guide or kind strangers, memorised routes and voice-navigation apps, which compete with hearing.</p></div>
+  </div>
+  <span class="slide-tag">SLIDE 08 · THE SENSORY PROBLEM STATEMENT</span>
+  <p class="note" style="margin:0 0 16px">Written with the course formula, around human emotion and sensory interaction.</p>
+  <div class="glass ps reveal"><span class="eyebrow">Problem Statement</span><p style="margin-top:12px"><mark>Visually impaired urban pedestrians</mark> need a way to <mark>detect obstacles and judge their distance early</mark> in <mark>crowded, noisy city streets</mark>, but are held back by <mark>sensory deprivation of sight and an overloaded sense of hearing</mark> that is already busy tracking traffic.</p></div>
+  <div class="glass ps hmw reveal" style="margin-top:18px"><span class="eyebrow">How Might We…</span><p style="margin-top:12px">translate the space around a visually impaired pedestrian into silent, intuitive touch cues <mark>so that they can walk confidently and independently without relying on their eyes or ears?</mark></p></div>
+  <div class="grid g4" data-stagger style="margin-top:18px">
+    <div class="mini"><small>Persona</small>Visually impaired urban pedestrians</div><div class="mini"><small>Goal</small>Detect obstacles and distance early</div><div class="mini"><small>Context</small>Crowded, noisy city streets</div><div class="mini"><small>Friction</small>Sight deprived, hearing overloaded</div>
+  </div>
+ </div>
+</section>
+
+<!-- 03 DEVELOP · SLIDES 9-12 -->
+<section id="develop">
+ <div class="wrap">
+  <header class="sec-head"><span class="eyebrow">03 · Develop</span><h2 class="split">Sensory Pentagon, Five-Sense Ideation, Biomimicry &amp; System Architecture</h2><p class="sub">Diverge: run the idea through every sense, then borrow from bats and honeybees.</p></header>
+
+  <span class="slide-tag">SLIDES 09 &amp; 10 · SENSORY PENTAGON &amp; IDEATION WHEEL</span>
+  <h3 style="margin-bottom:8px;font-size:clamp(26px,3.6vw,48px)" class="split">From Sight to Touch and Sound</h3>
+  <p class="note" style="margin:0 0 20px">EchoSense rebalances the senses. Touch becomes the primary channel. The core idea is run systematically through all five senses.</p>
+  <div class="grid g2">
+    <figure class="glass card tilt" data-lb="pent" data-cap="5-Point Sensory Pentagon — Touch 5/5, Sound 3/5, Sight 2/5, Smell 1/5, Taste 1/5"><div class="paper zoomable"><img src="radar.png" alt="Sensory pentagon radar chart: Touch 5, Sound 3, Sight 2, Smell 1, Taste 1" decoding="async"></div><figcaption>Sensory Pentagon (Slide 09)</figcaption></figure>
+    <figure class="glass card tilt" data-lb="pent" data-cap="Sensory Ideation &amp; Brainstorming wheel — input vs. emotional / functional purpose"><div class="paper zoomable"><img src="wheel.png" alt="Five-sense ideation wheel: sensory input versus emotional and functional purpose" decoding="async"></div><figcaption>Sensory Ideation &amp; Brainstorming wheel (Slide 10)</figcaption></figure>
+  </div>
+  <div class="glass card reveal" style="margin:22px 0 80px" id="senseCard">
+    <div class="sense-btns" id="senseBtns">
+      <button class="sense-btn act" style="--c:#8b5cf6" data-k="touch" data-sfx><b>Touch 5/5</b><small>Primary output</small></button>
+      <button class="sense-btn" style="--c:#2fa56a" data-k="sound" data-sfx><b>Sound 3/5</b><small>Inspired by bats · 40 kHz inaudible</small></button>
+      <button class="sense-btn" style="--c:#3b82f6" data-k="sight" data-sfx><b>Sight 2/5</b><small>Complements · dim status LED</small></button>
+      <button class="sense-btn" style="--c:#f5a623" data-k="smell" data-sfx><b>Smell 1/5</b><small>Odour-neutral</small></button>
+      <button class="sense-btn" style="--c:#e0555a" data-k="taste" data-sfx><b>Taste 1/5</b><small>Skin-safe · non-toxic</small></button>
+    </div>
+    <div class="grid g2" style="align-items:start" id="senseOut" aria-live="polite">
+      <div><h3 id="snTitle" style="color:var(--c)">TOUCH 5/5 · Primary output</h3><div class="pips" id="snPips"></div><p id="snDesc" style="font-size:17px"></p></div>
+      <div class="grid" style="gap:12px"><div class="mini"><small>Sensory input / stimulus</small><span id="snIn"></span></div><div class="mini"><small>Emotional / functional purpose</small><span id="snPur"></span></div></div>
+    </div>
+  </div>
+
+  <span class="slide-tag">SLIDE 11 · BIOMIMICRY — BATS &amp; <em style="color:inherit">APIS MELLIFERA</em></span>
+  <h3 style="margin-bottom:8px;font-size:clamp(26px,3.6vw,48px)" class="split">From Echolocation to Haptics</h3>
+  <p class="note" style="margin:0 0 20px">Nature's solution to seeing without light, translated to the skin.</p>
+  <div class="grid g4" data-stagger>
+    <figure class="glass bio tilt" data-lb="bio" data-cap="1 · NATURE — Bats emit ultrasonic calls and listen for echoes to navigate in darkness"><div class="im zoomable"><img src="crop_bat.png" alt="Bat emitting ultrasonic echolocation calls" decoding="async"></div><div class="tx"><b>1 · NATURE</b><p>Bats emit ultrasonic calls and listen for echoes to navigate in darkness.</p></div></figure>
+    <figure class="glass bio tilt" data-lb="bio" data-cap="2 · SENSE — An ultrasonic sensor sends pulses and times the returning echo"><div class="im zoomable"><img src="crop_sensor.png" alt="HC-SR04 40 kHz ultrasonic transducer module" decoding="async"></div><div class="tx"><b>2 · SENSE</b><p>An ultrasonic sensor sends pulses and times the returning echo.</p></div></figure>
+    <figure class="glass bio tilt" data-lb="bio" data-cap="3 · TRANSLATE — Distance is converted into vibration patterns on the skin"><div class="im dark zoomable"><img src="crop_band.png" alt="EchoSense wristband converting distance to vibration" decoding="async"></div><div class="tx"><b>3 · TRANSLATE</b><p>Distance is converted into vibration patterns on the skin.</p></div></figure>
+    <figure class="glass bio tilt" data-lb="bio" data-cap="4 · FEEL — The user feels layout and proximity without eyes or ears"><div class="im zoomable"><img src="crop_walker.png" alt="Visually impaired pedestrian sensing an obstacle ahead" decoding="async"></div><div class="tx"><b>4 · FEEL</b><p>The user feels layout and proximity without eyes or ears.</p></div></figure>
+  </div>
+  <div class="grid g2" style="margin:22px 0 80px">
+    <div class="glass card echo"><h4>The echo equation — interactive</h4><div class="eq-big" id="eqBig">d = (v × t) / 2</div>
+      <div class="rowf"><label>Echo time t <b id="cTv">5.8 ms</b></label><input class="rng" id="cT" type="range" min="0.12" max="23.3" step="0.02" value="5.8" aria-label="Echo time in milliseconds"></div>
+      <div class="rowf"><label>Air temperature <b id="cTempv">20 °C</b></label><input class="rng" id="cTemp" type="range" min="0" max="45" step="1" value="20" aria-label="Air temperature in degrees Celsius"></div>
+      <div class="res"><div><b id="cV">343</b><span>v · m/s</span></div><div><b id="cD">1.00</b><span>d · metres</span></div><div><b id="cDc">100</b><span>d · cm</span></div></div>
+      <p style="font-size:14px;color:#c9d5ea;margin-top:12px">v ≈ 343 m/s (sound, 20 °C). An echo after 5.8 ms means an obstacle about 1 m away. The HC-SR04 reads 2–400 cm, so its longest echo is ≈ 23 ms.</p></div>
+    <div class="glass card"><h4>Second inspiration: <em>Apis mellifera</em></h4><p style="margin-bottom:12px">The honeybee's hexagon is the most space-efficient tiling. EchoSense borrows it for the shell texture and the honeycomb layout of its haptic motors, so cues stay distinct on a small patch of skin.</p><svg id="hexTile" viewBox="0 0 400 190" aria-label="Interactive honeycomb tiling"></svg><p class="note" style="margin-top:6px">Hover the cells: every hexagon has six equidistant neighbours.</p></div>
+  </div>
+
+  <span class="slide-tag">SLIDE 12 · SYSTEM ARCHITECTURE (CONCEPTUAL)</span>
+  <h3 style="margin-bottom:8px;font-size:clamp(26px,3.6vw,48px)" class="split">Echo in, touch out: a small, low-cost, Arduino-based design</h3>
+  <div class="grid g21" style="margin-top:20px">
+    <figure class="glass card tilt" data-lb="arch" data-cap="Conceptual system architecture — HC-SR04 → Arduino Nano → PWM driver → haptic array + power"><div class="paper zoomable"><img src="architecture.png" alt="System architecture block diagram: HC-SR04, Arduino Nano, PWM driver, haptic array, power" decoding="async"></div><figcaption>Conceptual system architecture</figcaption></figure>
+    <figure class="glass card tilt" data-lb="arch" data-cap="Top view — forward-facing HC-SR04 and three honeycomb-arranged ERM motors (ERM 1, ERM 2, ERM 3)"><div class="paper zoomable"><img src="band_layout.png" alt="Top view of the band: forward-facing HC-SR04 and three ERM motors in hexagonal cells" decoding="async"></div><figcaption>Top view: forward-facing sensor and three honeycomb-arranged motors (ERM 1 · ERM 2 · ERM 3).</figcaption></figure>
+  </div>
+  <div class="grid g3" data-stagger style="margin-top:20px">
+    <div class="glass card tilt" style="border-top:3px solid var(--amber)"><h3>SENSE</h3><p>HC-SR04 ultrasonic module: 40 kHz, 2–400 cm range, roughly 15° beam, 5 V.</p></div>
+    <div class="glass card tilt" style="border-top:3px solid var(--amber)"><h3>THINK</h3><p>Arduino Nano times the echo pulse, smooths readings and picks a vibration zone.</p></div>
+    <div class="glass card tilt" style="border-top:3px solid var(--amber)"><h3>FEEL</h3><p>Coin ERM motors driven by PWM through a transistor with a flyback diode; strength set by duty cycle.</p></div>
+  </div>
+  <div class="glass card reveal" style="margin-top:22px">
+    <div class="codebar"><div><h3 style="margin:0">Arduino Nano firmware · <span class="mono" style="font-size:.7em;color:var(--amber)">echosense.ino</span></h3><p style="font-size:13px;color:var(--muted)">C++ sketch: distance → zone → PWM haptic pattern.</p></div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn btn-sm" id="fwToggle" aria-expanded="false" data-sfx>▸ Show code</button><button class="btn btn-sm btn-gold magnetic" id="fwCopy" data-sfx>Copy Code</button></div></div>
+    <div class="code-box" id="fwBox"><pre class="code" id="fwPre" tabindex="0"></pre></div>
+  </div>
+ </div>
+</section>
+
+<!-- 04 DELIVER · SLIDES 13-16 -->
+<section id="deliver">
+ <div class="wrap">
+  <header class="sec-head"><span class="eyebrow">04 · Deliver</span><h2 class="split">Tactile Language, Storyboard, Mood Box &amp; Sensory Harmony</h2><p class="sub">Converge: give the band a language people can learn in seconds, then test it on real senses.</p></header>
+
+  <span class="slide-tag">SLIDE 13 · THE TACTILE LANGUAGE</span>
+  <p class="note" style="margin:0 0 16px">Distance zones map to distinct vibration patterns in both rate and intensity. Tap a zone to feel it (sound on desktop, vibration on phones).</p>
+  <div class="zones" id="zones">
+    <button class="zone-play" style="--c:#e0555a" data-z="danger" data-sfx><span>0–50 cm</span><b>Danger</b><small>rapid buzz · continuous</small></button>
+    <button class="zone-play" style="--c:#d98a00" data-z="near" data-sfx><span>50–100 cm</span><b>Near</b><small>fast pulse · ~3 Hz</small></button>
+    <button class="zone-play" style="--c:#f5a623" data-z="aware" data-sfx><span>100–200 cm</span><b>Aware</b><small>gentle pulse · ~1 Hz</small></button>
+    <button class="zone-play" style="--c:#ffe09a" data-z="clear" data-sfx><span>200–400 cm</span><b>Clear</b><small>no vibration · silence</small></button>
+  </div>
+  <div class="grid g2">
+    <figure class="glass card tilt" data-lb="tact" data-cap="Distance-to-haptic intensity staircase: Danger 0–50 cm · Near 50–100 cm · Aware 100–200 cm · Clear 200–400 cm"><div class="paper zoomable"><img src="mapping.png" alt="Staircase chart mapping distance zones to haptic intensity" decoding="async"></div><figcaption>Closer obstacle, stronger and faster vibration.</figcaption></figure>
+    <figure class="glass card tilt" data-lb="tact" data-cap="Vibration waveforms 0.0 s – 4.0 s: Clear path · Pole at 1.5 m · Crowd at 0.8 m · Kerb &lt; 0.5 m"><div class="paper zoomable"><img src="waves.png" alt="Four vibration waveforms over four seconds: clear, pole at 1.5 m, crowd at 0.8 m, kerb under 0.5 m" decoding="async"></div><figcaption>Illustrative vibration waveforms for the four storyboard stages: silence · gentle 1 Hz pulse · faster 3 Hz pulse · continuous rapid buzz.</figcaption></figure>
+  </div>
+  <div class="callout reveal" style="margin:22px 0 80px"><b>Design rule:</b> silence when clear, gentle pulse when aware, faster pulse when near, continuous buzz when urgent. Mappings are monotonic, so closer always feels stronger, and the rest-at-zero state prevents habituation.</div>
+
+  <span class="slide-tag">SLIDE 14 · SENSORY STORYBOARD</span>
+  <h3 style="margin-bottom:8px;font-size:clamp(26px,3.6vw,48px)" class="split">Four Steps in the City</h3>
+  <p class="note" style="margin:0 0 18px">What every sense experiences at each stage of the journey.</p>
+  <div class="sb-tabs" id="sbTabs">
+    <button class="sb-tab act" data-i="0" data-sfx>1 · Walking, path clear<small>~3.2 m · Clear</small></button>
+    <button class="sb-tab" data-i="1" data-sfx>2 · Detect, pole at ~1.5 m<small>~1.5 m · Aware</small></button>
+    <button class="sb-tab" data-i="2" data-sfx>3 · Navigate, crowd at ~0.8 m<small>~0.8 m · Near</small></button>
+    <button class="sb-tab" data-i="3" data-sfx>4 · Avoid, kerb at &lt;0.5 m<small>&lt; 0.5 m · Danger</small></button>
+  </div>
+  <div class="glass sb-scene"><svg id="sbSvg" viewBox="0 0 640 170" role="img" aria-label="Storyboard scene"><rect x="0" y="130" width="640" height="3" fill="#2a3b5c"/>
+    <g id="sbWaves" fill="none" stroke="#20a4bd" stroke-width="2"></g>
+    <g id="sbWalker"><circle cx="70" cy="62" r="13" fill="#ffcf6b"/><rect x="58" y="78" width="24" height="42" rx="8" fill="#f5a623"/><rect x="82" y="92" width="22" height="9" rx="4" fill="#20a4bd"/><rect x="60" y="118" width="8" height="14" fill="#ffcf6b"/><rect x="74" y="118" width="8" height="14" fill="#ffcf6b"/></g>
+    <g id="sbObs"><rect x="0" y="40" width="18" height="90" rx="4" fill="#c9d5ea"/><text x="9" y="30" text-anchor="middle" fill="#9fb0cc" font-size="11" font-family="monospace" id="sbObsLbl">pole</text></g>
+    <text id="sbDist" x="320" y="158" text-anchor="middle" fill="#f5a623" font-size="13" font-family="monospace">~3.2 m</text></svg>
+    <div class="rowbtns" style="justify-content:space-between"><span class="mono" id="sbZone" style="color:var(--amber)">ZONE · CLEAR</span><button class="btn btn-sm btn-teal" id="sbPlay" data-sfx>▶ Feel this stage</button></div>
+    <div class="sb-info" id="sbInfo" aria-live="polite"></div></div>
+  <div class="glass scroll-x reveal" style="margin:22px 0 80px"><table class="tbl" id="sbTable"><thead><tr><th></th><th data-col="1">1 · Walking, path clear</th><th data-col="2">2 · Detect, pole at ~1.5 m</th><th data-col="3">3 · Navigate, crowd at ~0.8 m</th><th data-col="4">4 · Avoid, kerb at &lt;0.5 m</th></tr></thead><tbody>
+    <tr><td>Touch (primary)</td><td data-col="1">Band is silent. Cane taps pavement texture.</td><td data-col="2">One soft pulse per second, like a calm heartbeat.</td><td data-col="3">Faster pulses, about three per second, ramping up as the gap closes.</td><td data-col="4">Continuous rapid buzz: an unmistakable “stop”, then silence once the user turns away.</td></tr>
+    <tr><td>Sound</td><td data-col="1">Traffic and footsteps. Ultrasonic scan is inaudible.</td><td data-col="2">Unchanged; ears free for a horn.</td><td data-col="3">Crowd noise unaffected; no beeps.</td><td data-col="4">Unchanged; ears stay on traffic.</td></tr>
+    <tr><td>Sight</td><td data-col="1">Not used.</td><td data-col="2">Not used.</td><td data-col="3">Not used.</td><td data-col="4">Not used.</td></tr>
+    <tr><td>Smell / Taste</td><td data-col="1">Bakery and exhaust remain natural landmarks.</td><td data-col="2">Unchanged.</td><td data-col="3">Unchanged.</td><td data-col="4">Unchanged.</td></tr>
+    <tr><td>Emotion</td><td data-col="1">Calm, aware</td><td data-col="2">Alert, curious</td><td data-col="3">Careful, in control</td><td data-col="4">Safe, relieved</td></tr>
+  </tbody></table></div>
+
+  <span class="slide-tag">SLIDE 15 · THE MOOD BOX</span>
+  <h3 style="margin-bottom:8px;font-size:clamp(26px,3.6vw,48px)" class="split">Prototyping the Experience</h3>
+  <p class="note" style="margin:0 0 20px">Low-fidelity physical swatches, a sound playlist and a live vibration demo for class.</p>
+  <div class="grid g21" style="align-items:start;margin-bottom:80px">
+    <div class="swatches" data-stagger>
+      <div class="glass sw tilt"><div class="tex neo"></div><div class="tx"><small>WRIST STRAP</small><b>Breathable neoprene (3 mm)</b><p>Soft, flexible, skin-friendly; holds motors firmly.</p></div></div>
+      <div class="glass sw tilt"><div class="tex shell"></div><div class="tx"><small>CASING</small><b>Textured 3D-printed shell (PLA/PETG)</b><p>Honeycomb texture, findable by touch; rounded hex corners.</p></div></div>
+      <div class="glass sw tilt"><div class="tex sil"></div><div class="tx"><small>UNDER MOTORS</small><b>Thin silicone / fabric liner</b><p>Spreads vibration evenly, avoids a sharp sting.</p></div></div>
+      <div class="glass sw tilt"><div class="tex hl"></div><div class="tx"><small>STRAP END</small><b>Hook-and-loop closure</b><p>Adjustable fit found by feel in one move.</p></div></div>
+    </div>
+    <div class="glass mood-demo">
+      <h3>Sound &amp; demo</h3>
+      <ul class="bul"><li><b>Street playlist:</b> traffic, horns, footsteps, crowd chatter at moderate volume.</li><li><b>Silence track:</b> to show that ultrasonic sensing adds no sound.</li><li><b>Live demo:</b> coin motor + Arduino on a classmate's wrist, eyes closed, while a hand moves toward the sensor.</li><li><b>Scent:</b> none, deliberately.</li></ul>
+      <div class="mood-btns">
+        <button class="btn danger" id="btnStreet" data-sfx>Play Busy Indian Street Audio (Overloaded Hearing)</button>
+        <button class="btn btn-teal" id="btnSilent" data-sfx>Activate EchoSense Silent Ultrasonic Mode</button>
+      </div>
+      <div class="lyrs" id="lyrs"><span class="lyr" data-l="traffic">TRAFFIC RUMBLE</span><span class="lyr" data-l="horn">HORNS</span><span class="lyr" data-l="crowd">CROWD</span><span class="lyr" data-l="beep">ARTIFICIAL BEEPS</span><span class="lyr" data-l="sub">110 Hz SUB-BASS</span></div>
+      <div class="rowf"><label>Hearing load <b id="mLoad">—</b></label><div class="meter"><i id="mMeter"></i></div></div>
+      <canvas id="moodCanvas" width="600" height="70"></canvas>
+      <p class="status" id="moodStatus">Audio is off. Press a button to hear what Asha hears — use headphones for the full effect.</p>
+    </div>
+  </div>
+
+  <span class="slide-tag">SLIDE 16 · TEST FOR SENSORY HARMONY</span>
+  <h3 style="margin-bottom:8px;font-size:clamp(26px,3.6vw,48px)" class="split">All inputs must tell the same story</h3>
+  <p class="note" style="margin:0 0 18px">Each risk of cognitive dissonance and how the design resolves it.</p>
+  <div class="glass scroll-x reveal"><table class="tbl"><thead><tr><th>Check</th><th>The story the senses must tell</th><th>Dissonance risk</th><th>Design resolution</th></tr></thead><tbody>
+    <tr><td>Sound ↔ Touch</td><td>Calm street, calm device</td><td>A beeping or buzzing device while the path is clear would feel alarming.</td><td>Silent ultrasonic sensing; band rests at zero when clear.</td></tr>
+    <tr><td>Touch ↔ Distance</td><td>Closer means stronger</td><td>A strong buzz for a far object feels wrong and erodes trust.</td><td>Monotonic mapping across four zones.</td></tr>
+    <tr><td>Material ↔ Function</td><td>Gentle guide, not a warning</td><td>A hard, sharp casing would feel hostile on the skin.</td><td>Neoprene strap, silicone liner, rounded hex shell.</td></tr>
+    <tr><td>Sight ↔ Touch</td><td>Quiet confidence</td><td>A bright flashing LED contradicts soft pulses.</td><td>Dim, steady status LED only.</td></tr>
+  </tbody></table></div>
+  <div class="callout reveal" style="margin:18px 0 26px"><b>Class trial protocol:</b> with eyes closed, a participant feels five random distances and names each as clear, aware, near or danger. Target: at least 8 of 10 correct without training.</div>
+
+  <div class="glass trial reveal" id="trialBox">
+    <div>
+      <span class="eyebrow">Interactive blindfolded class trial</span>
+      <h3 style="margin:10px 0 6px">Can you read the tactile language?</h3>
+      <p style="color:#c9d5ea;font-size:15px">Close your eyes (or keep Blindfold on), press play, then name the zone. Ten trials in two rounds of five. On a phone you will <b style="color:#fff">feel</b> it through <span class="mono">navigator.vibrate()</span>; on desktop it plays as a low tactile hum — use headphones.</p>
+      <div class="rowbtns"><button class="btn btn-gold magnetic" id="trialPlay" data-sfx>Play Mystery Vibration Pulse (5 Trials)</button><button class="btn btn-sm" id="trialRep" disabled data-sfx>↻ Replay pulse</button><button class="btn btn-sm" id="trialReset" data-sfx>Reset</button></div>
+      <label class="check"><input type="checkbox" id="trialBlind" checked> Blindfold mode: hide the visual cue</label>
+      <div class="guess" id="guess">
+        <button data-g="clear" disabled>Clear<small>200–400 cm</small></button><button data-g="aware" disabled>Aware<small>100–200 cm</small></button><button data-g="near" disabled>Near<small>50–100 cm</small></button><button data-g="danger" disabled>Danger<small>0–50 cm</small></button>
+      </div>
+    </div>
+    <div>
+      <div class="tviz blind" id="tviz"><svg viewBox="0 0 100 100"><polygon points="50,4 92,28 92,72 50,96 8,72 8,28" fill="#f5a623" opacity=".9"/><polygon points="50,28 72,40 72,60 50,72 28,60 28,40" fill="#07111f"/></svg><div class="msg" id="tmsg">Press play to begin.</div></div>
+      <div class="tpips" id="tpips"></div>
+      <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px"><div class="score" id="tscore">0 / 10</div><div class="mono" id="tinfo" style="color:var(--amber);font-size:13px">Rubric target: ≥ 8 / 10</div></div>
+    </div>
+  </div>
+ </div>
+</section>
+
+<!-- SIMULATOR -->
+<section id="sim">
+ <div class="wrap">
+  <header class="sec-head"><span class="eyebrow">Interactive Laboratory</span><h2 class="split">3D / 2D Haptic Echolocation Simulator</h2><p class="sub">Drag the obstacle through the 40 kHz sonar cone (or use the slider). Watch the time-of-flight, the zone, the PWM duty cycle and the pulse train respond in real time.</p></header>
+  <div class="glass sim reveal">
+    <canvas id="simCanvas" aria-label="Sonar cone. Drag the obstacle."></canvas>
+    <div class="rowf" style="margin:16px 4px 4px"><label>Obstacle distance <b id="simVal">140 cm</b></label><input class="rng" id="simRange" type="range" min="0" max="400" step="1" value="140" aria-label="Obstacle distance in centimetres"></div>
+    <div class="telem">
+      <div class="tl"><small>Distance</small><b id="tDist">140<u>cm</u></b></div>
+      <div class="tl"><small>Time of flight</small><b id="tToF">8.16<u>ms</u></b></div>
+      <div class="tl zone" id="tlZone"><small>Active zone</small><b id="tZone">Aware</b></div>
+      <div class="tl"><small>PWM duty cycle</small><b id="tPwm">100<u>/255 · 39%</u></b></div>
+      <div class="tl"><small>Pulse frequency</small><b id="tHz">1<u>Hz</u></b></div>
+    </div>
+    <div class="simgrid">
+      <div><canvas id="scope" aria-label="Live oscilloscope of the PWM pulse train"></canvas></div>
+      <div class="honey"><svg id="honeySvg" viewBox="-110 -105 220 210" aria-label="Seven-cell honeycomb motor array"></svg><span class="mono" style="font-size:11px;color:var(--muted)">7-CELL HONEYCOMB ARRAY · IN SYNC</span></div>
+    </div>
+    <div class="grid g21" style="margin-top:16px;align-items:stretch"><canvas id="simBand" aria-label="3D band reacting to the simulator"></canvas>
+      <div style="display:flex;flex-direction:column;justify-content:center;gap:12px"><p style="color:#c9d5ea;font-size:15px">The 3D band mirrors the simulator: its hexagonal ERM nodes glow with the live pulse and the sonar rings bounce back from the obstacle. Enable the output below for a tactile bass pulse and <span class="mono">navigator.vibrate()</span> on supported phones.</p>
+        <div class="rowbtns" style="margin:0"><button class="btn btn-gold magnetic" id="simHaptic" data-sfx>Enable tactile bass + vibrate</button></div>
+        <div class="rowbtns" style="margin:0"><button class="btn btn-sm" data-jump="30" data-sfx>Kerb · 30 cm</button><button class="btn btn-sm" data-jump="80" data-sfx>Crowd · 80 cm</button><button class="btn btn-sm" data-jump="150" data-sfx>Pole · 150 cm</button><button class="btn btn-sm" data-jump="320" data-sfx>Clear · 320 cm</button></div>
+        <p class="note" style="margin:0">HC-SR04 range is 2–400 cm; below 2 cm the sensor is blind, so the firmware treats it as Danger.</p></div></div>
+  </div>
+ </div>
+</section>
+
+<!-- CAD & BUILD · SLIDES 17-18 -->
+<section id="cad">
+ <div class="wrap">
+  <header class="sec-head"><span class="eyebrow">04 · Deliver</span><h2 class="split">Digital Twin: Concept, CAD &amp; Physical Build</h2><p class="sub">Concept renders of the final EchoSense band: assembled, exploded, shell and strap. Click any image to zoom; use ← → to browse.</p></header>
+  <span class="slide-tag">SLIDE 17 · DIGITAL TWIN</span>
+  <div class="banner-img reveal" data-lb="gallery" data-cap="EchoSense concept overview and sensory pentagon (master infographic)"><img src="echosense_infographic.jpg" alt="EchoSense master infographic: concept overview and sensory pentagon" decoding="async"><span class="cap">CONCEPT OVERVIEW · SENSORY PENTAGON</span></div>
+  <div class="grid g2" data-stagger>
+    <figure class="gal-card glass tilt" data-lb="gallery" data-cap="CAD 01 · ASSEMBLED — Fusion 360 product sheet: views, materials, dimensions"><img src="render-1.png" alt="CAD 01 assembled: Fusion 360 product sheet" decoding="async"><span class="ex">⤢</span><figcaption><b>CAD 01 · ASSEMBLED</b>Product sheet: views, materials, dimensions</figcaption></figure>
+    <figure class="gal-card glass tilt" data-lb="gallery" data-cap="CAD 02 · EXPLODED — Shell, HC-SR04, Arduino Nano, 3 ERM motors, strap"><img src="render-2.png" alt="CAD 02 exploded view: shell, HC-SR04, Arduino Nano, three motors, strap" decoding="async"><span class="ex">⤢</span><figcaption><b>CAD 02 · EXPLODED</b>Shell, HC-SR04, Nano, 3 motors, strap</figcaption></figure>
+    <figure class="gal-card glass tilt" data-lb="gallery" data-cap="BUILD 03 · SHELL — 3D-printed honeycomb texture, sensor cut-outs, swatches"><img src="photo-shell.png" alt="BUILD 03 shell: honeycomb textured 3D-printed shell with sensor cut-outs and swatches" decoding="async"><span class="ex">⤢</span><figcaption><b>BUILD 03 · SHELL</b>Honeycomb texture, sensor cut-outs, swatches</figcaption></figure>
+    <figure class="gal-card glass tilt" data-lb="gallery" data-cap="BUILD 04 · STRAP — Adjustable breathable neoprene band worn on the wrist"><img src="photo-strap.png" alt="BUILD 04 strap: adjustable neoprene band worn on the wrist" decoding="async"><span class="ex">⤢</span><figcaption><b>BUILD 04 · STRAP</b>Adjustable neoprene band worn on the wrist</figcaption></figure>
+  </div>
+  <span class="slide-tag" style="margin-top:50px">SLIDE 18 · LIVE WEBSITE &amp; GITHUB REPOSITORY</span>
+  <div class="glass repo reveal">
+    <div style="text-align:center"><a class="qr tilt" href="https://kt2141.github.io/EchoSense-Biomimetic-Design/" target="_blank" rel="noopener" data-lb="qr" data-cap="Scan to open the live site — kt2141.github.io/EchoSense-Biomimetic-Design"><img src="qr_website.png" alt="QR code linking to https://kt2141.github.io/EchoSense-Biomimetic-Design/" decoding="async"></a><p style="color:var(--amber);font-weight:800;margin-top:14px">Scan to open the live site</p><p class="mono" style="font-size:11px;color:var(--muted)">kt2141.github.io/EchoSense-Biomimetic-Design</p></div>
+    <div><h3>Repository: EchoSense-Biomimetic-Design</h3><p class="note" style="margin:0 0 6px">A public GitHub Pages site acts as the digital portfolio for the design.</p>
+      <ul class="bul"><li><b>index.html:</b> dark-mode, amber honeycomb landing page (problem, biomimetic solution, renders, design process).</li><li><b>README.md:</b> overview, Sensory Gap problem statement, biomimetic inspiration, system architecture, digital twin.</li><li><b>firmware/:</b> Arduino Nano sketch in C++ mapping distance to PWM haptic patterns.</li><li><b>assets/ and cad/:</b> diagrams, Fusion 360 renders and prototype photos.</li></ul>
+      <div class="rowbtns"><a class="btn btn-gold magnetic" href="https://github.com/kt2141/EchoSense-Biomimetic-Design" target="_blank" rel="noopener">GitHub Repository ↗</a><a class="btn magnetic" href="https://kt2141.github.io/EchoSense-Biomimetic-Design/" target="_blank" rel="noopener">Live Portal ↗</a><button class="btn btn-sm" id="copyLink" data-sfx>Copy live link</button></div></div>
+  </div>
+ </div>
+</section>
+
+<!-- DESIGNER · SLIDE 19 -->
+<section id="designer">
+ <div class="wrap">
+  <header class="sec-head"><span class="slide-tag">SLIDE 19</span><br><span class="eyebrow">About the Designer</span><h2 class="split">Aravind K. T.: Building on Prior Work</h2><p class="sub">Electrical engineering foundations meet human-centred, socially driven design.</p></header>
+  <div class="grid g3" data-stagger>
+    <div class="glass card designer-card tilt"><div class="avatar">AK</div><h3>Aravind K. T.</h3><p style="color:#fff;font-weight:800">Roll No. 240169</p><p>B.Tech, Electrical Engineering (2024–28)<br>Indian Institute of Technology Kanpur</p><p class="mono" style="font-size:12px;color:var(--amber2);margin-top:10px;line-height:1.9">aravindkt24@iitk.ac.in<br>sites.google.com/view/aravind-k-t-iitk<br>github.com/kt2141</p>
+      <div class="dlinks"><a class="btn btn-gold magnetic" href="https://kt2141.github.io/" target="_blank" rel="noopener">Portfolio · kt2141.github.io <span>↗</span></a><a class="btn magnetic" href="https://sites.google.com/view/aravind-k-t-iitk/" target="_blank" rel="noopener">Google Sites Portfolio <span>↗</span></a><a class="btn magnetic" href="https://github.com/kt2141" target="_blank" rel="noopener">GitHub · kt2141 <span>↗</span></a></div></div>
+    <div class="glass card tilt"><h3>Directly relevant work</h3><ul class="bul"><li><b>H.A.W.K. (Aug–Nov 2025):</b> Arduino-based autonomous tracking robot using ultrasonic, IR and UV sensing with servo and DC motor control. The same sensing know-how now serves people.</li><li><b>BlueBridge Civic Nexus:</b> civic-tech model that turns citizen complaints into visible action, framed around SDG 11, 16 and 9.</li></ul></div>
+    <div class="glass card tilt" style="border-top:3px solid var(--teal)"><h3>Skills brought to EchoSense</h3><ul class="bul"><li>Embedded C and Python; circuit design</li><li>Sensor integration and motor control</li><li>Grassroots, user-first problem framing</li><li>Policy and stakeholder communication</li><li>SDG-driven impact thinking</li></ul></div>
+  </div>
+ </div>
+</section>
+
+<!-- IMPACT · SLIDE 20 -->
+<section id="impact">
+ <div class="wrap">
+  <header class="sec-head"><span class="slide-tag">SLIDE 20</span><br><span class="eyebrow">Impact &amp; Next Steps</span><h2 class="split">Why It Matters and What Comes Next</h2></header>
+  <h3 style="margin-bottom:16px">Aligned with the UN SDGs</h3>
+  <div class="grid g2" data-stagger>
+    <div class="glass sdg tilt" style="--c:#4C9F38"><div class="num">3</div><div><b>SDG 3 · Good health &amp; well-being</b><p>Safer, less stressful mobility.</p></div></div>
+    <div class="glass sdg tilt" style="--c:#F36D25"><div class="num">9</div><div><b>SDG 9 · Industry, innovation &amp; infrastructure</b><p>Low-cost assistive hardware.</p></div></div>
+    <div class="glass sdg tilt" style="--c:#DD1367"><div class="num">10</div><div><b>SDG 10 · Reduced inequalities</b><p>Independence for people with visual impairment.</p></div></div>
+    <div class="glass sdg tilt" style="--c:#E08A00"><div class="num">11</div><div><b>SDG 11 · Sustainable cities</b><p>Streets that work for every body.</p></div></div>
+  </div>
+  <h3 style="margin:50px 0 6px">Roadmap</h3>
+  <div class="tl-road" data-stagger>
+    <div class="ph"><b>Now</b><p>Concept, CAD digital twin and low-fidelity mood box.</p></div>
+    <div class="ph"><b>Next</b><p>Working Arduino Nano prototype and bench-testing of the distance zones.</p></div>
+    <div class="ph"><b>Then</b><p>User testing with visually impaired participants; refine patterns and comfort.</p></div>
+    <div class="ph"><b>Later</b><p>Multi-sensor sweep, head-height detection, waterproofing, rechargeable battery and cost reduction.</p></div>
+  </div>
+  <div class="quote reveal">EchoSense lets people feel their surroundings, beyond sight and sound.</div>
+ </div>
+</section>
+
+<!-- REFERENCES · SLIDE 21 -->
+<section id="refs">
+ <div class="wrap">
+  <header class="sec-head"><span class="slide-tag">SLIDE 21</span><br><span class="eyebrow">References &amp; Credits</span><h2 class="split">References</h2></header>
+  <ul class="refs glass card" style="padding-block:10px">
+    <li><i>01</i><span>World Health Organization (2019). <em>World report on vision.</em> Geneva: WHO.</span></li>
+    <li><i>02</i><span>Griffin, D. R. (1958). <em>Listening in the Dark: The Acoustic Orientation of Bats and Men.</em> Yale University Press.</span></li>
+    <li><i>03</i><span>HC-SR04 ultrasonic ranging module datasheet (40 kHz, 2–400 cm).</span></li>
+    <li><i>04</i><span>Arduino Nano (ATmega328P) technical documentation, <a href="https://www.arduino.cc" target="_blank" rel="noopener" style="color:var(--amber2);text-decoration:underline">arduino.cc</a>.</span></li>
+    <li><i>05</i><span>Autodesk Fusion 360 for CAD modelling and rendering of the digital twin.</span></li>
+    <li><i>06</i><span>Design for Life (DES653): Course Project Process Guidelines (Discover, Define, Develop, Deliver).</span></li>
+  </ul>
+  <p class="note">Concept infographic and illustrative diagrams were created for this project. Sensory ratings are qualitative design judgements, not measurements.</p>
+ </div>
+</section>
+</main>
+
+<!-- FOOTER · SLIDE 22 -->
+<footer id="footer">
+ <div class="wrap">
+  <div class="thanks"><span class="slide-tag">SLIDE 22</span><h2 class="split">Thank you</h2><h3>EchoSense</h3><p>Feel your surroundings beyond sight and sound.</p>
+    <a class="qr tilt" style="display:inline-block" href="https://kt2141.github.io/EchoSense-Biomimetic-Design/" target="_blank" rel="noopener"><img src="qr_website.png" alt="Closing QR badge for the EchoSense live portal" decoding="async"></a>
+    <div class="foot-meta"><b style="color:#fff">Aravind K. T. · Roll No. 240169 · IIT Kanpur</b></div>
+    <div class="foot-meta"><a href="mailto:aravindkt24@iitk.ac.in">aravindkt24@iitk.ac.in</a><a href="https://github.com/kt2141" target="_blank" rel="noopener">github.com/kt2141</a><a href="https://sites.google.com/view/aravind-k-t-iitk/" target="_blank" rel="noopener">sites.google.com/view/aravind-k-t-iitk</a><a href="https://kt2141.github.io/" target="_blank" rel="noopener">kt2141.github.io</a></div></div>
+  <div id="instFoot"></div>
+  <p class="note" style="text-align:center;margin-top:26px">© 2026 Aravind K. T. · DES653 Design for Life · Department of Design, IIT Kanpur · Presented 12 November 2026</p>
+ </div>
+</footer>
+
+<button class="totop" id="totop" aria-label="Back to top" data-sfx>↑</button>
+
+<div id="lb" role="dialog" aria-modal="true" aria-label="Image viewer">
+  <button class="lbb" id="lbClose" aria-label="Close">✕</button><button class="lbb" id="lbPrev" aria-label="Previous image">←</button><button class="lbb" id="lbNext" aria-label="Next image">→</button>
+  <div id="lbStage"><img id="lbImg" alt=""></div><div id="lbCap"></div><div id="lbCount"></div>
+</div>
+
+<script type="text/plain" id="fwSrc">
+/*
+  echosense.ino — EchoSense Biomimetic Haptic Wearable
+  DES653: Design for Life · Department of Design, IIT Kanpur
+  Aravind K. T. · Roll No. 240169
+
+  Hardware (conceptual prototype)
+    HC-SR04 ultrasonic module : TRIG -> D2, ECHO -> D3, VCC 5 V, GND
+    3 x coin ERM motors       : D9, D10, D11 (PWM ~490 Hz) through an NPN
+                                transistor / logic MOSFET, flyback diode across each motor
+    Status LED (dim, steady)  : D6 through 1 kOhm
+
+  Echo equation:  d = (v * t) / 2,  v ~ 343 m/s at 20 C  ->  0.0343 cm/us
+*/
+
+const uint8_t TRIG_PIN = 2;
+const uint8_t ECHO_PIN = 3;
+const uint8_t MOTOR_PINS[3] = {9, 10, 11};
+const uint8_t LED_PIN = 6;
+
+const float    SPEED_CM_PER_US = 0.0343f;
+const float    MIN_CM = 2.0f;
+const float    MAX_CM = 400.0f;
+const uint32_t ECHO_TIMEOUT_US = 24000UL;   // ~4.1 m round trip
+const float    ALPHA   = 0.35f;             // exponential smoothing
+const float    HYST_CM = 5.0f;              // zone hysteresis
+
+enum Zone : uint8_t { ZONE_CLEAR, ZONE_AWARE, ZONE_NEAR, ZONE_DANGER };
+
+struct Pattern { uint8_t pwm; uint16_t period; uint16_t onTime; };
+
+const Pattern PATTERNS[4] = {
+  {   0,    0,   0 },   // CLEAR  : rest at zero (silence)
+  { 100, 1000, 150 },   // AWARE  : gentle pulse, 1 Hz
+  { 180,  333, 120 },   // NEAR   : faster pulse, ~3 Hz
+  { 255,    0,   0 }    // DANGER : continuous rapid buzz
+};
+
+Zone     zone = ZONE_CLEAR;
+float    smoothed = MAX_CM;
+float    hist[3] = {MAX_CM, MAX_CM, MAX_CM};
+uint8_t  hi = 0;
+uint32_t lastPing = 0;
+
+float pingOnce() {
+  digitalWrite(TRIG_PIN, LOW);  delayMicroseconds(2);
+  digitalWrite(TRIG_PIN, HIGH); delayMicroseconds(10);
+  digitalWrite(TRIG_PIN, LOW);
+  uint32_t us = pulseIn(ECHO_PIN, HIGH, ECHO_TIMEOUT_US);
+  if (us == 0) return MAX_CM;                 // no echo -> path clear
+  float cm = (us * SPEED_CM_PER_US) / 2.0f;   // d = (v * t) / 2
+  return constrain(cm, MIN_CM, MAX_CM);
+}
+
+float readDistance() {
+  hist[hi] = pingOnce();
+  hi = (hi + 1) % 3;
+  float a = hist[0], b = hist[1], c = hist[2];
+  float med = max(min(a, b), min(max(a, b), c));   // median of last three
+  smoothed += ALPHA * (med - smoothed);
+  return smoothed;
+}
+
+Zone classify(float cm, Zone current) {
+  Zone target = cm > 200 ? ZONE_CLEAR
+              : cm > 100 ? ZONE_AWARE
+              : cm > 50  ? ZONE_NEAR
+                         : ZONE_DANGER;
+  if (target > current) return target;          // approaching: react instantly
+  const float leave[4] = {0, 200, 100, 50};     // outer edge of each zone
+  return (cm > leave[current] + HYST_CM) ? target : current;   // receding: hysteresis
+}
+
+void drive(Zone z, uint32_t now) {
+  const Pattern &p = PATTERNS[z];
+  uint8_t out = 0;
+  if (p.pwm > 0) {
+    if (p.period == 0) out = p.pwm;                              // continuous
+    else out = (now % p.period) < p.onTime ? p.pwm : 0;          // pulsed
+  }
+  for (uint8_t i = 0; i < 3; i++) analogWrite(MOTOR_PINS[i], out);
+  analogWrite(LED_PIN, 12);                                      // dim, steady status LED
+}
+
+void setup() {
+  pinMode(TRIG_PIN, OUTPUT);
+  pinMode(ECHO_PIN, INPUT);
+  for (uint8_t i = 0; i < 3; i++) pinMode(MOTOR_PINS[i], OUTPUT);
+  pinMode(LED_PIN, OUTPUT);
+  Serial.begin(115200);
+}
+
+void loop() {
+  uint32_t now = millis();
+  if (now - lastPing >= 60) {                   // ~16 scans per second
+    lastPing = now;
+    float cm = readDistance();
+    zone = classify(cm, zone);
+    Serial.print(F("d = ")); Serial.print(cm, 1);
+    Serial.print(F(" cm  zone = ")); Serial.println(zone);
+  }
+  drive(zone, now);                             // non-blocking haptic pattern
+}
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+<script>
+(function(){
+'use strict';
+/* ============ helpers ============ */
+var $=function(s,c){return (c||document).querySelector(s)},$$=function(s,c){return Array.prototype.slice.call((c||document).querySelectorAll(s))};
+var clamp=function(v,a,b){return Math.min(b,Math.max(a,v))},lerp=function(a,b,t){return a+(b-a)*t};
+var isTouch=matchMedia('(pointer:coarse)').matches,reduced=matchMedia('(prefers-reduced-motion:reduce)').matches;
+var hasGSAP=typeof gsap!=='undefined',hasST=hasGSAP&&typeof ScrollTrigger!=='undefined',hasTHREE=typeof THREE!=='undefined',hasLenis=typeof Lenis!=='undefined';
+if(hasST)gsap.registerPlugin(ScrollTrigger);
+var mouseN={x:0,y:0},mouse={x:innerWidth/2,y:innerHeight/2};
+var scrollP=0,lenis=null;
+var ZONES=[
+ {id:'danger',name:'Danger',max:50,pwm:255,hz:null,color:'#e0555a'},
+ {id:'near',name:'Near',max:100,pwm:180,hz:3,color:'#d98a00'},
+ {id:'aware',name:'Aware',max:200,pwm:100,hz:1,color:'#f5a623'},
+ {id:'clear',name:'Clear',max:400,pwm:0,hz:0,color:'#ffe09a'}];
+function zoneOf(cm){return cm<=50?ZONES[0]:cm<=100?ZONES[1]:cm<=200?ZONES[2]:ZONES[3]}
+function zById(id){return ZONES.filter(function(z){return z.id===id})[0]}
+function envAt(z,ms){switch(z.id){case 'clear':return 0;case 'aware':return(ms%1000)<150?1:0;case 'near':return(ms%333)<120?1:0;default:return 1}}
+window.addEventListener('pointermove',function(e){mouse.x=e.clientX;mouse.y=e.clientY;mouseN.x=e.clientX/innerWidth*2-1;mouseN.y=-(e.clientY/innerHeight*2-1)},{passive:true});
+
+/* institutional banner clones */
+(function(){var t=$('#instTpl');['#instTop','#instFoot'].forEach(function(id){var h=$(id);if(h)h.appendChild(t.content.cloneNode(true))})})();
+
+/* ============ AUDIO ENGINE ============ */
+var eqBars=$$('#eq i');
+var AE={ctx:null,on:false,bgm:false,ducked:false,_h:0,ci:0,
+ chords:[[73.42,146.83,174.61,220,293.66],[58.27,116.54,174.61,233.08,293.66],[87.31,174.61,220,261.63,349.23],[65.41,130.81,196,261.63,329.63],[73.42,146.83,220,293.66,349.23],[98,196,233.08,293.66,392],[110,220,261.63,329.63,440],[73.42,146.83,220,261.63,349.23]],
+ init:function(){
+  if(this.ctx)return true;
+  var AC=window.AudioContext||window.webkitAudioContext;if(!AC)return false;
+  var c=this.ctx=new AC();
+  this.master=c.createGain();this.master.gain.value=.9;
+  var comp=c.createDynamicsCompressor();comp.threshold.value=-18;comp.ratio.value=4;
+  this.an=c.createAnalyser();this.an.fftSize=64;this.an.smoothingTimeConstant=.8;this.anData=new Uint8Array(this.an.frequencyBinCount);
+  this.master.connect(comp);comp.connect(this.an);this.an.connect(c.destination);
+  this.bgmBus=c.createGain();this.bgmBus.gain.value=0;this.bgmBus.connect(this.master);
+  this.sfxBus=c.createGain();this.sfxBus.gain.value=.7;this.sfxBus.connect(this.master);
+  this.fxBus=c.createGain();this.fxBus.gain.value=.9;this.fxBus.connect(this.master);
+  this.padIn=c.createBiquadFilter();this.padIn.type='lowpass';this.padIn.frequency.value=650;this.padIn.Q.value=3.5;
+  var lfo=c.createOscillator();lfo.type='sine';lfo.frequency.value=.06;var lg=c.createGain();lg.gain.value=420;lfo.connect(lg);lg.connect(this.padIn.frequency);lfo.start();
+  var dly=c.createDelay(2);dly.delayTime.value=.68;var fb=c.createGain();fb.gain.value=.42;this.delayIn=c.createGain();this.delayIn.gain.value=.4;
+  this.padIn.connect(this.bgmBus);this.padIn.connect(this.delayIn);this.delayIn.connect(dly);dly.connect(fb);fb.connect(dly);dly.connect(this.bgmBus);
+  return true},
+ resume:function(){if(this.ctx&&this.ctx.state!=='running'){try{return this.ctx.resume()}catch(e){}}return Promise.resolve()},
+ voice:function(f,t0,dur,vol,type){var c=this.ctx,o=c.createOscillator();o.type=type;o.frequency.value=f;o.detune.value=(Math.random()-.5)*14;var g=c.createGain();g.gain.setValueAtTime(.0001,t0);g.gain.linearRampToValueAtTime(vol,t0+dur*.35);g.gain.linearRampToValueAtTime(vol*.7,t0+dur*.7);g.gain.linearRampToValueAtTime(.0001,t0+dur);o.connect(g);g.connect(this.padIn);o.start(t0);o.stop(t0+dur+.1)},
+ nextChord:function(){if(!this.bgm)return;var t=this.ctx.currentTime+.05,ch=this.chords[this.ci++%this.chords.length],self=this;ch.forEach(function(f,i){self.voice(f,t,9,i===0?.16:.07,i%2?'triangle':'sine');if(i>0)self.voice(f*1.004,t,9,.035,'sine')})},
+ bell:function(){if(!this.bgm)return;var c=this.ctx,t=c.currentTime,n=[587.33,698.46,880,1046.5,659.25,783.99][Math.floor(Math.random()*6)];var o=c.createOscillator(),g=c.createGain();o.type='sine';o.frequency.value=n;g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(.05,t+.01);g.gain.exponentialRampToValueAtTime(.0001,t+3.2);o.connect(g);g.connect(this.bgmBus);g.connect(this.delayIn);o.start(t);o.stop(t+3.3);var self=this;this.bellT=setTimeout(function(){self.bell()},3000+Math.random()*4500)},
+ startBGM:function(){if(this.bgm)return;this.bgm=true;var c=this.ctx;this.bgmBus.gain.cancelScheduledValues(c.currentTime);this.bgmBus.gain.setTargetAtTime(this.ducked?.08:.55,c.currentTime,1.2);this.nextChord();var self=this;this.chT=setInterval(function(){self.nextChord()},7500);this.bell()},
+ stopBGM:function(){this.bgm=false;clearInterval(this.chT);clearTimeout(this.bellT);if(this.ctx)this.bgmBus.gain.setTargetAtTime(0,this.ctx.currentTime,.4)},
+ duck:function(on){this.ducked=on;if(this.bgm&&this.ctx)this.bgmBus.gain.setTargetAtTime(on?.08:.55,this.ctx.currentTime,.3)},
+ toggle:function(force){var self=this;if(!this.init()){alert('Web Audio is not supported in this browser.');return Promise.resolve()}
+  return this.resume().then(function(){var next=force!==undefined?force:!self.on;self.on=next;next?self.startBGM():self.stopBGM();self.ui();if(next)self.ping(0,880,.1)})},
+ ui:function(){var b=$('#audioBtn');b.setAttribute('aria-pressed',this.on);b.classList.toggle('on',this.on);$('#audioState').textContent=this.on?'ON':'OFF'},
+ panner:function(x){var c=this.ctx,p=c.createPanner();p.panningModel='HRTF';p.distanceModel='inverse';p.refDistance=1;var X=clamp(x,-1,1)*3;if(p.positionX){p.positionX.value=X;p.positionY.value=0;p.positionZ.value=-1}else p.setPosition(X,0,-1);p.connect(this.sfxBus);return p},
+ hover:function(){if(!this.on||!this.ctx)return;var n=performance.now();if(n-this._h<70)return;this._h=n;var c=this.ctx,t=c.currentTime,p=this.panner(mouseN.x);[1,1.5].forEach(function(m,i){var o=c.createOscillator(),g=c.createGain();o.type=i?'triangle':'sine';o.frequency.setValueAtTime(900*m,t);o.frequency.exponentialRampToValueAtTime(1500*m,t+.05);g.gain.setValueAtTime(.0001,t);g.gain.exponentialRampToValueAtTime(i?.02:.045,t+.008);g.gain.exponentialRampToValueAtTime(.0001,t+.1);o.connect(g);g.connect(p);o.start(t);o.stop(t+.12)})},
+ click:function(){if(!this.on||!this.ctx)return;var c=this.ctx,t=c.currentTime,p=this.panner(mouseN.x);[660,990].forEach(function(f,i){var o=c.createOscillator(),g=c.createGain();o.type='triangle';o.frequency.value=f;g.gain.setValueAtTime(.0001,t+i*.05);g.gain.exponentialRampToValueAtTime(.07,t+i*.05+.01);g.gain.exponentialRampToValueAtTime(.0001,t+i*.05+.16);o.connect(g);g.connect(p);o.start(t+i*.05);o.stop(t+i*.05+.2)})},
+ sweep:function(up){if(!this.on||!this.ctx)return;var c=this.ctx,t=c.currentTime,o=c.createOscillator(),g=c.createGain(),p=this.panner(mouseN.x);o.type='sawtooth';var a=up===false?1400:300,b=up===false?300:1400;o.frequency.setValueAtTime(a,t);o.frequency.exponentialRampToValueAtTime(b,t+.22);var f=c.createBiquadFilter();f.type='lowpass';f.frequency.value=2400;g.gain.setValueAtTime(.0001,t);g.gain.exponentialRampToValueAtTime(.045,t+.03);g.gain.exponentialRampToValueAtTime(.0001,t+.26);o.connect(f);f.connect(g);g.connect(p);o.start(t);o.stop(t+.3)},
+ ping:function(x,freq,vol){if(!this.on||!this.ctx)return;var c=this.ctx,t=c.currentTime,p=this.panner(x===undefined?mouseN.x:x);freq=freq||1200;vol=vol||.12;[[0,1],[.2,.35]].forEach(function(e){var o=c.createOscillator(),g=c.createGain();o.type='sine';o.frequency.setValueAtTime(freq,t+e[0]);o.frequency.exponentialRampToValueAtTime(freq*.65,t+e[0]+.5);g.gain.setValueAtTime(.0001,t+e[0]);g.gain.exponentialRampToValueAtTime(vol*e[1],t+e[0]+.01);g.gain.exponentialRampToValueAtTime(.0001,t+e[0]+.6);o.connect(g);g.connect(p);o.start(t+e[0]);o.stop(t+e[0]+.65)})},
+ tactile:function(id,total,scale){
+  total=total||3000;scale=scale||1;if(!this.init())return;this.resume();var z=zById(id);
+  if(navigator.vibrate)navigator.vibrate(0);if(id==='clear')return;
+  var c=this.ctx,t=c.currentTime+.05,duty=z.pwm/255,amp=.45*duty*scale;
+  var o=c.createOscillator(),o2=c.createOscillator(),g=c.createGain(),g2=c.createGain();o.type='sine';o.frequency.value=110;o2.type='triangle';o2.frequency.value=220;g2.gain.value=.25;o.connect(g);o2.connect(g2);g2.connect(g);g.connect(this.fxBus);g.gain.setValueAtTime(0,t);
+  var arr=[];
+  if(id==='danger'){g.gain.linearRampToValueAtTime(amp,t+.03);g.gain.setValueAtTime(amp,t+total/1000-.05);g.gain.linearRampToValueAtTime(0,t+total/1000);arr.push(total);
+   var l=c.createOscillator(),lg=c.createGain();l.frequency.value=28;lg.gain.value=amp*.35;l.connect(lg);lg.connect(g.gain);l.start(t);l.stop(t+total/1000+.1)}
+  else{var on=id==='aware'?150:120,off=id==='aware'?850:213,tm=0;while(tm<total){var s=t+tm/1000;g.gain.setValueAtTime(0,s);g.gain.linearRampToValueAtTime(amp,s+.012);g.gain.setValueAtTime(amp,s+on/1000-.015);g.gain.linearRampToValueAtTime(0,s+on/1000);arr.push(on,off);tm+=on+off}}
+  o.start(t);o2.start(t);o.stop(t+total/1000+.2);o2.stop(t+total/1000+.2);
+  if(navigator.vibrate)navigator.vibrate(arr)}
+};
+/* equalizer (real analyser) */
+(function eqLoop(){requestAnimationFrame(eqLoop);if(AE.an){AE.an.getByteFrequencyData(AE.anData);var any=0;eqBars.forEach(function(b,i){var v=AE.anData[2+i*3]/255;any+=v;b.style.transform='scaleY('+(.2+v*1.1)+')'});if(any>0)return}
+ eqBars.forEach(function(b,i){b.style.transform='scaleY('+(.2+.04*Math.sin(Date.now()/600+i))+')'})})();
+$('#audioBtn').addEventListener('click',function(){AE.toggle();AE.click()});
+
+/* ============ MOOD BOX AUDIO ============ */
+var Mood={mode:'off',nodes:[],timers:[],out:null,hum:null,
+ noise:function(kind){var c=AE.ctx,len=c.sampleRate*2,b=c.createBuffer(1,len,c.sampleRate),d=b.getChannelData(0),l=0;for(var i=0;i<len;i++){var w=Math.random()*2-1;if(kind==='brown'){l=(l+.02*w)/1.02;d[i]=l*3.5}else if(kind==='pink'){l=.97*l+.03*w;d[i]=l*3}else d[i]=w}var s=c.createBufferSource();s.buffer=b;s.loop=true;return s},
+ flash:function(k){var el=$('.lyr[data-l="'+k+'"]');if(!el)return;el.classList.add('f');setTimeout(function(){el.classList.remove('f')},380)},
+ horn:function(){var out=this.out;if(!out)return;var c=AE.ctx,t=c.currentTime,dur=.25+Math.random()*.7,f=[380,420,460,520][Math.floor(Math.random()*4)];var pan=c.createStereoPanner?c.createStereoPanner():null;if(pan)pan.pan.value=Math.random()*2-1;var g=c.createGain();g.gain.setValueAtTime(.0001,t);g.gain.exponentialRampToValueAtTime(.16,t+.03);g.gain.setValueAtTime(.16,t+dur);g.gain.exponentialRampToValueAtTime(.0001,t+dur+.12);var lp=c.createBiquadFilter();lp.type='lowpass';lp.frequency.value=2200;[f,f*1.26].forEach(function(fr){var o=c.createOscillator();o.type='sawtooth';o.frequency.setValueAtTime(fr*.93,t);o.frequency.exponentialRampToValueAtTime(fr,t+.05);o.connect(lp);o.start(t);o.stop(t+dur+.2)});lp.connect(g);if(pan){g.connect(pan);pan.connect(out)}else g.connect(out);this.flash('horn')},
+ beep:function(){var out=this.out;if(!out)return;var c=AE.ctx,t=c.currentTime;[0,.14].forEach(function(d){var o=c.createOscillator(),g=c.createGain();o.type='square';o.frequency.value=2000;g.gain.setValueAtTime(.0001,t+d);g.gain.exponentialRampToValueAtTime(.05,t+d+.005);g.gain.setValueAtTime(.05,t+d+.07);g.gain.exponentialRampToValueAtTime(.0001,t+d+.09);o.connect(g);g.connect(out);o.start(t+d);o.stop(t+d+.1)});this.flash('beep')},
+ step:function(){var out=this.out;if(!out)return;var c=AE.ctx,t=c.currentTime,o=c.createOscillator(),g=c.createGain();o.type='sine';o.frequency.setValueAtTime(110,t);o.frequency.exponentialRampToValueAtTime(48,t+.09);g.gain.setValueAtTime(.0001,t);g.gain.exponentialRampToValueAtTime(.18,t+.01);g.gain.exponentialRampToValueAtTime(.0001,t+.12);o.connect(g);g.connect(out);o.start(t);o.stop(t+.14)},
+ sched:function(fn,min,max){var self=this,loop=function(){if(self.mode!=='street')return;fn();self.timers.push(setTimeout(loop,min+Math.random()*(max-min)))};this.timers.push(setTimeout(loop,min*.5))},
+ street:function(){var self=this;if(!AE.init())return;AE.resume().then(function(){
+  self.stop(true);self.mode='street';AE.duck(true);var c=AE.ctx,t=c.currentTime,out=c.createGain();out.gain.setValueAtTime(0,t);out.gain.linearRampToValueAtTime(1,t+1.2);out.connect(AE.fxBus);self.out=out;
+  var add=function(n){self.nodes.push(n);return n};
+  var r=add(self.noise('brown')),rf=c.createBiquadFilter();rf.type='lowpass';rf.frequency.value=260;var rg=c.createGain();rg.gain.value=.9;r.connect(rf);rf.connect(rg);rg.connect(out);r.start();
+  var tr=add(self.noise('pink')),tf=c.createBiquadFilter();tf.type='bandpass';tf.frequency.value=700;tf.Q.value=.7;var tg=c.createGain();tg.gain.value=.35;tr.connect(tf);tf.connect(tg);tg.connect(out);tr.start();
+  var l1=add(c.createOscillator());l1.frequency.value=.13;var l1g=c.createGain();l1g.gain.value=350;l1.connect(l1g);l1g.connect(tf.frequency);l1.start();
+  var cr=add(self.noise('white')),cf1=c.createBiquadFilter(),cf2=c.createBiquadFilter(),cg=c.createGain();cf1.type='bandpass';cf1.frequency.value=520;cf1.Q.value=2.2;cf2.type='bandpass';cf2.frequency.value=1500;cf2.Q.value=2.8;cg.gain.value=.16;
+  var lc=add(c.createOscillator());lc.frequency.value=5.3;var lcg=c.createGain();lcg.gain.value=.09;lc.connect(lcg);lcg.connect(cg.gain);lc.start();
+  cr.connect(cf1);cr.connect(cf2);cf1.connect(cg);cf2.connect(cg);cg.connect(out);cr.start();
+  self.flash('traffic');self.flash('crowd');
+  self.sched(function(){self.horn()},1400,3800);self.sched(function(){self.beep()},1800,3200);self.sched(function(){self.step()},350,520);
+  setUI('street')})},
+ silent:function(){var self=this;if(!AE.init())return;AE.resume().then(function(){
+  self.stop(true);self.mode='silent';AE.duck(true);var c=AE.ctx,t=c.currentTime,o=c.createOscillator(),o2=c.createOscillator(),g=c.createGain(),g2=c.createGain();
+  o.type='sine';o.frequency.value=110;o2.type='sine';o2.frequency.value=55;g2.gain.value=.5;g.gain.value=0;o.connect(g);o2.connect(g2);g2.connect(g);g.connect(AE.fxBus);o.start(t);o2.start(t);self.hum=[o,o2,g];
+  var beat=function(){if(self.mode!=='silent')return;var n=c.currentTime;g.gain.cancelScheduledValues(n);g.gain.setValueAtTime(.0001,n);g.gain.linearRampToValueAtTime(.4,n+.03);g.gain.setValueAtTime(.4,n+.2);g.gain.linearRampToValueAtTime(.0001,n+.32);if(navigator.vibrate)navigator.vibrate(200);self.flash('sub');var m=$('#moodCanvas');m.dataset.beat=performance.now()};
+  beat();self.timers.push(setInterval(beat,1000));setUI('silent')})},
+ stop:function(hard){this.timers.forEach(function(id){clearTimeout(id);clearInterval(id)});this.timers=[];var c=AE.ctx;if(!c)return;
+  if(this.out){var out=this.out,nodes=this.nodes;out.gain.cancelScheduledValues(c.currentTime);out.gain.setTargetAtTime(0,c.currentTime,hard?.02:.08);setTimeout(function(){nodes.forEach(function(n){try{n.stop()}catch(e){}});try{out.disconnect()}catch(e){}},hard?250:700);this.out=null;this.nodes=[]}
+  if(this.hum){var h=this.hum;h[2].gain.cancelScheduledValues(c.currentTime);h[2].gain.setTargetAtTime(0,c.currentTime,.02);setTimeout(function(){try{h[0].stop();h[1].stop()}catch(e){}},300);this.hum=null}
+  if(navigator.vibrate)navigator.vibrate(0);this.mode='off';AE.duck(false);if(!hard)setUI('off')}};
+function setUI(m){
+ var s=$('#btnStreet'),q=$('#btnSilent');s.classList.toggle('on',m==='street');q.classList.toggle('on',m==='silent');
+ var st=$('#moodStatus'),ml=$('#mLoad'),mm=$('#mMeter');
+ if(m==='street'){st.textContent='STREET MODE · traffic rumble, horns, crowd and artificial beeps all compete for the same ears. Hearing load: Sound 5/5.';ml.textContent='Sound 5 / 5 · overloaded';mm.style.width='100%'}
+ else if(m==='silent'){st.textContent='SILENT ULTRASONIC MODE · beeps filtered out. A 110 Hz tactile hum pulses once a second, synced with navigator.vibrate() on supported phones. Hearing load: Sound 3/5.';ml.textContent='Sound 3 / 5 · hearing stays free';mm.style.width='42%'}
+ else{st.textContent='Audio is off. Press a button to hear what Asha hears — use headphones for the full effect.';ml.textContent='—';mm.style.width='0'}}
+$('#btnStreet').addEventListener('click',function(){Mood.mode==='street'?Mood.stop():Mood.street()});
+$('#btnSilent').addEventListener('click',function(){Mood.mode==='silent'?Mood.stop():Mood.silent()});
+(function moodViz(){requestAnimationFrame(moodViz);var cv=$('#moodCanvas');if(!cv)return;var x=cv.getContext('2d'),W=cv.width,H=cv.height;x.clearRect(0,0,W,H);
+ var n=32,bw=W/n,beat=performance.now()-(+cv.dataset.beat||0);
+ if(AE.an){AE.an.getByteFrequencyData(AE.anData)}
+ for(var i=0;i<n;i++){var v=AE.anData?AE.anData[i]/255:0;if(Mood.mode==='silent'&&i<4)v=Math.max(v,Math.max(0,1-beat/350)*.9);var h=Math.max(2,v*H*.95);var g=x.createLinearGradient(0,H-h,0,H);g.addColorStop(0,Mood.mode==='silent'?'#20a4bd':'#e0555a');g.addColorStop(1,'#f5a623');x.fillStyle=g;x.fillRect(i*bw+2,H-h,bw-4,h)}})();
+
+/* ============ SPLIT TEXT / SCROLL / LENIS ============ */
+function splitEl(el,mode){
+ (function walk(node){Array.prototype.slice.call(node.childNodes).forEach(function(n){
+  if(n.nodeType===3){var frag=document.createDocumentFragment();n.textContent.split(/(\s+)/).forEach(function(p){if(!p)return;if(/^\s+$/.test(p)){frag.appendChild(document.createTextNode(' '));return}
+    var w=document.createElement('span');w.className='w';var inner=document.createElement('span');inner.className='wi';
+    if(mode==='chars'){Array.prototype.forEach.call(p,function(ch){var c=document.createElement('span');c.className='ch';c.textContent=ch;inner.appendChild(c)})}else inner.textContent=p;
+    w.appendChild(inner);frag.appendChild(w)});n.replaceWith(frag)}
+  else if(n.nodeType===1&&n.tagName!=='BR')walk(n)})})(el)}
+var heroTitle=$('#heroTitle');if(heroTitle)splitEl(heroTitle,'chars');
+$$('.split').forEach(function(el){splitEl(el,'words')});
+
+if(hasLenis&&!reduced){lenis=new Lenis({lerp:.085,smoothWheel:true,wheelMultiplier:.95});
+ if(hasST){lenis.on('scroll',ScrollTrigger.update);gsap.ticker.add(function(t){lenis.raf(t*1000)});gsap.ticker.lagSmoothing(0)}
+ else{(function r(t){lenis.raf(t);requestAnimationFrame(r)})(0)}}
+function updateScroll(){var h=document.documentElement.scrollHeight-innerHeight;var y=window.scrollY||document.documentElement.scrollTop;scrollP=h>0?clamp(y/h,0,1):0;$('#progress').style.transform='scaleX('+scrollP+')';$('#totop').classList.toggle('show',y>900)}
+if(lenis)lenis.on('scroll',updateScroll);window.addEventListener('scroll',updateScroll,{passive:true});updateScroll();
+function goTo(target){if(!target)return;if(lenis)lenis.scrollTo(target,{offset:-70,duration:1.6});else target.scrollIntoView({behavior:'smooth'})}
+$$('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var h=a.getAttribute('href');if(h.length<2)return;var t=document.querySelector(h);if(!t)return;e.preventDefault();closeMenu();AE.ping(mouseN.x,1500,.08);goTo(t)})});
+$('#totop').addEventListener('click',function(){lenis?lenis.scrollTo(0,{duration:1.6}):scrollTo({top:0,behavior:'smooth'})});
+function closeMenu(){$('#mob').classList.remove('open');$('#burger').classList.remove('x');$('#burger').setAttribute('aria-expanded','false');if(lenis&&!$('#lb').classList.contains('open'))lenis.start()}
+$('#burger').addEventListener('click',function(){var o=$('#mob').classList.toggle('open');this.classList.toggle('x',o);this.setAttribute('aria-expanded',o);if(lenis)o?lenis.stop():lenis.start()});
+
+/* section dots + nav highlight */
+var SECS=[['top','Institutional Banner'],['hero','Overview'],['roadmap','Roadmap'],['discover','01 Discover'],['define','02 Define'],['develop','03 Develop'],['deliver','04 Deliver'],['sim','3D Simulator'],['cad','CAD & Build'],['designer','About Designer'],['impact','Impact & SDGs'],['refs','References']];
+var dotsEl=$('#dots');SECS.forEach(function(s){var a=document.createElement('a');a.href='#'+s[0];a.dataset.s=s[0];a.setAttribute('aria-label',s[1]);a.innerHTML='<span>'+s[1]+'</span>';dotsEl.appendChild(a)});
+function setActive(id){$$('#dots a').forEach(function(a){a.classList.toggle('act',a.dataset.s===id)});$$('.navlinks a').forEach(function(a){a.classList.toggle('act',a.getAttribute('href')==='#'+id)})}
+if(hasST){SECS.forEach(function(s){var el=document.getElementById(s[0]);if(!el)return;ScrollTrigger.create({trigger:el,start:'top 55%',end:'bottom 55%',onToggle:function(self){if(self.isActive)setActive(s[0])}})})}
+
+/* reveals */
+function revealAll(){
+ if(!hasST)return;
+ $$('.split').forEach(function(el){gsap.from($$('.wi',el),{yPercent:115,duration:1.05,ease:'power4.out',stagger:.045,scrollTrigger:{trigger:el,start:'top 88%',once:true}})});
+ $$('.reveal').forEach(function(el){gsap.from(el,{y:50,opacity:0,duration:1,ease:'power3.out',clearProps:'transform,opacity',scrollTrigger:{trigger:el,start:'top 90%',once:true}})});
+ $$('[data-stagger]').forEach(function(el){gsap.from(el.children,{y:60,opacity:0,duration:.95,ease:'power3.out',stagger:.09,clearProps:'transform,opacity',scrollTrigger:{trigger:el,start:'top 88%',once:true}})});
+ $$('.gal-card,.banner-img img').forEach(function(el){if(reduced)return;gsap.fromTo(el.tagName==='IMG'?el:$('img',el),{scale:1.12},{scale:1,ease:'none',scrollTrigger:{trigger:el,start:'top bottom',end:'bottom top',scrub:true}})});
+ $$('[data-count]').forEach(function(el){var end=parseFloat(el.dataset.count),dec=+(el.dataset.dec||0),o={v:0};ScrollTrigger.create({trigger:el,start:'top 95%',once:true,onEnter:function(){gsap.to(o,{v:end,duration:2.2,ease:'power2.out',onUpdate:function(){el.textContent=o.v.toFixed(dec)}})}})});
+ ScrollTrigger.create({trigger:'#loadChart',start:'top 85%',once:true,onEnter:function(){$('#loadChart').classList.add('in')}});
+}
+revealAll();
+var rT;function debRefresh(){clearTimeout(rT);rT=setTimeout(function(){if(hasST)ScrollTrigger.refresh()},250)}
+$$('img').forEach(function(im){if(!im.complete)im.addEventListener('load',debRefresh);im.addEventListener('error',function(){im.classList.add('img-missing')})});
+window.addEventListener('load',debRefresh);if(document.fonts&&document.fonts.ready)document.fonts.ready.then(debRefresh);
+
+/* ============ CURSOR / MAGNETIC / TILT / BURST ============ */
+var HOVSEL='a,button,.hov,input,.tilt,.zoomable,[data-lb],label';
+if(!isTouch){document.body.classList.add('has-cursor');
+ var dot=$('#cur-dot'),ring=$('#cur-ring'),rx=mouse.x,ry=mouse.y;
+ (function cl(){requestAnimationFrame(cl);rx=lerp(rx,mouse.x,.16);ry=lerp(ry,mouse.y,.16);dot.style.transform='translate('+mouse.x+'px,'+mouse.y+'px)';ring.style.transform='translate('+rx+'px,'+ry+'px)'})();
+ document.addEventListener('pointerover',function(e){if(e.target.closest&&e.target.closest(HOVSEL))ring.classList.add('hot')});
+ document.addEventListener('pointerout',function(e){if(e.target.closest&&e.target.closest(HOVSEL)){var r=e.relatedTarget;if(!(r&&r.closest&&r.closest(HOVSEL)))ring.classList.remove('hot')}});
+ document.addEventListener('pointerdown',function(){ring.classList.add('down')});document.addEventListener('pointerup',function(){ring.classList.remove('down')})}
+var lastHover=null;
+document.addEventListener('pointerover',function(e){var el=e.target.closest&&e.target.closest('a,button,[data-sfx]');if(el&&el!==lastHover){lastHover=el;AE.hover()}});
+document.addEventListener('pointerout',function(e){var r=e.relatedTarget;if(!r||!(lastHover&&lastHover.contains(r)))lastHover=null});
+document.addEventListener('click',function(e){var el=e.target.closest&&e.target.closest('[data-sfx],a.btn');if(el&&el.id!=='audioBtn')AE.click()});
+
+var mags=$$('.magnetic').map(function(el){return{el:el,x:0,y:0,tx:0,ty:0}});
+if(!isTouch){window.addEventListener('pointermove',function(e){mags.forEach(function(m){var r=m.el.getBoundingClientRect();if(r.width===0)return;var cx=r.left+r.width/2,cy=r.top+r.height/2,dx=e.clientX-cx,dy=e.clientY-cy,reach=Math.max(r.width,r.height)/2+80;if(Math.hypot(dx,dy)<reach){m.tx=dx*.35;m.ty=dy*.35}else{m.tx=0;m.ty=0}})},{passive:true});
+ (function ml(){requestAnimationFrame(ml);mags.forEach(function(m){m.x=lerp(m.x,m.tx,.15);m.y=lerp(m.y,m.ty,.15);if(Math.abs(m.x)>.05||Math.abs(m.y)>.05||m.el.style.translate)m.el.style.translate=(Math.abs(m.x)<.05&&Math.abs(m.y)<.05&&m.tx===0)?'':m.x.toFixed(2)+'px '+m.y.toFixed(2)+'px'})})()}
+/* hex particle burst */
+var fx=$('#fx'),fctx=fx.getContext('2d'),parts=[],fxRun=false;
+function fxSize(){var d=Math.min(devicePixelRatio,2);fx.width=innerWidth*d;fx.height=innerHeight*d;fctx.setTransform(d,0,0,d,0,0)}fxSize();addEventListener('resize',fxSize);
+function burst(x,y){for(var i=0;i<26;i++){var a=Math.random()*Math.PI*2,s=2+Math.random()*6;parts.push({x:x,y:y,vx:Math.cos(a)*s,vy:Math.sin(a)*s-1.5,r:4+Math.random()*9,rot:Math.random()*6,vr:(Math.random()-.5)*.3,life:1,c:Math.random()<.7?'245,166,35':'32,164,189'})}if(!fxRun){fxRun=true;fxLoop()}}
+function hexPath(c,x,y,r,rot){c.beginPath();for(var i=0;i<6;i++){var a=rot+i*Math.PI/3;c[i?'lineTo':'moveTo'](x+Math.cos(a)*r,y+Math.sin(a)*r)}c.closePath()}
+function fxLoop(){fctx.clearRect(0,0,innerWidth,innerHeight);parts=parts.filter(function(p){return p.life>0});parts.forEach(function(p){p.x+=p.vx;p.y+=p.vy;p.vy+=.18;p.vx*=.98;p.rot+=p.vr;p.life-=.02;fctx.fillStyle='rgba('+p.c+','+p.life.toFixed(2)+')';fctx.strokeStyle='rgba(255,255,255,'+(p.life*.6).toFixed(2)+')';hexPath(fctx,p.x,p.y,p.r*p.life+1,p.rot);fctx.fill();fctx.stroke()});if(parts.length)requestAnimationFrame(fxLoop);else{fxRun=false;fctx.clearRect(0,0,innerWidth,innerHeight)}}
+document.addEventListener('click',function(e){var el=e.target.closest&&e.target.closest('.magnetic');if(el)burst(e.clientX,e.clientY)});
+/* tilt */
+if(!isTouch)$$('.tilt').forEach(function(el){el.addEventListener('pointermove',function(e){var r=el.getBoundingClientRect(),px=(e.clientX-r.left)/r.width-.5,py=(e.clientY-r.top)/r.height-.5;el.style.transform='perspective(900px) rotateY('+(px*10).toFixed(2)+'deg) rotateX('+(-py*10).toFixed(2)+'deg)';el.style.setProperty('--gx',((px+.5)*100)+'%');el.style.setProperty('--gy',((py+.5)*100)+'%')});el.addEventListener('pointerleave',function(){el.style.transform=''})});
+
+/* ============ THREE.JS ============ */
+var PART_VS='uniform float uTime;uniform vec3 uMouse;uniform float uRep;uniform float uSize;uniform float uPx;uniform vec3 cA;uniform vec3 cB;attribute float aSeed;varying vec3 vCol;varying float vA;void main(){vec3 p=position;float s=aSeed;p.x+=sin(uTime*.25+s*40.)*.25;p.y+=cos(uTime*.2+s*25.)*.25;p.z+=sin(uTime*.3+p.x*.2+s*6.28)*.6;vec2 d=p.xy-uMouse.xy;float dist=length(d);float f=smoothstep(uRep,0.,dist);p.xy+=normalize(d+vec2(1e-4))*f*uRep*.45;p.z+=f*uRep*.6;vec4 mv=modelViewMatrix*vec4(p,1.);gl_Position=projectionMatrix*mv;gl_PointSize=uSize*uPx*(.6+s*.9+f*1.3)*(30./-mv.z);vCol=mix(cA,cB,clamp(s*1.2+f*.9,0.,1.));vA=.25+.55*fract(s*7.)+f*.6;}';
+var PART_FS='varying vec3 vCol;varying float vA;void main(){vec2 q=abs(gl_PointCoord-.5);float h=max(q.x*.866+q.y*.5,q.y);if(h>.46)discard;float edge=smoothstep(.46,.36,h);float core=smoothstep(.3,.0,h);gl_FragColor=vec4(vCol*(.6+core*.8),vA*edge);}';
+function partMat(rep,size,px){return new THREE.ShaderMaterial({vertexShader:PART_VS,fragmentShader:PART_FS,transparent:true,depthWrite:false,blending:THREE.AdditiveBlending,uniforms:{uTime:{value:0},uMouse:{value:new THREE.Vector3(999,999,0)},uRep:{value:rep},uSize:{value:size},uPx:{value:px},cA:{value:new THREE.Color(0x20a4bd)},cB:{value:new THREE.Color(0xf5a623)}}})}
+var BGAPI=null;
+function initBG(){
+ if(!hasTHREE)return;var cv=$('#bg'),r;try{r=new THREE.WebGLRenderer({canvas:cv,antialias:false,alpha:true,powerPreference:'high-performance'})}catch(e){cv.style.display='none';return}
+ var px=Math.min(devicePixelRatio,1.5);r.setPixelRatio(px);r.setSize(innerWidth,innerHeight,false);
+ var scene=new THREE.Scene(),cam=new THREE.PerspectiveCamera(55,innerWidth/innerHeight,.1,200);cam.position.z=30;
+ var pos=[],seed=[],s=1.7,layers=[-12,-3,6];
+ layers.forEach(function(z,li){for(var rr=-10;rr<=10;rr++)for(var q=-24;q<=24;q++){var x=s*(q+rr*.5)+(Math.random()-.5)*.5,y=s*rr*.866+(Math.random()-.5)*.5;if(Math.abs(x)>40)continue;pos.push(x,y,z+(Math.random()-.5)*3);seed.push(Math.random())}});
+ var g=new THREE.BufferGeometry();g.setAttribute('position',new THREE.Float32BufferAttribute(pos,3));g.setAttribute('aSeed',new THREE.Float32BufferAttribute(seed,1));
+ var mat=partMat(7,5,px),pts=new THREE.Points(g,mat);scene.add(pts);BGAPI={count:pos.length/3};
+ var mw=new THREE.Vector3(999,999,0),halfH=30*Math.tan(55*Math.PI/360),t0=performance.now();
+ function resize(){r.setSize(innerWidth,innerHeight,false);cam.aspect=innerWidth/innerHeight;cam.updateProjectionMatrix()}addEventListener('resize',resize);
+ (function frame(){requestAnimationFrame(frame);if(document.hidden)return;var t=(performance.now()-t0)/1000;mat.uniforms.uTime.value=t;
+  var tx=mouseN.x*halfH*cam.aspect,ty=mouseN.y*halfH;mw.x=lerp(mw.x===999?tx:mw.x,tx,.12);mw.y=lerp(mw.y===999?ty:mw.y,ty,.12);mat.uniforms.uMouse.value.set(mw.x,mw.y,0);
+  pts.rotation.z=scrollP*.5;pts.rotation.y=Math.sin(t*.1)*.06+mouseN.x*.04;cam.position.y=-scrollP*6+mouseN.y*.8;cam.position.x=mouseN.x*1.2;cam.lookAt(0,-scrollP*6,0);r.render(scene,cam)})()}
+
+function makeEnv(r){var c=document.createElement('canvas');c.width=512;c.height=256;var x=c.getContext('2d'),g=x.createLinearGradient(0,0,0,256);g.addColorStop(0,'#1b2f55');g.addColorStop(.5,'#0b1730');g.addColorStop(1,'#050a14');x.fillStyle=g;x.fillRect(0,0,512,256);
+ function blob(cx,cy,rw,rh,col){var gr=x.createRadialGradient(cx,cy,0,cx,cy,rw);gr.addColorStop(0,col);gr.addColorStop(1,'rgba(0,0,0,0)');x.save();x.translate(cx,cy);x.scale(1,rh/rw);x.translate(-cx,-cy);x.fillStyle=gr;x.beginPath();x.arc(cx,cy,rw,0,7);x.fill();x.restore()}
+ blob(110,70,110,50,'rgba(255,214,140,1)');blob(390,60,120,45,'rgba(32,164,189,.95)');blob(256,40,150,22,'rgba(255,255,255,.9)');blob(256,220,200,30,'rgba(245,166,35,.45)');
+ var tex=new THREE.CanvasTexture(c);tex.mapping=THREE.EquirectangularReflectionMapping;var pm=new THREE.PMREMGenerator(r);var env=pm.fromEquirectangular(tex).texture;tex.dispose();pm.dispose();return env}
+
+function createBandStage(canvas,opts){
+ if(!hasTHREE)return null;var renderer;try{renderer=new THREE.WebGLRenderer({canvas:canvas,antialias:true,alpha:true})}catch(e){return null}
+ var px=Math.min(devicePixelRatio,2);renderer.setPixelRatio(px);renderer.outputEncoding=THREE.sRGBEncoding;renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1.15;
+ var scene=new THREE.Scene(),cam=new THREE.PerspectiveCamera(opts.fov||36,1,.1,100);cam.position.set(0,.5,opts.camZ||10.5);cam.lookAt(0,0,.4);
+ try{scene.environment=makeEnv(renderer)}catch(e){}
+ scene.add(new THREE.AmbientLight(0x9fb8ff,.5));var key=new THREE.DirectionalLight(0xffd9a0,1.5);key.position.set(4,5,6);scene.add(key);var rim=new THREE.PointLight(0x20a4bd,2.2,24);rim.position.set(-5,1,-3);scene.add(rim);var fill=new THREE.DirectionalLight(0xffffff,.4);fill.position.set(-3,-2,5);scene.add(fill);
+ var root=new THREE.Group();scene.add(root);var rig=new THREE.Group();root.add(rig);
+ /* strap: lathe ring with rounded profile, axis -> X */
+ var R=1.7,prof=[];[[-.62,-.09],[-.66,0],[-.62,.09]].length;
+ var pts=[];var hw=.66,th=.085,cr=.05;
+ pts.push(new THREE.Vector2(R-th,-hw+cr));pts.push(new THREE.Vector2(R-th+cr*.3,-hw));pts.push(new THREE.Vector2(R,-hw-.005));pts.push(new THREE.Vector2(R+th-cr*.3,-hw));pts.push(new THREE.Vector2(R+th,-hw+cr));
+ pts.push(new THREE.Vector2(R+th,hw-cr));pts.push(new THREE.Vector2(R+th-cr*.3,hw));pts.push(new THREE.Vector2(R,hw+.005));pts.push(new THREE.Vector2(R-th+cr*.3,hw));pts.push(new THREE.Vector2(R-th,hw-cr));pts.push(new THREE.Vector2(R-th,-hw+cr));
+ var nc=document.createElement('canvas');nc.width=nc.height=128;var nx=nc.getContext('2d');nx.fillStyle='#808080';nx.fillRect(0,0,128,128);for(var i=0;i<1400;i++){var v=Math.random()*255|0;nx.fillStyle='rgba('+v+','+v+','+v+',.5)';nx.fillRect(Math.random()*128,Math.random()*128,2,2)}
+ var bump=new THREE.CanvasTexture(nc);bump.wrapS=bump.wrapT=THREE.RepeatWrapping;bump.repeat.set(30,3);
+ var fabric=new THREE.MeshStandardMaterial({color:0x14161c,roughness:.95,metalness:0,bumpMap:bump,bumpScale:1.2});
+ var strap=new THREE.Mesh(new THREE.LatheGeometry(pts,120),fabric);strap.rotation.z=Math.PI/2;rig.add(strap);
+ var hlPts=pts.map(function(p){return new THREE.Vector2(p.x+(p.x>R?.03:0),p.y*.98)});
+ var hook=new THREE.Mesh(new THREE.LatheGeometry(hlPts,24,Math.PI-.55,1.1),new THREE.MeshStandardMaterial({color:0x2a2e37,roughness:1,bumpMap:bump,bumpScale:2}));hook.rotation.z=Math.PI/2;rig.add(hook);
+ /* shell */
+ var A=1.25,B=.8,C=.44,SC=R-.02;
+ var shell=new THREE.Mesh(new THREE.SphereGeometry(1,64,40),new THREE.MeshStandardMaterial({color:0x13151a,roughness:.42,metalness:.2,envMapIntensity:1}));shell.scale.set(A,B,C);shell.position.z=SC;rig.add(shell);
+ function surf(x,y){var k=1-(x/A)*(x/A)-(y/B)*(y/B);if(k<=0)return null;var z=C*Math.sqrt(k);var n=new THREE.Vector3(x/(A*A),y/(B*B),z/(C*C)).normalize();return{p:new THREE.Vector3(x,y,z+SC),n:n}}
+ var sensors=[[-.55,.2],[.55,.2]],nodesXY=[[-.32,-.42],[.32,-.42],[0,-.66]];
+ /* honeycomb tiles */
+ var hexG=new THREE.CylinderGeometry(.098,.098,.045,6),hexM=new THREE.MeshStandardMaterial({color:0x1d2028,roughness:.5,metalness:.25}),tiles=[],sp=.172;
+ for(var rr=-8;rr<=8;rr++)for(var q=-10;q<=10;q++){var x=sp*(q+rr*.5),y=sp*rr*.866;if((x/A)*(x/A)+(y/B)*(y/B)>.82)continue;var near=sensors.some(function(s){return Math.hypot(x-s[0],y-s[1])<.42})||nodesXY.some(function(s){return Math.hypot(x-s[0],y-s[1])<.24});if(near)continue;var sf=surf(x,y);if(sf)tiles.push(sf)}
+ var inst=new THREE.InstancedMesh(hexG,hexM,tiles.length),dm=new THREE.Object3D(),up=new THREE.Vector3(0,1,0);
+ tiles.forEach(function(t,i){dm.position.copy(t.p).addScaledVector(t.n,.012);dm.quaternion.setFromUnitVectors(up,t.n);dm.updateMatrix();inst.setMatrixAt(i,dm.matrix)});rig.add(inst);
+ /* sensors */
+ var metal=new THREE.MeshStandardMaterial({color:0xcfd6e0,metalness:.95,roughness:.22}),mesh=new THREE.MeshStandardMaterial({color:0x0a0c10,roughness:.6,metalness:.4,emissive:0x0b3a46,emissiveIntensity:.6}),zv=new THREE.Vector3(0,0,1);
+ sensors.forEach(function(s){var sf=surf(s[0],s[1]),g=new THREE.Group();g.position.copy(sf.p);g.quaternion.setFromUnitVectors(zv,sf.n);
+  var ring=new THREE.Mesh(new THREE.TorusGeometry(.33,.052,18,56),metal);ring.position.z=.01;g.add(ring);
+  var body=new THREE.Mesh(new THREE.CylinderGeometry(.3,.3,.2,40),metal);body.rotation.x=Math.PI/2;body.position.z=-.04;g.add(body);
+  var face=new THREE.Mesh(new THREE.CircleGeometry(.255,40),mesh);face.position.z=.062;g.add(face);
+  var ring2=new THREE.Mesh(new THREE.TorusGeometry(.16,.014,10,40),metal);ring2.position.z=.066;g.add(ring2);
+  var ring3=new THREE.Mesh(new THREE.TorusGeometry(.08,.01,10,32),metal);ring3.position.z=.066;g.add(ring3);rig.add(g)});
+ /* ERM hex nodes */
+ var nodeMat=[],nodeMeshes=[],nodeG=new THREE.CylinderGeometry(.17,.17,.07,6);
+ nodesXY.forEach(function(s,i){var sf=surf(s[0],s[1]);var m=new THREE.MeshStandardMaterial({color:0xf5a623,emissive:0xf5a623,emissiveIntensity:.25,roughness:.35,metalness:.2});var h=new THREE.Mesh(nodeG,m);h.position.copy(sf.p).addScaledVector(sf.n,.02);h.quaternion.setFromUnitVectors(up,sf.n);rig.add(h);nodeMat.push(m);nodeMeshes.push(h)});
+ var nlight=new THREE.PointLight(0xffa726,0,5);nlight.position.set(0,-.5,SC+.8);rig.add(nlight);
+ /* status LED */
+ var led=new THREE.Mesh(new THREE.SphereGeometry(.035,12,12),new THREE.MeshBasicMaterial({color:0xffb347}));var ls=surf(.88,.3);led.position.copy(ls.p).addScaledVector(ls.n,.02);rig.add(led);
+ /* sonar cone + rings */
+ var cone=new THREE.Mesh(new THREE.CylinderGeometry(3,.25,7,36,1,true),new THREE.MeshBasicMaterial({color:0x20a4bd,transparent:true,opacity:.045,wireframe:true,blending:THREE.AdditiveBlending,depthWrite:false}));cone.rotation.x=-Math.PI/2;cone.position.set(0,.2,SC+C+3.4);rig.add(cone);
+ var Z0=SC+C+.05,RANGE=7,rings=[],ringGeo=new THREE.RingGeometry(.96,1,72);
+ for(var i=0;i<10;i++){var m=new THREE.Mesh(ringGeo,new THREE.MeshBasicMaterial({color:0x20a4bd,transparent:true,opacity:0,side:THREE.DoubleSide,blending:THREE.AdditiveBlending,depthWrite:false}));m.visible=false;rig.add(m);rings.push({m:m,on:false,d:0,dir:1,echoed:false,col:0})}
+ var obstacle=new THREE.Mesh(new THREE.CylinderGeometry(.22,.22,2.6,6),new THREE.MeshStandardMaterial({color:0xc9d5ea,roughness:.5,metalness:.1,emissive:0x2b3a55,emissiveIntensity:.5}));obstacle.visible=false;rig.add(obstacle);
+ var obsCm=null,obsD=null;
+ function spawn(col){for(var i=0;i<rings.length;i++){var r=rings[i];if(!r.on){r.on=true;r.d=0;r.dir=1;r.echoed=false;r.col=col;r.m.material.color.setHex(col?0xf5a623:0x20a4bd);r.m.visible=true;return}}}
+ function spawnEcho(d){for(var i=0;i<rings.length;i++){var r=rings[i];if(!r.on){r.on=true;r.d=d;r.dir=-1;r.echoed=true;r.m.material.color.setHex(0xf5a623);r.m.visible=true;return}}}
+ /* particle swarm */
+ var N=opts.particles||1400,pp=[],sd=[];for(var i=0;i<N;i++){var rad=3.4+Math.pow(Math.random(),.8)*5.5,th=Math.random()*Math.PI*2,ph=Math.acos(2*Math.random()-1);pp.push(rad*Math.sin(ph)*Math.cos(th),rad*Math.sin(ph)*Math.sin(th)*.55,rad*Math.cos(ph)*.8-1);sd.push(Math.random())}
+ var pg=new THREE.BufferGeometry();pg.setAttribute('position',new THREE.Float32BufferAttribute(pp,3));pg.setAttribute('aSeed',new THREE.Float32BufferAttribute(sd,1));
+ var pmat=partMat(2.4,2.4,px),swarm=new THREE.Points(pg,pmat);scene.add(swarm);
+ /* interaction */
+ var drag=false,lx=0,ly=0,mYaw=0,mPitch=0,tYaw=0,tPitch=0,grabCv=canvas;
+ canvas.addEventListener('pointerdown',function(e){drag=true;lx=e.clientX;ly=e.clientY;try{canvas.setPointerCapture(e.pointerId)}catch(_){}canvas.classList.add('grabbing')});
+ canvas.addEventListener('pointermove',function(e){if(!drag)return;mYaw+=(e.clientX-lx)*.012;mPitch=clamp(mPitch+(e.clientY-ly)*.008,-.9,.9);lx=e.clientX;ly=e.clientY});
+ var up_=function(){drag=false;canvas.classList.remove('grabbing')};canvas.addEventListener('pointerup',up_);canvas.addEventListener('pointercancel',up_);
+ var visible=true;if('IntersectionObserver' in window)new IntersectionObserver(function(en){visible=en[0].isIntersecting},{threshold:0}).observe(canvas);
+ function resize(){var w=canvas.clientWidth||canvas.parentElement.clientWidth,h=canvas.clientHeight||canvas.parentElement.clientHeight;if(!w||!h)return;renderer.setSize(w,h,false);cam.aspect=w/h;cam.updateProjectionMatrix()}
+ if('ResizeObserver' in window)new ResizeObserver(resize).observe(canvas);addEventListener('resize',resize);resize();
+ var api={glow:0,rotScroll:opts.scrollRot!==false,setObstacle:function(cm){obsCm=cm;if(cm===null){obstacle.visible=false;obsD=null}else{obsD=clamp(cm,0,400)/400*RANGE;obstacle.visible=true;obstacle.position.set(0,.1,Z0+obsD)}},onRing:opts.onRing||null};
+ var clock=new THREE.Clock(),spT=0,tm=0;
+ (function frame(){requestAnimationFrame(frame);var dt=Math.min(clock.getDelta(),.05);if(!visible||document.hidden)return;tm+=dt;
+  var sy=api.rotScroll?scrollP*Math.PI*1.4:0;if(!drag){mYaw*=.985;mPitch*=.985}
+  var ty=sy+Math.sin(tm*.45)*.28+mYaw+mouseN.x*.12,tp=Math.sin(tm*.3)*.06+mPitch-mouseN.y*.08;
+  root.rotation.y=lerp(root.rotation.y,ty,.08);root.rotation.x=lerp(root.rotation.x,tp,.08);root.position.y=Math.sin(tm*.8)*.06;
+  /* glow */
+  var g=api.glow;nodeMat.forEach(function(m,i){var gi=clamp(g*(.8+.2*Math.sin(tm*9+i*2)),0,1);m.emissiveIntensity=.2+gi*2.6;m.color.setHex(gi>.5?0xffd27a:0xf5a623)});nodeMeshes.forEach(function(h,i){var s=1+g*.12;h.scale.set(s,1,s)});nlight.intensity=g*3.2;
+  led.material.color.setHex(0xffb347);
+  /* rings */
+  spT+=dt;if(spT>.95){spT=0;spawn(0);if(api.onRing)api.onRing()}
+  rings.forEach(function(r){if(!r.on)return;r.d+=dt*4*r.dir;var d=r.d;
+   if(r.dir===1&&obsD!==null&&d>=obsD&&!r.echoed){r.echoed=true;r.on=false;r.m.visible=false;spawnEcho(obsD);return}
+   if(d<0||d>RANGE){r.on=false;r.m.visible=false;return}
+   var rad=.3+d*.42;r.m.position.set(0,.2,Z0+d);r.m.scale.setScalar(rad);
+   r.m.material.opacity=r.dir===1?(1-d/RANGE)*.8:clamp(d/Math.max(obsD||1,1),0,1)*.7});
+  pmat.uniforms.uTime.value=tm;var hh=cam.position.z*Math.tan(cam.fov*Math.PI/360);pmat.uniforms.uMouse.value.set(mouseN.x*hh*cam.aspect*.9,mouseN.y*hh*.9,0);swarm.rotation.y=0;
+  renderer.render(scene,cam)})();
+ return api}
+
+var heroStage=null,simStage=null;
+function initStages(){
+ var hc=$('#heroCanvas');if(hc){heroStage=createBandStage(hc,{particles:isTouch?900:1500,onRing:function(){if(AE.on&&scrollP<.15)AE.ping(mouseN.x,1250,.055)}});if(!heroStage){hc.style.display='none'}}
+ var sc=$('#simBand');if(sc){simStage=createBandStage(sc,{particles:350,scrollRot:false,fov:34,camZ:11.5});if(!simStage){sc.style.display='none'}}}
+initBG();initStages();
+/* hero demo driver */
+(function heroDemo(){requestAnimationFrame(heroDemo);if(!heroStage)return;var t=performance.now();var cm=210+190*Math.sin(t/1000*.45);var z=zoneOf(cm);var e=envAt(z,t);heroStage.glow=e*(z.pwm/255)})();
+
+/* ============ PRELOADER ============ */
+(function(){var bar=$('#ldBar'),btns=$('#ldBtns'),p=0,done=false;var iv=setInterval(function(){p=Math.min(p+Math.random()*14,100);bar.style.width=p+'%';if(p>=100){clearInterval(iv);btns.classList.add('show')}},140);
+ setTimeout(function(){bar.style.width='100%';btns.classList.add('show')},2600);
+ function enter(sound){if(done)return;done=true;if(sound)AE.toggle(true);var L=$('#loader');
+  if(hasGSAP){gsap.to(L,{opacity:0,duration:.8,ease:'power2.inOut',onComplete:function(){L.style.display='none'}});intro()}else{L.style.display='none'}}
+ $('#ldSound').addEventListener('click',function(){enter(true)});$('#ldSilent').addEventListener('click',function(){enter(false)});
+ setTimeout(function(){if(!done)enter(false)},12000);
+ function intro(){gsap.from($$('.ch',heroTitle),{yPercent:115,duration:1.3,ease:'power4.out',stagger:.05,delay:.25});gsap.from($$('[data-hero]'),{y:40,opacity:0,duration:1,ease:'power3.out',stagger:.08,delay:.5,clearProps:'transform,opacity'});gsap.from('#heroStage',{scale:.9,opacity:0,duration:1.4,ease:'power3.out',delay:.4,clearProps:'transform,opacity'});gsap.from('.inst',{y:30,opacity:0,duration:1,delay:.2,clearProps:'transform,opacity'})}
+})();
+
+/* ============ ROADMAP ============ */
+(function(){
+ var D=[{n:'1',m:'DIVERGE: understand the problem',t:'Discover',x:'Sensory audit of a busy street, sensitivities and the Sensory Gap. We walked the street through all five senses and found that sight is deprived, hearing is overloaded, and the skin is a free channel. (Slides 4–6)',h:'#discover'},
+ {n:'2',m:'CONVERGE',t:'Define',x:'Persona (Asha, 27), the 5W1H and the sensory problem statement + How Might We. One sharp question to design against. (Slides 7–8)',h:'#define'},
+ {n:'3',m:'DIVERGE: explore solutions',t:'Develop',x:'Sensory pentagon, five-sense ideation and the bat-inspired concept, plus the honeycomb layout and the Arduino-based system architecture. (Slides 9–12)',h:'#develop'},
+ {n:'4',m:'CONVERGE',t:'Deliver',x:'Storyboard, mood box, harmony test, CAD, live website. A tactile language people can learn in seconds, tested on real senses. (Slides 13–20)',h:'#deliver'}];
+ var steps=$$('#rmSteps .rm-step');
+ function set(i){steps.forEach(function(s,k){s.classList.toggle('act',k===i)});var d=D[i];$('#rmBig').textContent=d.n;$('#rmMode').textContent=d.m;$('#rmTitle').textContent=d.t;$('#rmText').textContent=d.x;$('#rmGo').setAttribute('href',d.h)}
+ steps.forEach(function(s,i){s.addEventListener('click',function(){AE.sweep(i%2===0);set(i)})});set(0)})();
+
+/* ============ LOAD CHART ============ */
+(function(){var ch=$('#loadChart'),notes={cmp:'EchoSense drops the <b style="color:#fff">Sound load from 5 to 3</b> because distance is delivered silently, and rebalances <b style="color:#fff">Touch</b> from a single cane-tip point into a wide-field proximity sense on the wrist.',today:'<b style="color:#fff">Today</b> hearing is double-booked (5/5) with traffic safety and navigation prompts, while touch is limited to a point: the cane tip.',es:'<b style="color:#fff">With EchoSense</b> Sound falls to 3/5 and Touch becomes a wide-field proximity sense. Smell, sight and taste are deliberately untouched.'};
+ $$('#ldTabs .tab').forEach(function(b){b.addEventListener('click',function(){$$('#ldTabs .tab').forEach(function(x){x.classList.toggle('act',x===b)});ch.dataset.mode=b.dataset.m;$('#ldNote').innerHTML=notes[b.dataset.m];AE.sweep(true)})})})();
+
+/* ============ SENSE SELECTOR ============ */
+(function(){
+ var S={touch:{c:'#8b5cf6',t:'TOUCH 5/5 · Primary output',n:5,d:'Distance becomes vibration on the skin of the wrist: gentle when far, urgent when near.',i:'Vibration patterns on the wrist: pulse (far) to buzz (near).',p:'Primary channel; turns distance into an intuitive felt proximity and builds confidence.'},
+ sound:{c:'#2fa56a',t:'SOUND 3/5 · Inspired by bats',n:3,d:'Ultrasonic pulses (40 kHz) sense the space but are inaudible, so hearing stays free.',i:'Silent 40 kHz ultrasonic pulses. No beeps.',p:'Scans space invisibly; the user\'s hearing stays free for traffic and people.'},
+ sight:{c:'#3b82f6',t:'SIGHT 2/5 · Complements',n:2,d:'Not required. Users with partial vision may still combine it; a status LED reassures sighted bystanders.',i:'Bypassed. Optional dim status LED only.',p:'Never depends on vision; shows bystanders the device is on.'},
+ smell:{c:'#f5a623',t:'SMELL 1/5 · No direct role',n:1,d:'Deliberately untouched, so natural smell cues remain clean landmarks.',i:'None; odour-neutral materials.',p:'Keeps natural smell landmarks uncontaminated.'},
+ taste:{c:'#e0555a',t:'TASTE 1/5 · No direct role',n:1,d:'Deliberately untouched. Materials are skin-safe and non-toxic.',i:'None; skin-safe, non-toxic materials.',p:'Not applicable beyond safe, comfortable contact.'}};
+ var card=$('#senseCard'),btns=$$('#senseBtns .sense-btn');
+ function set(k){var s=S[k];btns.forEach(function(b){b.classList.toggle('act',b.dataset.k===k)});card.style.setProperty('--c',s.c);$('#snTitle').textContent=s.t;$('#snDesc').textContent=s.d;$('#snIn').textContent=s.i;$('#snPur').textContent=s.p;var p=$('#snPips');p.innerHTML='';for(var i=1;i<=5;i++){var e=document.createElement('i');if(i<=s.n)e.className='on';p.appendChild(e)}}
+ btns.forEach(function(b){b.addEventListener('click',function(){AE.sweep(true);set(b.dataset.k)})});set('touch')})();
+
+/* ============ ECHO CALCULATOR ============ */
+(function(){var T=$('#cT'),Tm=$('#cTemp');function upd(){var t=+T.value,temp=+Tm.value,v=331.3+.606*temp,d=v*(t/1000)/2;$('#cTv').textContent=t.toFixed(1)+' ms';$('#cTempv').textContent=temp+' °C';$('#cV').textContent=v.toFixed(0);$('#cD').textContent=d.toFixed(2);$('#cDc').textContent=(d*100).toFixed(0)}T.addEventListener('input',upd);Tm.addEventListener('input',upd);T.addEventListener('change',function(){AE.ping(-.5+T.value/23.3,700+T.value*20,.08)});upd()})();
+
+/* ============ HEX TILING ============ */
+(function(){var svg=$('#hexTile'),NS='http://www.w3.org/2000/svg',r=17,cells=[];
+ for(var row=0;row<7;row++)for(var col=0;col<13;col++){var cx=20+col*r*1.732+(row%2?r*.866:0),cy=18+row*r*1.5;if(cx>392)continue;var p=document.createElementNS(NS,'polygon'),pts=[];for(var i=0;i<6;i++){var a=Math.PI/180*(60*i-30);pts.push((cx+(r-1.5)*Math.cos(a)).toFixed(1)+','+(cy+(r-1.5)*Math.sin(a)).toFixed(1))}p.setAttribute('points',pts.join(' '));svg.appendChild(p);cells.push({p:p,x:cx,y:cy})}
+ function clear(){cells.forEach(function(c){c.p.setAttribute('class','')})}
+ cells.forEach(function(c){c.p.addEventListener('pointerenter',function(){clear();c.p.setAttribute('class','hi');cells.forEach(function(o){if(o!==c&&Math.hypot(o.x-c.x,o.y-c.y)<r*1.9)o.p.setAttribute('class','nb')});AE.ping(c.x/400*2-1,900+c.y*4,.05)})});
+ svg.addEventListener('pointerleave',clear)})();
+
+/* ============ FIRMWARE VIEWER ============ */
+(function(){var src=$('#fwSrc').textContent.replace(/^\n/,''),pre=$('#fwPre');
+ function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+ var re=/(\/\*[\s\S]*?\*\/|\/\/[^\n]*)|("(?:\\.|[^"\\])*")|\b(const|void|float|int|enum|struct|return|if|else|for|while|static|true|false|Zone|Pattern)\b|\b(uint8_t|uint16_t|uint32_t)\b|\b(\d+\.?\d*f?|UL)\b/g;
+ var out='',last=0,m;while((m=re.exec(src))){out+=esc(src.slice(last,m.index));var cls=m[1]?'c':m[2]?'s':m[3]?'k':m[4]?'t':'n';out+='<span class="'+cls+'">'+esc(m[0])+'</span>';last=m.index+m[0].length}out+=esc(src.slice(last));pre.innerHTML=out;
+ var box=$('#fwBox'),tg=$('#fwToggle');tg.addEventListener('click',function(){var o=box.classList.toggle('open');tg.textContent=o?'▾ Hide code':'▸ Show code';tg.setAttribute('aria-expanded',o);setTimeout(debRefresh,900)});
+ $('#fwCopy').addEventListener('click',function(){var b=this,done=function(){var o=b.textContent;b.textContent='Copied ✓';setTimeout(function(){b.textContent=o},1600)};
+  if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(src).then(done,fallback);else fallback();
+  function fallback(){var ta=document.createElement('textarea');ta.value=src;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();try{document.execCommand('copy');done()}catch(e){}document.body.removeChild(ta)}})})();
+$('#copyLink').addEventListener('click',function(){var b=this,u='https://kt2141.github.io/EchoSense-Biomimetic-Design/';var done=function(){var o=b.textContent;b.textContent='Copied ✓';setTimeout(function(){b.textContent=o},1600)};if(navigator.clipboard)navigator.clipboard.writeText(u).then(done,function(){});else{var ta=document.createElement('textarea');ta.value=u;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');done()}catch(e){}document.body.removeChild(ta)}});
+
+/* ============ TACTILE LEGEND ============ */
+$$('#zones .zone-play').forEach(function(b){b.addEventListener('click',function(){b.classList.remove('fire');void b.offsetWidth;b.classList.add('fire');AE.tactile(b.dataset.z,3000,1)})});
+
+/* ============ STORYBOARD ============ */
+(function(){
+ var SB=[{cm:320,z:'clear',obs:'open path',touch:'Band is silent. Cane taps pavement texture.',sound:'Traffic and footsteps. Ultrasonic scan is inaudible.',sight:'Not used.',st:'Bakery and exhaust remain natural landmarks.',emo:'Calm, aware'},
+ {cm:150,z:'aware',obs:'pole',touch:'One soft pulse per second, like a calm heartbeat.',sound:'Unchanged; ears free for a horn.',sight:'Not used.',st:'Unchanged.',emo:'Alert, curious'},
+ {cm:80,z:'near',obs:'crowd',touch:'Faster pulses, about three per second, ramping up as the gap closes.',sound:'Crowd noise unaffected; no beeps.',sight:'Not used.',st:'Unchanged.',emo:'Careful, in control'},
+ {cm:40,z:'danger',obs:'kerb',touch:'Continuous rapid buzz: an unmistakable “stop”, then silence once the user turns away.',sound:'Unchanged; ears stay on traffic.',sight:'Not used.',st:'Unchanged.',emo:'Safe, relieved'}];
+ var cur=0,tabs=$$('#sbTabs .sb-tab'),obs=$('#sbObs'),dist=$('#sbDist'),waves=$('#sbWaves'),NS='http://www.w3.org/2000/svg',ox=0,ot=0,fromX=0;
+ function xOf(cm){return 130+cm/400*470}
+ function set(i,snd){cur=i;var d=SB[i];tabs.forEach(function(t,k){t.classList.toggle('act',k===i)});
+  $$('#sbTable [data-col]').forEach(function(c){c.classList.toggle('sel',+c.dataset.col===i+1)});
+  var z=zById(d.z);$('#sbZone').textContent='ZONE · '+z.name.toUpperCase();$('#sbZone').style.color=z.color;
+  $('#sbInfo').innerHTML='<div><small>Touch (primary)</small>'+d.touch+'</div><div><small>Sound</small>'+d.sound+'</div><div><small>Sight</small>'+d.sight+'</div><div><small>Smell / Taste</small>'+d.st+'</div><div><small>Emotion</small><b style="color:#fff">'+d.emo+'</b></div>';
+  $('#sbObsLbl').textContent=d.obs;dist.textContent=(d.cm>=100?'~'+(d.cm/100).toFixed(1)+' m':'< '+(d.cm<=40?'0.5':(d.cm/100).toFixed(1))+' m');
+  ot=xOf(d.cm);if(snd)AE.sweep(i%2===0)}
+ (function anim(){requestAnimationFrame(anim);ox=lerp(ox||ot,ot,.1);obs.setAttribute('transform','translate('+ox.toFixed(1)+',0)');dist.setAttribute('x',((104+ox)/2).toFixed(1));
+  var z=zById(SB[cur].z),t=performance.now(),env=envAt(z,t);waves.innerHTML='';if(z.id!=='clear'||true){for(var k=0;k<3;k++){var r=((t/700+k/3)%1)*(ox-110);var a=document.createElementNS(NS,'path');var cx=104;a.setAttribute('d','M '+(cx+r*.9)+' '+(92-r*.35)+' Q '+(cx+r*1.05)+' 92 '+(cx+r*.9)+' '+(92+r*.35));a.setAttribute('stroke',z.id==='clear'?'#20a4bd':z.color);a.setAttribute('opacity',(1-r/(ox-110))*.8*(z.id==='clear'?.4:1));waves.appendChild(a)}}
+  $('#sbWalker').style.filter=env>.5&&z.id!=='clear'?'drop-shadow(0 0 10px '+z.color+')':'none'})();
+ tabs.forEach(function(t,i){t.addEventListener('click',function(){set(i,true)})});
+ $('#sbPlay').addEventListener('click',function(){AE.tactile(SB[cur].z,3000,1)});set(0,false)})();
+
+/* ============ TRIAL GAME ============ */
+(function(){
+ var T={n:0,ok:0,cur:null,stage:'idle',log:[]},ids=['clear','aware','near','danger'],desc={clear:'Clear · 200–400 cm · silence',aware:'Aware · 100–200 cm · gentle 1 Hz pulse',near:'Near · 50–100 cm · faster ~3 Hz pulse',danger:'Danger · 0–50 cm · continuous rapid buzz'};
+ var play=$('#trialPlay'),rep=$('#trialRep'),gs=$$('#guess button'),viz=$('#tviz'),msg=$('#tmsg'),pips=$('#tpips'),score=$('#tscore'),info=$('#tinfo'),blind=$('#trialBlind'),timer=null;
+ function drawPips(){pips.innerHTML='';for(var i=0;i<10;i++){var e=document.createElement('i');var l=T.log[i];if(l!==undefined)e.className=l?'ok':'no';pips.appendChild(e)}}
+ function label(){play.textContent=T.n>=10?'Round complete':T.n===5?'Play Round 2 (5 more trials)':T.n===0?'Play Mystery Vibration Pulse (5 Trials)':'Play next pulse · trial '+(T.n+1)+' of 10'}
+ function enable(on){gs.forEach(function(b){b.disabled=!on;b.classList.remove('ok','no')})}
+ function vizSet(z){viz.className='tviz '+(blind.checked?'blind ':'')+(z?'p-'+z:'')}
+ function run(){AE.init();AE.resume();AE.tactile(T.cur,3000,1);vizSet(T.cur);viz.classList.toggle('blind',blind.checked);msg.textContent=blind.checked?'Blindfold ON · feel the pulse…':'Feel the pulse…';clearTimeout(timer);timer=setTimeout(function(){vizSet(null);if(T.stage==='playing'){T.stage='awaiting';enable(true);rep.disabled=false}msg.textContent='Which zone was it?'},3150)}
+ play.addEventListener('click',function(){if(T.n>=10||T.stage==='playing'||T.stage==='awaiting')return;T.cur=ids[Math.floor(Math.random()*4)];T.stage='playing';enable(false);rep.disabled=true;run()});
+ rep.addEventListener('click',function(){if(T.stage!=='awaiting')return;T.stage='playing';enable(false);rep.disabled=true;run()});
+ gs.forEach(function(b){b.addEventListener('click',function(){if(T.stage!=='awaiting')return;var g=b.dataset.g,ok=g===T.cur;T.n++;if(ok)T.ok++;T.log.push(ok);T.stage='answered';rep.disabled=true;gs.forEach(function(x){x.disabled=true;if(x.dataset.g===T.cur)x.classList.add('ok')});if(!ok)b.classList.add('no');
+  msg.textContent=(ok?'Correct · ':'Not quite · ')+desc[T.cur];score.textContent=T.ok+' / '+T.n+(T.n<10?'':'');drawPips();
+  if(T.n===5)info.textContent='Round 1 done: '+T.ok+'/5. Play Round 2.';else if(T.n===10){var pass=T.ok>=8;info.textContent=pass?'PASS · '+T.ok+'/10 meets the ≥ 8/10 rubric':'Below target · '+T.ok+'/10 (need ≥ 8). Reset and try again.';info.style.color=pass?'#46d08a':'#ff7b80';score.textContent=T.ok+' / 10';if(pass){var r=score.getBoundingClientRect();burst(r.left+40,r.top)}}else info.textContent='Trial '+T.n+' of 10 answered';
+  label();AE.ping(ok?.5:-.5,ok?1400:500,.1)})});
+ $('#trialReset').addEventListener('click',function(){clearTimeout(timer);T={n:0,ok:0,cur:null,stage:'idle',log:[]};enable(false);rep.disabled=true;vizSet(null);msg.textContent='Press play to begin.';score.textContent='0 / 10';info.textContent='Rubric target: ≥ 8 / 10';info.style.color='';drawPips();label();if(navigator.vibrate)navigator.vibrate(0)});
+ blind.addEventListener('change',function(){viz.classList.toggle('blind',blind.checked)});drawPips();label();vizSet(null)})();
+
+/* ============ SIMULATOR ============ */
+(function(){
+ var cv=$('#simCanvas');if(!cv)return;var ctx=cv.getContext('2d'),sc=$('#scope'),sctx=sc.getContext('2d'),range=$('#simRange');
+ var cm=140,W=0,H=0,dragging=false,visible=true,PADL=92,PADR=26,sW=0,sH=0;
+ function sizeC(c,x,h){var d=Math.min(devicePixelRatio,2),w=c.clientWidth;c.width=w*d;c.height=h*d;x.setTransform(d,0,0,d,0,0);return w}
+ function resize(){W=sizeC(cv,ctx,cv.clientHeight||320);H=cv.clientHeight||320;sW=sizeC(sc,sctx,200);sH=200}
+ if('ResizeObserver' in window){new ResizeObserver(resize).observe(cv);new ResizeObserver(resize).observe(sc)}addEventListener('resize',resize);resize();
+ if('IntersectionObserver' in window)new IntersectionObserver(function(e){visible=e[0].isIntersecting},{threshold:0}).observe(cv);
+ /* honeycomb */
+ var hs=$('#honeySvg'),NS='http://www.w3.org/2000/svg',cells=[],order=[0,1,4,2,5,3,6],rr=30,pos=[[0,0]];for(var i=0;i<6;i++){var a=Math.PI/3*i;pos.push([Math.cos(a)*rr*1.78,Math.sin(a)*rr*1.78])}
+ pos.forEach(function(p,i){var h=document.createElementNS(NS,'polygon'),pts=[];for(var k=0;k<6;k++){var a=Math.PI/180*(60*k-30);pts.push((p[0]+(rr-2)*Math.cos(a)).toFixed(1)+','+(p[1]+(rr-2)*Math.sin(a)).toFixed(1))}h.setAttribute('points',pts.join(' '));h.setAttribute('fill','#f5a623');h.setAttribute('fill-opacity','.08');h.setAttribute('stroke','#f5a623');h.setAttribute('stroke-width','1.5');hs.appendChild(h);var t=document.createElementNS(NS,'text');t.setAttribute('x',p[0]);t.setAttribute('y',p[1]+4);t.setAttribute('text-anchor','middle');t.setAttribute('fill','#fff');t.setAttribute('font-size','10');t.setAttribute('font-family','monospace');t.setAttribute('opacity','.7');var rank=order.indexOf(i);t.textContent=rank<3?'ERM'+(rank+1):'';hs.appendChild(t);cells.push(h)});
+ var Haptic={on:false,o:null,g:null,vib:null,zid:null,
+  enable:function(){if(!AE.init())return;var self=this;AE.resume().then(function(){var c=AE.ctx;self.o=c.createOscillator();self.o2=c.createOscillator();self.g=c.createGain();self.o.frequency.value=110;self.o2.frequency.value=220;self.o2.type='triangle';var g2=c.createGain();g2.gain.value=.25;self.o.connect(self.g);self.o2.connect(g2);g2.connect(self.g);self.g.gain.value=0;self.g.connect(AE.fxBus);self.o.start();self.o2.start();self.on=true;var b=$('#simHaptic');b.textContent='Tactile bass + vibrate: ON';b.classList.add('on')})},
+  disable:function(){if(!this.on)return;try{this.o.stop();this.o2.stop()}catch(e){}this.on=false;clearInterval(this.vib);if(navigator.vibrate)navigator.vibrate(0);var b=$('#simHaptic');b.textContent='Enable tactile bass + vibrate';b.classList.remove('on')},
+  setZone:function(z){if(!this.on||z.id===this.zid)return;this.zid=z.id;clearInterval(this.vib);if(!navigator.vibrate)return;navigator.vibrate(0);if(z.id==='aware')this.vib=setInterval(function(){navigator.vibrate(150)},1000);else if(z.id==='near')this.vib=setInterval(function(){navigator.vibrate(120)},333);else if(z.id==='danger')this.vib=setInterval(function(){navigator.vibrate(300)},280)},
+  tick:function(z,env){if(!this.on)return;this.g.gain.setTargetAtTime(env*(z.pwm/255)*.5,AE.ctx.currentTime,.01)}};
+ $('#simHaptic').addEventListener('click',function(){Haptic.on?Haptic.disable():Haptic.enable()});
+ function X(c){return PADL+c/400*(W-PADL-PADR)}
+ function update(src){cm=clamp(Math.round(cm),0,400);var z=zoneOf(cm),tof=cm*2/(343*100)*1000;
+  $('#simVal').textContent=cm+' cm';if(src!=='range')range.value=cm;$('#tDist').innerHTML=cm+'<u>cm</u>';$('#tToF').innerHTML=tof.toFixed(2)+'<u>ms</u>';$('#tZone').textContent=z.name;$('#tlZone').style.setProperty('--zc',z.color);
+  $('#tPwm').innerHTML=z.pwm+'<u>/255 · '+Math.round(z.pwm/255*100)+'%</u>';$('#tHz').innerHTML=z.id==='danger'?'CONT<u>buzz</u>':z.hz+'<u>Hz</u>';
+  if(simStage)simStage.setObstacle(z.id==='clear'&&cm>=399?null:cm);Haptic.setZone(z)}
+ range.addEventListener('input',function(){cm=+range.value;update('range')});
+ function fromEvt(e){var r=cv.getBoundingClientRect();cm=(e.clientX-r.left-PADL)/(W-PADL-PADR)*400;update()}
+ cv.addEventListener('pointerdown',function(e){dragging=true;try{cv.setPointerCapture(e.pointerId)}catch(_){}fromEvt(e);AE.ping(mouseN.x,1000,.07)});
+ cv.addEventListener('pointermove',function(e){if(dragging)fromEvt(e)});cv.addEventListener('pointerup',function(){dragging=false});cv.addEventListener('pointercancel',function(){dragging=false});
+ $$('[data-jump]').forEach(function(b){b.addEventListener('click',function(){cm=+b.dataset.jump;update();AE.ping(mouseN.x,Math.max(400,1600-cm*3),.1)})});
+ /* draw */
+ function draw(t){var z=zoneOf(cm),ms=t,env=envAt(z,ms);
+  ctx.clearRect(0,0,W,H);var cy=H/2+6,x0=PADL,x1=W-PADR,span=x1-x0;
+  var bands=[[0,50,'#e0555a','DANGER'],[50,100,'#d98a00','NEAR'],[100,200,'#f5a623','AWARE'],[200,400,'#ffe09a','CLEAR']];
+  bands.forEach(function(b){ctx.globalAlpha=zoneOf((b[0]+b[1])/2)===z?.24:.1;ctx.fillStyle=b[2];ctx.fillRect(X(b[0]),22,X(b[1])-X(b[0]),H-62);ctx.globalAlpha=1;ctx.fillStyle=b[2];ctx.font='700 11px Manrope,sans-serif';ctx.textAlign='center';ctx.fillText(b[3],(X(b[0])+X(b[1]))/2,40)});
+  ctx.strokeStyle='rgba(255,255,255,.25)';ctx.fillStyle='#9fb0cc';ctx.font='11px JetBrains Mono,monospace';ctx.textAlign='center';for(var c=0;c<=400;c+=50){ctx.beginPath();ctx.moveTo(X(c),H-40);ctx.lineTo(X(c),H-34);ctx.stroke();ctx.fillText(c,X(c),H-20)}ctx.fillText('distance (cm)',W/2,H-5);
+  var ang=Math.PI/180*20,tn=Math.tan(ang);var gr=ctx.createLinearGradient(x0,0,x1,0);gr.addColorStop(0,'rgba(32,164,189,.35)');gr.addColorStop(1,'rgba(32,164,189,.03)');ctx.fillStyle=gr;ctx.beginPath();ctx.moveTo(x0,cy);ctx.lineTo(x1,cy-span*tn);ctx.lineTo(x1,cy+span*tn);ctx.closePath();ctx.fill();
+  var ox=X(cm),obsPx=ox-x0,sp=(t/1000*span/1.8)%span;
+  for(var i=0;i<6;i++){var r=(sp+i*span/5)%span;if(r<obsPx){ctx.strokeStyle='rgba(32,164,189,'+(1-r/span)*.9+')';ctx.lineWidth=2;ctx.beginPath();ctx.arc(x0,cy,r,-ang,ang);ctx.stroke()}else if(cm<400){var er=r-obsPx;if(er<obsPx){ctx.strokeStyle='rgba(245,166,35,'+(1-er/Math.max(obsPx,1))*.8+')';ctx.lineWidth=2;ctx.beginPath();ctx.arc(ox,cy,er,Math.PI-ang,Math.PI+ang);ctx.stroke()}}}
+  /* band */
+  ctx.fillStyle='#14161c';ctx.strokeStyle='#f5a623';ctx.lineWidth=2;ctx.beginPath();ctx.roundRect?ctx.roundRect(18,cy-26,56,52,12):ctx.rect(18,cy-26,56,52);ctx.fill();ctx.stroke();
+  ctx.fillStyle='#cfd6e0';[-11,11].forEach(function(dy){ctx.beginPath();ctx.arc(60,cy+dy,7,0,7);ctx.fill();ctx.fillStyle='#0b3a46';ctx.beginPath();ctx.arc(60,cy+dy,4,0,7);ctx.fill();ctx.fillStyle='#cfd6e0'});
+  ctx.fillStyle='rgba(245,166,35,'+(.25+env*.75*(z.pwm/255))+')';hexPath(ctx,34,cy,9,0);ctx.fill();ctx.fillStyle='#9fb0cc';ctx.font='700 10px Manrope,sans-serif';ctx.textAlign='center';ctx.fillText('ECHOSENSE',46,cy+44);
+  /* obstacle */
+  ctx.fillStyle='#c9d5ea';ctx.strokeStyle='#fff';ctx.lineWidth=2;hexPath(ctx,ox,cy,17,Math.PI/6);ctx.fill();ctx.stroke();ctx.fillStyle='#07111f';ctx.font='700 11px Manrope,sans-serif';ctx.fillText('↔',ox,cy+4);
+  ctx.fillStyle=z.color;ctx.font='700 12px JetBrains Mono,monospace';ctx.fillText(cm+' cm · t = '+(cm*2/34300*1000).toFixed(2)+' ms',clamp(ox,80,W-90),cy-30);
+  /* scope */
+  var s=sctx;s.clearRect(0,0,sW,sH);s.strokeStyle='rgba(255,255,255,.07)';s.lineWidth=1;for(var gx=0;gx<=10;gx++){s.beginPath();s.moveTo(gx*sW/10,0);s.lineTo(gx*sW/10,sH);s.stroke()}for(var gy=0;gy<=4;gy++){s.beginPath();s.moveTo(0,gy*sH/4);s.lineTo(sW,gy*sH/4);s.stroke()}
+  s.fillStyle='#9fb0cc';s.font='10px JetBrains Mono,monospace';s.textAlign='left';s.fillText('MOTOR ENVELOPE · 2 s window',8,14);s.fillText('PWM CARRIER · 490 Hz · duty '+Math.round(z.pwm/255*100)+'%',8,sH/2+14);
+  s.strokeStyle=z.color;s.lineWidth=2;s.beginPath();for(var px=0;px<=sW;px+=2){var tt=t-2000+px/sW*2000,v=envAt(z,tt)*(z.pwm/255),y=sH*.46-v*(sH*.3);if(px===0)s.moveTo(px,y);else{s.lineTo(px,y)}}s.stroke();
+  s.strokeStyle='#20a4bd';s.lineWidth=1.8;s.beginPath();var per=sW/8,duty=z.pwm/255,hi=sH/2+28,lo=sH-16;for(var k=0;k<8;k++){var xs=k*per;s.moveTo(xs,lo);s.lineTo(xs,duty>0?hi:lo);s.lineTo(xs+per*duty,duty>0?hi:lo);s.lineTo(xs+per*duty,lo);s.lineTo(xs+per,lo)}s.stroke();
+  /* honeycomb */
+  var lit=z.id==='clear'?0:Math.ceil(z.pwm/255*7);cells.forEach(function(h,i){var rank=order.indexOf(i),on=rank<lit;h.setAttribute('fill-opacity',on?(.12+.88*env).toFixed(2):'.06');h.setAttribute('stroke-opacity',on?'1':'.35')});
+  if(simStage)simStage.glow=env*(z.pwm/255);Haptic.tick(z,env)}
+ (function loop(){requestAnimationFrame(loop);if(!visible||document.hidden||!W)return;draw(performance.now())})();
+ update()})();
+
+/* ============ LIGHTBOX ============ */
+(function(){
+ var lb=$('#lb'),img=$('#lbImg'),cap=$('#lbCap'),cnt=$('#lbCount'),items=[],idx=0,sx=null;
+ function show(){var it=items[idx];img.classList.remove('zoom');img.style.transformOrigin='50% 50%';img.src=it.src;img.alt=it.cap;cap.innerHTML=it.cap;cnt.textContent=items.length>1?(idx+1)+' / '+items.length:'';$('#lbPrev').style.display=$('#lbNext').style.display=items.length>1?'grid':'none'}
+ function open(){lb.classList.add('open');if(lenis)lenis.stop();document.documentElement.style.overflow='hidden';show();AE.sweep(true)}
+ function close(){lb.classList.remove('open');document.documentElement.style.overflow='';if(lenis&&!$('#mob').classList.contains('open'))lenis.start()}
+ function nav(d){idx=(idx+d+items.length)%items.length;show();AE.sweep(d>0)}
+ $$('[data-lb]').forEach(function(el){el.addEventListener('click',function(e){if(el.tagName==='A'&&el.classList.contains('qr')&&e.ctrlKey)return;if(el.tagName==='A'&&el.getAttribute('href')&&el.getAttribute('href')!=='javascript:void(0)'&&!el.classList.contains('qr')){}
+   if(el.classList.contains('qr')){return}
+   e.preventDefault();var g=el.dataset.lb,list=$$('[data-lb="'+g+'"]').filter(function(x){return !x.classList.contains('qr')});items=list.map(function(x){var im=x.tagName==='IMG'?x:$('img',x);return{src:im.currentSrc||im.src,cap:x.dataset.cap||im.alt}});idx=list.indexOf(el);open()})});
+ $('#lbClose').addEventListener('click',close);$('#lbPrev').addEventListener('click',function(){nav(-1)});$('#lbNext').addEventListener('click',function(){nav(1)});
+ lb.addEventListener('click',function(e){if(e.target===lb)close()});
+ img.addEventListener('click',function(e){var r=img.getBoundingClientRect();img.style.transformOrigin=((e.clientX-r.left)/r.width*100)+'% '+((e.clientY-r.top)/r.height*100)+'%';img.classList.toggle('zoom')});
+ img.addEventListener('pointermove',function(e){if(!img.classList.contains('zoom'))return;var r=img.getBoundingClientRect();img.style.transformOrigin=clamp((e.clientX-r.left)/r.width*100,0,100)+'% '+clamp((e.clientY-r.top)/r.height*100,0,100)+'%'});
+ lb.addEventListener('pointerdown',function(e){sx=e.clientX});lb.addEventListener('pointerup',function(e){if(sx===null||img.classList.contains('zoom'))return;var dx=e.clientX-sx;if(Math.abs(dx)>70&&items.length>1)nav(dx<0?1:-1);sx=null});
+ document.addEventListener('keydown',function(e){if(!lb.classList.contains('open'))return;if(e.key==='Escape')close();else if(e.key==='ArrowRight')nav(1);else if(e.key==='ArrowLeft')nav(-1);else if(e.key==='+'||e.key==='='||e.key==='-')img.classList.toggle('zoom')})})();
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu()});
+document.addEventListener('visibilitychange',function(){if(document.hidden){Mood.stop(true);setUI('off')}});
+})();
+</script>
+</body>
+</html>
