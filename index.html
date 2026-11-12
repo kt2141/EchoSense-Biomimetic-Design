@@ -2095,5 +2095,118 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu()}
 document.addEventListener('visibilitychange',function(){if(document.hidden){Mood.stop(true);setUI('off')}});
 })();
 </script>
+  <!-- FULL-RETENTION PPT / PDF PRINT ENGINE -->
+<style>
+@media print {
+  @page { size: A4 landscape; margin: 8mm; }
+  html, body {
+    background: #07111f !important;
+    color: #eaf0fb !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    overflow: visible !important;
+    height: auto !important;
+    font-size: 14px !important;
+  }
+  /* Hide only floating overlays that block text (keep all content, charts, and simulator canvases!) */
+  #loader, #nav, #mob, #dots, #progress, #cur-dot, #cur-ring, #fx, #bg, .hexbg, .totop, #lb {
+    display: none !important;
+  }
+  /* Force every GSAP animation, split heading, and bar chart to 100% visibility */
+  *, .reveal, [data-stagger] > *, .split .wi, .hero-title .ch {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    transition: none !important;
+    animation: none !important;
+  }
+  .chart .bar { transform: scaleY(1) !important; }
+  /* Fully expand the Arduino Nano C++ firmware code box so all code prints */
+  .code-box { max-height: none !important; overflow: visible !important; }
+  pre.code { max-height: none !important; overflow: visible !important; white-space: pre-wrap !important; }
+  /* Keep all sections flowing naturally while preventing individual cards/tables from splitting mid-box */
+  section, footer {
+    padding: 18px 0 !important;
+    margin: 0 !important;
+    page-break-before: always;
+    break-before: page;
+  }
+  #top, #hero {
+    page-break-before: avoid !important;
+    break-before: avoid !important;
+    min-height: auto !important;
+    padding-top: 8px !important;
+  }
+  .glass, .card, .tbl, .sim, .trial, .repo, .inst, figure, .sdg {
+    background: #0e2347 !important;
+    border: 1px solid rgba(245,166,35,0.45) !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    page-break-inside: avoid;
+    break-inside: avoid;
+    margin-bottom: 12px !important;
+  }
+  /* Start a clean PPT-style page at major slide tags inside multi-slide sections */
+  .slide-tag {
+    page-break-before: auto;
+    margin-top: 10px !important;
+  }
+  /* Keep simulator, oscilloscope, and Edge-AI HUD canvases crisp and visible */
+  #simCanvas, #scope, #moodCanvas, #aiHudCanvas {
+    display: block !important;
+    max-height: 260px !important;
+  }
+  #heroStage { max-height: 340px !important; }
+}
+</style>
+<script>
+(function(){
+  function prepareAndPrint(){
+    /* 1. Lock all animated counters to their final numbers */
+    document.querySelectorAll('[data-count]').forEach(function(el){
+      el.textContent = parseFloat(el.dataset.count).toFixed(+(el.dataset.dec||0));
+    });
+    /* 2. Fill the cognitive load bar chart */
+    var lc = document.getElementById('loadChart');
+    if(lc) lc.classList.add('in');
+    /* 3. Open the Arduino C++ firmware code viewer so the full sketch is included */
+    var fwBox = document.getElementById('fwBox');
+    if(fwBox) fwBox.classList.add('open');
+    /* 4. Rapidly scroll through the page once so IntersectionObservers render all 2D/3D canvases (#simCanvas, #scope, #aiHudCanvas) */
+    var origY = window.scrollY;
+    var maxH = document.documentElement.scrollHeight;
+    window.scrollTo(0, maxH * 0.55);
+    setTimeout(function(){
+      window.scrollTo(0, maxH * 0.82);
+      setTimeout(function(){
+        window.scrollTo(0, origY);
+        window.dispatchEvent(new Event('resize'));
+        setTimeout(function(){ window.print(); }, 250);
+      }, 180);
+    }, 180);
+  }
+
+  /* Add "Print / Save PDF" button to the top navbar */
+  var navPort = document.querySelector('.nav-port');
+  if(navPort){
+    var pb = document.createElement('button');
+    pb.className = 'btn btn-sm magnetic';
+    pb.style.borderColor = 'var(--teal)';
+    pb.innerHTML = '🖨️ Print / Save PDF';
+    pb.onclick = prepareAndPrint;
+    navPort.parentNode.insertBefore(pb, navPort);
+  }
+  /* Add "Print / Save PDF" button to the Hero section */
+  var ctas = document.querySelector('#hero .ctas');
+  if(ctas){
+    var hb = document.createElement('button');
+    hb.className = 'btn magnetic';
+    hb.innerHTML = '🖨️ Export Portal to Color PDF';
+    hb.onclick = prepareAndPrint;
+    ctas.appendChild(hb);
+  }
+})();
+</script>
 </body>
 </html>
